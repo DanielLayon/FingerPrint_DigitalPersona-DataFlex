@@ -1,0 +1,3889 @@
+Compiling Program: C:\DataFlex Projects\FingerPrint\AppSrc\MainFingerPrint.src
+Memory Available: 2147483647
+1>Use DFAllEnt.pkg
+Using pre-compiled package DFALLENT.PKG
+Including file: dfallent.pkd    (C:\Program Files (x86)\DataFlex 18.1\Pkg\dfallent.pkd)
+74654>Use cCJStandardCommandBarSystem.pkg
+Including file: cCJStandardCommandBarSystem.pkg    (C:\Program Files (x86)\DataFlex 18.1\Pkg\cCJStandardCommandBarSystem.pkg)
+74654>>>// these are all the packages used in a standard MDI menubar/toolbar system
+74654>>>
+74654>>>Use cCJCommandBarSystem.pkg
+74654>>>Use cCJStandardMenuItemClasses.pkg
+Including file: cCJStandardMenuItemClasses.pkg    (C:\Program Files (x86)\DataFlex 18.1\Pkg\cCJStandardMenuItemClasses.pkg)
+74654>>>>>Use Dfpanel.pkg
+74654>>>>>Use cCJCommandBarSystem.pkg
+74654>>>>>Use LanguageText.pkg
+74654>>>>>
+74654>>>>>
+74654>>>>>Class cCJUndoMenuItem is a cCJMenuItem
+74655>>>>>    
+74655>>>>>    Procedure Construct_Object
+74657>>>>>        Forward Send Construct_Object
+74659>>>>>        Set psCaption   to C_$CaptionUndo
+74660>>>>>        Set psToolTip to C_$ToolTipUndo
+74661>>>>>        Set psDescription to C_$DescUndo
+74662>>>>>        Set psImage to "ActionUndo.ico"
+74663>>>>>        Set pbActiveUpdate to True
+74664>>>>>        Set psCategory to C_$CategoryEdit
+74665>>>>>        Set psShortcut to C_$Key_Ctrl_Z
+74666>>>>>    End_Procedure
+74667>>>>>
+74667>>>>>    Procedure OnExecute Variant vCommandBarControl
+74669>>>>>        Send Undo of (focus(Self))
+74670>>>>>    End_Procedure
+74671>>>>>    
+74671>>>>>    Function IsEnabled Returns Boolean
+74673>>>>>        Boolean bEnabled
+74673>>>>>        Get CanUndo of (Focus(Self)) to bEnabled
+74674>>>>>        Function_Return bEnabled
+74675>>>>>    End_Function
+74676>>>>>         
+74676>>>>>End_Class
+74677>>>>>
+74677>>>>>
+74677>>>>>Class cCJDeleteEditMenuItem is a cCJMenuItem
+74678>>>>>    
+74678>>>>>    Procedure Construct_Object
+74680>>>>>        Forward Send Construct_Object
+74682>>>>>        Set psCaption   to C_$CaptionDelete
+74683>>>>>        Set psToolTip to C_$ToolTipDelete
+74684>>>>>        Set psDescription to C_$DescDelete
+74685>>>>>        Set psImage to "actionDelete.ico"
+74686>>>>>        Set psShortcut to C_$Key_Delete
+74687>>>>>        Set pbActiveUpdate to True
+74688>>>>>        Set psCategory to C_$CategoryEdit
+74689>>>>>    End_Procedure
+74690>>>>>
+74690>>>>>
+74690>>>>>    Procedure OnExecute Variant vCommandBarControl
+74692>>>>>        Send Delete of (focus(Self))
+74693>>>>>    End_Procedure
+74694>>>>>    
+74694>>>>>    Function IsEnabled Returns Boolean
+74696>>>>>        Boolean bEnabled
+74696>>>>>        Get CanDelete of (Focus(Self)) to bEnabled
+74697>>>>>        Function_Return bEnabled
+74698>>>>>    End_Function
+74699>>>>>         
+74699>>>>>End_Class
+74700>>>>>
+74700>>>>>
+74700>>>>>Class cCJCutMenuItem is a cCJMenuItem
+74701>>>>>    
+74701>>>>>    Procedure Construct_Object
+74703>>>>>        Forward Send Construct_Object
+74705>>>>>        Set psCaption   to C_$CaptionCut
+74706>>>>>        Set psToolTip to C_$TooltipCut
+74707>>>>>        Set psDescription to C_$DescCut
+74708>>>>>        Set psImage to "actionCut.ico"
+74709>>>>>        Set psShortcut to C_$Key_Ctrl_X
+74710>>>>>        Set pbActiveUpdate to True
+74711>>>>>        Set psCategory to C_$CategoryEdit
+74712>>>>>    End_Procedure
+74713>>>>>
+74713>>>>>
+74713>>>>>    Procedure OnExecute Variant vCommandBarControl
+74715>>>>>        Send Cut of (focus(Self))
+74716>>>>>    End_Procedure
+74717>>>>>    
+74717>>>>>    Function IsEnabled Returns Boolean
+74719>>>>>        Boolean bEnabled
+74719>>>>>        Get CanCut of (Focus(Self)) to bEnabled
+74720>>>>>        Function_Return bEnabled
+74721>>>>>    End_Function
+74722>>>>>         
+74722>>>>>End_Class
+74723>>>>>
+74723>>>>>
+74723>>>>>Class cCJCopyMenuItem is a cCJMenuItem
+74724>>>>>    
+74724>>>>>    Procedure Construct_Object
+74726>>>>>        Forward Send Construct_Object
+74728>>>>>        Set psCaption   to C_$CaptionCopy
+74729>>>>>        Set psToolTip to C_$ToolTipCopy
+74730>>>>>        Set psDescription to C_$DescCopy
+74731>>>>>        Set psImage to "actionCopy.ico"
+74732>>>>>        Set psShortcut to C_$Key_Ctrl_C
+74733>>>>>        Set pbActiveUpdate to True
+74734>>>>>        Set psCategory to C_$CategoryEdit
+74735>>>>>    End_Procedure
+74736>>>>>
+74736>>>>>
+74736>>>>>    Procedure OnExecute Variant vCommandBarControl
+74738>>>>>        Send Copy of (focus(Self))
+74739>>>>>    End_Procedure
+74740>>>>>    
+74740>>>>>    Function IsEnabled Returns Boolean
+74742>>>>>        Boolean bEnabled
+74742>>>>>        Get CanCopy of (Focus(Self)) to bEnabled
+74743>>>>>        Function_Return bEnabled
+74744>>>>>    End_Function
+74745>>>>>         
+74745>>>>>End_Class
+74746>>>>>
+74746>>>>>
+74746>>>>>Class cCJPasteMenuItem is a cCJMenuItem
+74747>>>>>    
+74747>>>>>    Procedure Construct_Object
+74749>>>>>        Forward Send Construct_Object
+74751>>>>>        Set psCaption   to C_$CaptionPaste
+74752>>>>>        Set psToolTip to C_$ToolTipPaste
+74753>>>>>        Set psDescription to C_$DescPaste
+74754>>>>>        Set psImage to "actionPaste.ico"
+74755>>>>>        Set pbActiveUpdate to True
+74756>>>>>        Set psShortcut to C_$Key_Ctrl_V
+74757>>>>>        Set psCategory to C_$CategoryEdit
+74758>>>>>    End_Procedure
+74759>>>>>
+74759>>>>>
+74759>>>>>    Procedure OnExecute Variant vCommandBarControl
+74761>>>>>        Send Paste of (focus(Self))
+74762>>>>>    End_Procedure
+74763>>>>>    
+74763>>>>>    Function IsEnabled Returns Boolean
+74765>>>>>        Boolean bEnabled
+74765>>>>>        Get CanPaste of (Focus(Self)) to bEnabled
+74766>>>>>        Function_Return bEnabled
+74767>>>>>    End_Function
+74768>>>>>         
+74768>>>>>End_Class
+74769>>>>>
+74769>>>>>Class cCJSelectAllMenuItem is a cCJMenuItem
+74770>>>>>    
+74770>>>>>    Procedure Construct_Object
+74772>>>>>        Forward Send Construct_Object
+74774>>>>>        Set psCaption   to C_$CaptionSelectAll
+74775>>>>>        Set psToolTip to C_$ToolTipSelectAll
+74776>>>>>        Set psDescription to C_$DescSelectAll
+74777>>>>>        Set pbActiveUpdate to True
+74778>>>>>        Set psShortcut to C_$Key_Ctrl_A
+74779>>>>>        Set psCategory to C_$CategoryEdit
+74780>>>>>    End_Procedure
+74781>>>>>
+74781>>>>>
+74781>>>>>    Procedure OnExecute Variant vCommandBarControl
+74783>>>>>        Send Select_All of (focus(Self))
+74784>>>>>    End_Procedure
+74785>>>>>    
+74785>>>>>    Function IsEnabled Returns Boolean
+74787>>>>>        Boolean bEnabled
+74787>>>>>        Get CanSelect of (Focus(Self)) to bEnabled
+74788>>>>>        Function_Return bEnabled
+74789>>>>>    End_Function
+74790>>>>>         
+74790>>>>>End_Class
+74791>>>>>
+74791>>>>> 
+74791>>>>>Class cCJExitMenuItem is a cCJMenuItem
+74792>>>>>
+74792>>>>>    Procedure Construct_Object
+74794>>>>>        Forward Send Construct_Object
+74796>>>>>        Set psCaption to C_$CaptionExit
+74797>>>>>        Set psToolTip to C_$ToolTipExit
+74798>>>>>        Set psDescription to C_$ToolTipExit
+74799>>>>>        Set psShortcut to C_$Key_Alt_F4
+74800>>>>>        Set psCategory to C_$CategoryFile
+74801>>>>>    End_Procedure
+74802>>>>>
+74802>>>>>    Procedure OnExecute Variant vCommandBarControl
+74804>>>>>        Send Exit_Application of Desktop
+74805>>>>>    End_Procedure
+74806>>>>>
+74806>>>>>End_Class           
+74807>>>>>
+74807>>>>>Class cCJHelpMenuItem is a cCJMenuItem    
+74808>>>>>
+74808>>>>>    Procedure Construct_Object
+74810>>>>>        Forward Send Construct_Object
+74812>>>>>        Set psCaption to C_$CaptionHelp
+74813>>>>>        Set psDescription to C_$ToolTipHelp
+74814>>>>>        Set psToolTip to C_$DescHelp
+74815>>>>>        Set psImage to "ActionHelp.ico"
+74816>>>>>        Set psShortcut to "F1"
+74817>>>>>        Set psCategory to C_$CategoryHelp
+74818>>>>>    End_Procedure
+74819>>>>>    
+74819>>>>>    Procedure OnExecute Variant vCommandBarControl
+74821>>>>>        Send Help of (Focus(Self))
+74822>>>>>    End_Procedure
+74823>>>>>
+74823>>>>>End_Class
+74824>>>>>
+74824>>>>>Class cCJStatusbarMenuItem is a cCJMenuItem
+74825>>>>>
+74825>>>>>    Procedure Construct_Object
+74827>>>>>        Forward Send Construct_Object
+74829>>>>>        Set psCaption to C_$CaptionAddStatusbar
+74830>>>>>        Set psToolTip to C_$ToolTipAddStatusbar
+74831>>>>>        Set psDescription to  C_$DescAddStatusbar
+74832>>>>>        Set psCategory to C_$CategoryWindow
+74833>>>>>    End_Procedure
+74834>>>>>
+74834>>>>>    Procedure OnExecute Variant vCommandBarControl
+74836>>>>>        Handle hoCommandBars hoClientArea
+74836>>>>>        Get CommandBarSystemObject to hoCommandBars
+74837>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+74838>>>>>        If hoClientArea Begin
+74840>>>>>            // the clientarea's parent panel has message
+74840>>>>>            Send Toggle_StatusBar of (Parent(hoClientArea))
+74841>>>>>        End
+74841>>>>>>
+74841>>>>>    End_Procedure
+74842>>>>>
+74842>>>>>     Function IsChecked Returns Boolean
+74844>>>>>        Boolean bOn
+74844>>>>>        Handle hoCommandBars hoClientArea
+74844>>>>>        Get CommandBarSystemObject to hoCommandBars
+74845>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+74846>>>>>        If hoClientArea Begin
+74848>>>>>            // the clientarea's parent panel has message
+74848>>>>>            Get StatusBar_State of (Parent(hoClientArea)) to bOn
+74849>>>>>        End
+74849>>>>>>
+74849>>>>>        Function_Return bOn
+74850>>>>>     End_Function
+74851>>>>>End_Class
+74852>>>>>
+74852>>>>>Class cCJAutoArrangeIconsMenuItem is a cCJMenuItem
+74853>>>>>
+74853>>>>>    Procedure Construct_Object
+74855>>>>>        Forward Send Construct_Object
+74857>>>>>        Set psCaption to C_$CaptionAutoArrangeIcons
+74858>>>>>        Set psToolTip to C_$ToolTipAutoArrangeIcons
+74859>>>>>        Set psDescription to C_$DescAutoArrangeIcons
+74860>>>>>        Set psCategory to C_$CategoryWindow
+74861>>>>>    End_Procedure
+74862>>>>>
+74862>>>>>    Procedure OnExecute Variant vCommandBarControl
+74864>>>>>        Handle hoCommandBars hoClientArea
+74864>>>>>        Get CommandBarSystemObject to hoCommandBars
+74865>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+74866>>>>>        If hoClientArea Begin
+74868>>>>>            // the clientarea's parent panel has message
+74868>>>>>            Send Toggle_Auto_Arrange_Icons of (Parent(hoClientArea))
+74869>>>>>        End
+74869>>>>>>
+74869>>>>>    End_Procedure
+74870>>>>>    
+74870>>>>>     Function IsChecked Returns Boolean
+74872>>>>>        Boolean bOn
+74872>>>>>        Handle hoCommandBars hoClientArea
+74872>>>>>        Get CommandBarSystemObject to hoCommandBars
+74873>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+74874>>>>>        If hoClientArea Begin
+74876>>>>>            // the clientarea's parent panel has message
+74876>>>>>            Get Auto_Arrange_Icons_State of (Parent(hoClientArea)) to bOn
+74877>>>>>        End
+74877>>>>>>
+74877>>>>>        Function_Return bOn
+74878>>>>>     End_Function
+74879>>>>>End_Class
+74880>>>>>
+74880>>>>>Class cCJRestoreMenusMenuItem is a cCJMenuItem
+74881>>>>>
+74881>>>>>    Procedure Construct_Object
+74883>>>>>        Forward Send Construct_Object
+74885>>>>>        Set psCaption to C_$CaptionRestoreMenus
+74886>>>>>        Set psToolTip to C_$ToolTipRestoreMenus
+74887>>>>>        Set psDescription to C_$DescRestoreMenus
+74888>>>>>        Set psCategory to C_$CategoryWindow
+74889>>>>>    End_Procedure
+74890>>>>>
+74890>>>>>    Procedure OnExecute Variant vCommandBarControl
+74892>>>>>        Handle hoCommandBars
+74892>>>>>        Get CommandBarSystemObject to hoCommandBars
+74893>>>>>        Send RestoreLayout of hoCommandBars
+74894>>>>>    End_Procedure
+74895>>>>>    
+74895>>>>>End_Class
+74896>>>>>
+74896>>>>>Class cCJCascadeMenuItem is a cCJMenuItem
+74897>>>>>
+74897>>>>>    Procedure Construct_Object
+74899>>>>>        Forward Send Construct_Object
+74901>>>>>        Set psCaption to C_$CaptionCascade
+74902>>>>>        Set psToolTip to C_$ToolTipCascade
+74903>>>>>        Set psDescription to  C_$DescCascade
+74904>>>>>        Set psImage to "ActionCascade.ico"
+74905>>>>>        Set psCategory to C_$CategoryWindow
+74906>>>>>    End_Procedure
+74907>>>>>    
+74907>>>>>    Procedure OnExecute Variant vCommandBarControl
+74909>>>>>        Handle hoCommandBars hoClientArea
+74909>>>>>        Get CommandBarSystemObject to hoCommandBars
+74910>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+74911>>>>>        If hoClientArea Begin
+74913>>>>>            Send Cascade_Windows of hoClientArea
+74914>>>>>        End
+74914>>>>>>
+74914>>>>>    End_Procedure
+74915>>>>>End_Class
+74916>>>>>
+74916>>>>>Class cCJTileHorizontally is a cCJMenuItem
+74917>>>>>
+74917>>>>>    Procedure Construct_Object
+74919>>>>>        Forward Send Construct_Object
+74921>>>>>        Set psCaption to C_$CaptionTileHorizontally 
+74922>>>>>        Set psToolTip to C_$ToolTipTileHorizontally  
+74923>>>>>        Set psDescription to  C_$DescTileHorizontally
+74924>>>>>        Set psImage to "ActionTileHorizontally.ico"
+74925>>>>>        Set psCategory to C_$CategoryWindow
+74926>>>>>    End_Procedure
+74927>>>>>
+74927>>>>>    Procedure OnExecute Variant vCommandBarControl
+74929>>>>>        Handle hoCommandBars hoClientArea
+74929>>>>>        Get CommandBarSystemObject to hoCommandBars
+74930>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+74931>>>>>        If hoClientArea Begin
+74933>>>>>            Send Tile_Windows_Horizontal of hoClientArea
+74934>>>>>        End
+74934>>>>>>
+74934>>>>>    End_Procedure
+74935>>>>>End_Class
+74936>>>>>
+74936>>>>>Class cCJTileVertically is a cCJMenuItem
+74937>>>>>
+74937>>>>>    Procedure Construct_Object
+74939>>>>>        Forward Send Construct_Object
+74941>>>>>        Set psCaption to C_$CaptionTileVertically  
+74942>>>>>        Set psToolTip to C_$ToolTipTileVertically
+74943>>>>>        Set psDescription to  C_$DescTileVertically
+74944>>>>>        Set psImage to "ActionTileVertically.ico"
+74945>>>>>        Set psCategory to C_$CategoryWindow
+74946>>>>>    End_Procedure
+74947>>>>>
+74947>>>>>    Procedure OnExecute Variant vCommandBarControl
+74949>>>>>        Handle hoCommandBars hoClientArea
+74949>>>>>        Get CommandBarSystemObject to hoCommandBars
+74950>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+74951>>>>>        If hoClientArea Begin
+74953>>>>>            Send Tile_Windows_Vertical of hoClientArea
+74954>>>>>        End
+74954>>>>>>
+74954>>>>>    End_Procedure
+74955>>>>>End_Class
+74956>>>>>
+74956>>>>>Class cCJMinimizeWindowsMenuItem is a cCJMenuItem
+74957>>>>>
+74957>>>>>    Procedure Construct_Object
+74959>>>>>        Forward Send Construct_Object
+74961>>>>>        Set psCaption to C_$CaptionMinimizeWindows 
+74962>>>>>        Set psToolTip to C_$ToolTipMinimizeWindows
+74963>>>>>        Set psDescription to  C_$DescMinimizeWindows
+74964>>>>>        Set psCategory to C_$CategoryWindow
+74965>>>>>    End_Procedure
+74966>>>>>
+74966>>>>>    Procedure OnExecute Variant vCommandBarControl
+74968>>>>>        Handle hoCommandBars hoClientArea
+74968>>>>>        Get CommandBarSystemObject to hoCommandBars
+74969>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+74970>>>>>        If hoClientArea Begin
+74972>>>>>            // the clientarea's parent panel has message
+74972>>>>>            Send Minimize_all_Windows of (Parent(hoClientArea))
+74973>>>>>        End
+74973>>>>>>
+74973>>>>>    End_Procedure
+74974>>>>>End_Class
+74975>>>>>
+74975>>>>>
+74975>>>>>Class cCJRestoreWindowsMenuItem is a cCJMenuItem
+74976>>>>>
+74976>>>>>    Procedure Construct_Object
+74978>>>>>        Forward Send Construct_Object
+74980>>>>>        Set psCaption to C_$CaptionRestoreWindows
+74981>>>>>        Set psToolTip to C_$ToolTipRestoreWindows
+74982>>>>>        Set psDescription to  C_$DescRestoreWindows
+74983>>>>>        Set psCategory to C_$CategoryWindow
+74984>>>>>    End_Procedure
+74985>>>>>
+74985>>>>>    Procedure OnExecute Variant vCommandBarControl
+74987>>>>>        Handle hoCommandBars hoClientArea
+74987>>>>>        Get CommandBarSystemObject to hoCommandBars
+74988>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+74989>>>>>        If hoClientArea Begin
+74991>>>>>            // the clientarea's parent panel has message
+74991>>>>>            Send Restore_all_Windows of (Parent(hoClientArea))
+74992>>>>>        End
+74992>>>>>>
+74992>>>>>    End_Procedure
+74993>>>>>End_Class
+74994>>>>>
+74994>>>>>Class cCJArrangeIconsMenuItem is a cCJMenuItem
+74995>>>>>
+74995>>>>>    Procedure Construct_Object
+74997>>>>>        Forward Send Construct_Object
+74999>>>>>        Set psCaption to C_$CaptionArrangeIcons  
+75000>>>>>        Set psToolTip to C_$ToolTipArrangeIcons
+75001>>>>>        Set psDescription to  C_$DescArrangeIcons
+75002>>>>>        Set psCategory to C_$CategoryWindow
+75003>>>>>    End_Procedure
+75004>>>>>
+75004>>>>>    Procedure OnExecute Variant vCommandBarControl
+75006>>>>>        Handle hoCommandBars hoClientArea
+75006>>>>>        Get CommandBarSystemObject to hoCommandBars
+75007>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+75008>>>>>        If hoClientArea Begin
+75010>>>>>            Send Arrange_Icons of hoClientArea
+75011>>>>>        End
+75011>>>>>>
+75011>>>>>    End_Procedure
+75012>>>>>
+75012>>>>>End_Class
+75013>>>>>    
+75013>>>Use cCJAboutMenuItem.pkg
+Including file: cCJAboutMenuItem.pkg    (C:\Program Files (x86)\DataFlex 18.1\Pkg\cCJAboutMenuItem.pkg)
+75013>>>>>Use cCJCommandBarSystem.pkg
+75013>>>>>Use LanguageText.pkg
+75013>>>>>
+75013>>>>>// It is expected that if you use this class that you provide an about object that is
+75013>>>>>// activated via activate_about such as DfAbout.pkg. We don't use this for you automatically
+75013>>>>>// because you may wish to create your own custom about package.
+75013>>>>>
+75013>>>>>Class cCJAboutMenuItem is a cCJMenuItem    
+75014>>>>>
+75014>>>>>    Procedure Construct_Object
+75016>>>>>        Forward Send Construct_Object
+75018>>>>>        Set psCaption to C_$CaptionAbout
+75019>>>>>        Set psDescription to C_$ToolTipAbout
+75020>>>>>        Set psToolTip to C_$DescAbout
+75021>>>>>        Set psImage to "ActionAbout.ico"
+75022>>>>>        Set psCategory to C_$CategoryHelp
+75023>>>>>    End_Procedure
+75024>>>>>    
+75024>>>>>    Procedure OnExecute Variant vCommandBarControl
+75026>>>>>        Handle hoCommandBars hoClientArea
+75026>>>>>        Get CommandBarSystemObject to hoCommandBars
+75027>>>>>        Get ClientAreaObject of hoCommandBars to hoClientArea
+75028>>>>>        If hoClientArea Begin
+75030>>>>>            Send Activate_About of hoClientArea
+75031>>>>>        End
+75031>>>>>>
+75031>>>>>    End_Procedure
+75032>>>>>
+75032>>>>>End_Class
+75033>>>>>
+75033>>>>>
+75033>>>Use cCJDeoMenuItemClasses.pkg
+75033>>>Use cCJMDIWindowsMenuItem.pkg
+Including file: cCJMDIWindowsMenuItem.pkg    (C:\Program Files (x86)\DataFlex 18.1\Pkg\cCJMDIWindowsMenuItem.pkg)
+75033>>>>>Use cCJCommandBarSystem.pkg
+75033>>>>>
+75033>>>>>Register_Function Client_ID Returns Integer
+75033>>>>>
+75033>>>>>// only used by cCJMDIWIndowsMenuItem
+75033>>>>>Class cCJMDIWindowItem is a cCJMenuItem
+75034>>>>>
+75034>>>>>    Procedure Construct_Object
+75036>>>>>        Forward Send Construct_Object
+75038>>>>>        Property Handle phWindow 0 // object id of view
+75039>>>>>        Set pbControlFlagNoMovable to True
+75040>>>>>        Set pbActiveUpdate to True
+75041>>>>>    End_Procedure
+75042>>>>>    
+75042>>>>>    Procedure OnExecute Variant vCommandBarControl
+75044>>>>>        Handle hWindow
+75044>>>>>        Get phWindow to hWindow
+75045>>>>>        Send Activate_View of hWindow
+75046>>>>>    End_Procedure
+75047>>>>>    
+75047>>>>>End_Class                
+75048>>>>>
+75048>>>>>
+75048>>>>>Class cCJMDIWindowsMenuItem is a cCJMenuItem
+75049>>>>>    
+75049>>>>>    Procedure Construct_Object
+75051>>>>>        Forward Send Construct_Object
+75053>>>>>        Property Handle[] phArrayOfWindows
+75054>>>>>        Set peControlType to xtpControlPopup
+75055>>>>>        Set psCategory to C_$CategoryWindow
+75056>>>>>    End_Procedure
+75057>>>>>    
+75057>>>>>     // This adds MDI windows to the existing menu items.
+75057>>>>>     // This removes any existing windows menus and always adds a new set to the end
+75057>>>>>
+75057>>>>>     Procedure OnPopupInit Variant vCommandBarControl Handle hCommandBarControls
+75059>>>>>        Handle  hClientArea hView
+75059>>>>>        String  sLabel
+75059>>>>>        Integer i iWindows
+75059>>>>>        Handle[] hArrayOfWindows
+75060>>>>>        Variant vItem
+75060>>>>>        
+75060>>>>>        // delete all windows actions and menu items. Assume we have an array of DF action objects for the windows
+75060>>>>>        // also assume that destroying an action removes all menu instances of that action
+75060>>>>>        Get phArrayOfWindows to hArrayOfWindows
+75061>>>>>        Move (SizeOfArray(hArrayOfWindows)) to iWindows
+75062>>>>>        For i from 0 to (iWindows-1)
+75068>>>>>>
+75068>>>>>            Send Destroy of hArrayOfWindows[i] // assume this removes all menu items of this action
+75069>>>>>        Loop
+75070>>>>>>
+75070>>>>>        Move (ResizeArray(hArrayOfWindows,0)) to hArrayOfWindows
+75071>>>>>
+75071>>>>>        // Add all views to this menu. Create the action and add the item
+75071>>>>>        Move 0 to i
+75072>>>>>        Get Client_Id to hClientArea // object id of client area
+75073>>>>>        If (hClientArea > 0) Begin
+75075>>>>>            Get Next_Mdi_Dialog of hClientArea True to hView // find first view
+75076>>>>>            While (hView <> 0)
+75080>>>>>                If (Active_State(hView)) Begin
+75082>>>>>                    // create the action
+75082>>>>>                    Get Create U_cCJMDIWindowItem to hArrayOfWindows[i]
+75083>>>>>                    Get Label of hView to sLabel // caption bar (name) of view
+75084>>>>>                    Set psCaption of hArrayOfWindows[i] to sLabel
+75085>>>>>                    Set psDescription of hArrayOfWindows[i] to ("Make this view (" - trim(sLabel) - ") the active window.")
+75086>>>>>                    If (current_scope(desktop)=hView and View_mode(hView)<>VIEWMODE_ICONIZE) Begin
+75088>>>>>                        Set pbChecked of hArrayOfWindows[i] to True
+75089>>>>>                    End
+75089>>>>>>
+75089>>>>>                    Set phWindow of hArrayOfWindows[i] to hView // used by custom OnExecute
+75090>>>>>                    If (i=0) Begin
+75092>>>>>                        Set pbControlBeginGroup of hArrayOfWindows[i] to True
+75093>>>>>                    End
+75093>>>>>>
+75093>>>>>                    // Create a menu item for this action
+75093>>>>>                    Get AddDynamicControl of hArrayOfWindows[i] hCommandBarControls to vItem
+75094>>>>>                    Increment i
+75095>>>>>                End
+75095>>>>>>
+75095>>>>>                Get Next_Mdi_Dialog of hClientArea False to hView // find next
+75096>>>>>            Loop
+75097>>>>>>
+75097>>>>>        End
+75097>>>>>>
+75097>>>>>
+75097>>>>>        Set phArrayOfWindows to hArrayOfWindows
+75098>>>>>
+75098>>>>>     End_Procedure
+75099>>>>>     
+75099>>>>>End_Class
+75100>>>>>
+75100>Use cComOPOSBiometrics.pkg
+Including file: cComOPOSBiometrics.pkg    (C:\DataFlex Projects\FingerPrint\AppSrc\cComOPOSBiometrics.pkg)
+75100>>>// DataFlex COM proxy classes generated from C:\Program Files\DigitalPersona\U.are.U SDK\Windows\Lib\win32\OPOSBiometrics.ocx
+75100>>>Use FlexCom20.pkg
+75100>>>
+75100>>>
+75100>>>// CLSID: {CCB90261-B81E-11D2-AB74-0040054C3719}
+75100>>>// IOPOSBiometrics 1.13 Interface
+75100>>>Class cComIOPOSBiometrics is a Mixin
+75101>>>
+75101>>>    // property OpenResult
+75101>>>    Function ComOpenResult Returns Integer
+75103>>>        Handle hDispatchDriver
+75103>>>        Integer retVal
+75103>>>        Get phDispatchDriver to hDispatchDriver
+75104>>>        Get InvokeComMethod of hDispatchDriver 49 OLE_VT_I4 to retVal
+75105>>>        Function_Return retVal
+75106>>>    End_Function
+75107>>>
+75107>>>    // property AutoDisable
+75107>>>    Function ComAutoDisable Returns Boolean
+75109>>>        Handle hDispatchDriver
+75109>>>        Boolean retVal
+75109>>>        Get phDispatchDriver to hDispatchDriver
+75110>>>        Get InvokeComMethod of hDispatchDriver 10 OLE_VT_BOOL to retVal
+75111>>>        Function_Return retVal
+75112>>>    End_Function
+75113>>>
+75113>>>    // property AutoDisable
+75113>>>    Procedure Set ComAutoDisable Boolean value
+75115>>>        Handle hDispatchDriver
+75115>>>        Get phDispatchDriver to hDispatchDriver
+75116>>>        Send PrepareParams to hDispatchDriver 1
+75117>>>        Set ComProperty of hDispatchDriver 10 OLE_VT_BOOL to value
+75118>>>    End_Procedure
+75119>>>
+75119>>>    // property BinaryConversion
+75119>>>    Function ComBinaryConversion Returns Integer
+75121>>>        Handle hDispatchDriver
+75121>>>        Integer retVal
+75121>>>        Get phDispatchDriver to hDispatchDriver
+75122>>>        Get InvokeComMethod of hDispatchDriver 11 OLE_VT_I4 to retVal
+75123>>>        Function_Return retVal
+75124>>>    End_Function
+75125>>>
+75125>>>    // property BinaryConversion
+75125>>>    Procedure Set ComBinaryConversion Integer value
+75127>>>        Handle hDispatchDriver
+75127>>>        Get phDispatchDriver to hDispatchDriver
+75128>>>        Send PrepareParams to hDispatchDriver 1
+75129>>>        Set ComProperty of hDispatchDriver 11 OLE_VT_I4 to value
+75130>>>    End_Procedure
+75131>>>
+75131>>>    // property CapPowerReporting
+75131>>>    Function ComCapPowerReporting Returns Integer
+75133>>>        Handle hDispatchDriver
+75133>>>        Integer retVal
+75133>>>        Get phDispatchDriver to hDispatchDriver
+75134>>>        Get InvokeComMethod of hDispatchDriver 12 OLE_VT_I4 to retVal
+75135>>>        Function_Return retVal
+75136>>>    End_Function
+75137>>>
+75137>>>    // property CheckHealthText
+75137>>>    Function ComCheckHealthText Returns String
+75139>>>        Handle hDispatchDriver
+75139>>>        String retVal
+75139>>>        Get phDispatchDriver to hDispatchDriver
+75140>>>        Get InvokeComMethod of hDispatchDriver 13 OLE_VT_BSTR to retVal
+75141>>>        Function_Return retVal
+75142>>>    End_Function
+75143>>>
+75143>>>    // property Claimed
+75143>>>    Function ComClaimed Returns Boolean
+75145>>>        Handle hDispatchDriver
+75145>>>        Boolean retVal
+75145>>>        Get phDispatchDriver to hDispatchDriver
+75146>>>        Get InvokeComMethod of hDispatchDriver 14 OLE_VT_BOOL to retVal
+75147>>>        Function_Return retVal
+75148>>>    End_Function
+75149>>>
+75149>>>    // property DataCount
+75149>>>    Function ComDataCount Returns Integer
+75151>>>        Handle hDispatchDriver
+75151>>>        Integer retVal
+75151>>>        Get phDispatchDriver to hDispatchDriver
+75152>>>        Get InvokeComMethod of hDispatchDriver 15 OLE_VT_I4 to retVal
+75153>>>        Function_Return retVal
+75154>>>    End_Function
+75155>>>
+75155>>>    // property DataEventEnabled
+75155>>>    Function ComDataEventEnabled Returns Boolean
+75157>>>        Handle hDispatchDriver
+75157>>>        Boolean retVal
+75157>>>        Get phDispatchDriver to hDispatchDriver
+75158>>>        Get InvokeComMethod of hDispatchDriver 16 OLE_VT_BOOL to retVal
+75159>>>        Function_Return retVal
+75160>>>    End_Function
+75161>>>
+75161>>>    // property DataEventEnabled
+75161>>>    Procedure Set ComDataEventEnabled Boolean value
+75163>>>        Handle hDispatchDriver
+75163>>>        Get phDispatchDriver to hDispatchDriver
+75164>>>        Send PrepareParams to hDispatchDriver 1
+75165>>>        Set ComProperty of hDispatchDriver 16 OLE_VT_BOOL to value
+75166>>>    End_Procedure
+75167>>>
+75167>>>    // property DeviceEnabled
+75167>>>    Function ComDeviceEnabled Returns Boolean
+75169>>>        Handle hDispatchDriver
+75169>>>        Boolean retVal
+75169>>>        Get phDispatchDriver to hDispatchDriver
+75170>>>        Get InvokeComMethod of hDispatchDriver 17 OLE_VT_BOOL to retVal
+75171>>>        Function_Return retVal
+75172>>>    End_Function
+75173>>>
+75173>>>    // property DeviceEnabled
+75173>>>    Procedure Set ComDeviceEnabled Boolean value
+75175>>>        Handle hDispatchDriver
+75175>>>        Get phDispatchDriver to hDispatchDriver
+75176>>>        Send PrepareParams to hDispatchDriver 1
+75177>>>        Set ComProperty of hDispatchDriver 17 OLE_VT_BOOL to value
+75178>>>    End_Procedure
+75179>>>
+75179>>>    // property FreezeEvents
+75179>>>    Function ComFreezeEvents Returns Boolean
+75181>>>        Handle hDispatchDriver
+75181>>>        Boolean retVal
+75181>>>        Get phDispatchDriver to hDispatchDriver
+75182>>>        Get InvokeComMethod of hDispatchDriver 18 OLE_VT_BOOL to retVal
+75183>>>        Function_Return retVal
+75184>>>    End_Function
+75185>>>
+75185>>>    // property FreezeEvents
+75185>>>    Procedure Set ComFreezeEvents Boolean value
+75187>>>        Handle hDispatchDriver
+75187>>>        Get phDispatchDriver to hDispatchDriver
+75188>>>        Send PrepareParams to hDispatchDriver 1
+75189>>>        Set ComProperty of hDispatchDriver 18 OLE_VT_BOOL to value
+75190>>>    End_Procedure
+75191>>>
+75191>>>    // property PowerNotify
+75191>>>    Function ComPowerNotify Returns Integer
+75193>>>        Handle hDispatchDriver
+75193>>>        Integer retVal
+75193>>>        Get phDispatchDriver to hDispatchDriver
+75194>>>        Get InvokeComMethod of hDispatchDriver 20 OLE_VT_I4 to retVal
+75195>>>        Function_Return retVal
+75196>>>    End_Function
+75197>>>
+75197>>>    // property PowerNotify
+75197>>>    Procedure Set ComPowerNotify Integer value
+75199>>>        Handle hDispatchDriver
+75199>>>        Get phDispatchDriver to hDispatchDriver
+75200>>>        Send PrepareParams to hDispatchDriver 1
+75201>>>        Set ComProperty of hDispatchDriver 20 OLE_VT_I4 to value
+75202>>>    End_Procedure
+75203>>>
+75203>>>    // property PowerState
+75203>>>    Function ComPowerState Returns Integer
+75205>>>        Handle hDispatchDriver
+75205>>>        Integer retVal
+75205>>>        Get phDispatchDriver to hDispatchDriver
+75206>>>        Get InvokeComMethod of hDispatchDriver 21 OLE_VT_I4 to retVal
+75207>>>        Function_Return retVal
+75208>>>    End_Function
+75209>>>
+75209>>>    // property ResultCode
+75209>>>    Function ComResultCode Returns Integer
+75211>>>        Handle hDispatchDriver
+75211>>>        Integer retVal
+75211>>>        Get phDispatchDriver to hDispatchDriver
+75212>>>        Get InvokeComMethod of hDispatchDriver 22 OLE_VT_I4 to retVal
+75213>>>        Function_Return retVal
+75214>>>    End_Function
+75215>>>
+75215>>>    // property ResultCodeExtended
+75215>>>    Function ComResultCodeExtended Returns Integer
+75217>>>        Handle hDispatchDriver
+75217>>>        Integer retVal
+75217>>>        Get phDispatchDriver to hDispatchDriver
+75218>>>        Get InvokeComMethod of hDispatchDriver 23 OLE_VT_I4 to retVal
+75219>>>        Function_Return retVal
+75220>>>    End_Function
+75221>>>
+75221>>>    // property State
+75221>>>    Function ComState Returns Integer
+75223>>>        Handle hDispatchDriver
+75223>>>        Integer retVal
+75223>>>        Get phDispatchDriver to hDispatchDriver
+75224>>>        Get InvokeComMethod of hDispatchDriver 24 OLE_VT_I4 to retVal
+75225>>>        Function_Return retVal
+75226>>>    End_Function
+75227>>>
+75227>>>    // property ControlObjectDescription
+75227>>>    Function ComControlObjectDescription Returns String
+75229>>>        Handle hDispatchDriver
+75229>>>        String retVal
+75229>>>        Get phDispatchDriver to hDispatchDriver
+75230>>>        Get InvokeComMethod of hDispatchDriver 25 OLE_VT_BSTR to retVal
+75231>>>        Function_Return retVal
+75232>>>    End_Function
+75233>>>
+75233>>>    // property ControlObjectVersion
+75233>>>    Function ComControlObjectVersion Returns Integer
+75235>>>        Handle hDispatchDriver
+75235>>>        Integer retVal
+75235>>>        Get phDispatchDriver to hDispatchDriver
+75236>>>        Get InvokeComMethod of hDispatchDriver 26 OLE_VT_I4 to retVal
+75237>>>        Function_Return retVal
+75238>>>    End_Function
+75239>>>
+75239>>>    // property ServiceObjectDescription
+75239>>>    Function ComServiceObjectDescription Returns String
+75241>>>        Handle hDispatchDriver
+75241>>>        String retVal
+75241>>>        Get phDispatchDriver to hDispatchDriver
+75242>>>        Get InvokeComMethod of hDispatchDriver 27 OLE_VT_BSTR to retVal
+75243>>>        Function_Return retVal
+75244>>>    End_Function
+75245>>>
+75245>>>    // property ServiceObjectVersion
+75245>>>    Function ComServiceObjectVersion Returns Integer
+75247>>>        Handle hDispatchDriver
+75247>>>        Integer retVal
+75247>>>        Get phDispatchDriver to hDispatchDriver
+75248>>>        Get InvokeComMethod of hDispatchDriver 28 OLE_VT_I4 to retVal
+75249>>>        Function_Return retVal
+75250>>>    End_Function
+75251>>>
+75251>>>    // property DeviceDescription
+75251>>>    Function ComDeviceDescription Returns String
+75253>>>        Handle hDispatchDriver
+75253>>>        String retVal
+75253>>>        Get phDispatchDriver to hDispatchDriver
+75254>>>        Get InvokeComMethod of hDispatchDriver 29 OLE_VT_BSTR to retVal
+75255>>>        Function_Return retVal
+75256>>>    End_Function
+75257>>>
+75257>>>    // property DeviceName
+75257>>>    Function ComDeviceName Returns String
+75259>>>        Handle hDispatchDriver
+75259>>>        String retVal
+75259>>>        Get phDispatchDriver to hDispatchDriver
+75260>>>        Get InvokeComMethod of hDispatchDriver 30 OLE_VT_BSTR to retVal
+75261>>>        Function_Return retVal
+75262>>>    End_Function
+75263>>>
+75263>>>    // property CapStatisticsReporting
+75263>>>    Function ComCapStatisticsReporting Returns Boolean
+75265>>>        Handle hDispatchDriver
+75265>>>        Boolean retVal
+75265>>>        Get phDispatchDriver to hDispatchDriver
+75266>>>        Get InvokeComMethod of hDispatchDriver 39 OLE_VT_BOOL to retVal
+75267>>>        Function_Return retVal
+75268>>>    End_Function
+75269>>>
+75269>>>    // property CapUpdateStatistics
+75269>>>    Function ComCapUpdateStatistics Returns Boolean
+75271>>>        Handle hDispatchDriver
+75271>>>        Boolean retVal
+75271>>>        Get phDispatchDriver to hDispatchDriver
+75272>>>        Get InvokeComMethod of hDispatchDriver 40 OLE_VT_BOOL to retVal
+75273>>>        Function_Return retVal
+75274>>>    End_Function
+75275>>>
+75275>>>    // property CapCompareFirmwareVersion
+75275>>>    Function ComCapCompareFirmwareVersion Returns Boolean
+75277>>>        Handle hDispatchDriver
+75277>>>        Boolean retVal
+75277>>>        Get phDispatchDriver to hDispatchDriver
+75278>>>        Get InvokeComMethod of hDispatchDriver 44 OLE_VT_BOOL to retVal
+75279>>>        Function_Return retVal
+75280>>>    End_Function
+75281>>>
+75281>>>    // property CapUpdateFirmware
+75281>>>    Function ComCapUpdateFirmware Returns Boolean
+75283>>>        Handle hDispatchDriver
+75283>>>        Boolean retVal
+75283>>>        Get phDispatchDriver to hDispatchDriver
+75284>>>        Get InvokeComMethod of hDispatchDriver 45 OLE_VT_BOOL to retVal
+75285>>>        Function_Return retVal
+75286>>>    End_Function
+75287>>>
+75287>>>    // method CheckHealth
+75287>>>    Function ComCheckHealth Integer llLevel Returns Integer
+75289>>>        Handle hDispatchDriver
+75289>>>        Integer retVal
+75289>>>        Get phDispatchDriver to hDispatchDriver
+75290>>>        Send PrepareParams to hDispatchDriver 1
+75291>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llLevel
+75292>>>        Get InvokeComMethod of hDispatchDriver 31 OLE_VT_I4 to retVal
+75293>>>        Function_Return retVal
+75294>>>    End_Function
+75295>>>
+75295>>>    // method ClaimDevice
+75295>>>    Function ComClaimDevice Integer llTimeout Returns Integer
+75297>>>        Handle hDispatchDriver
+75297>>>        Integer retVal
+75297>>>        Get phDispatchDriver to hDispatchDriver
+75298>>>        Send PrepareParams to hDispatchDriver 1
+75299>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llTimeout
+75300>>>        Get InvokeComMethod of hDispatchDriver 32 OLE_VT_I4 to retVal
+75301>>>        Function_Return retVal
+75302>>>    End_Function
+75303>>>
+75303>>>    // method ClearInput
+75303>>>    Function ComClearInput Returns Integer
+75305>>>        Handle hDispatchDriver
+75305>>>        Integer retVal
+75305>>>        Get phDispatchDriver to hDispatchDriver
+75306>>>        Get InvokeComMethod of hDispatchDriver 33 OLE_VT_I4 to retVal
+75307>>>        Function_Return retVal
+75308>>>    End_Function
+75309>>>
+75309>>>    // method Close
+75309>>>    Function ComClose Returns Integer
+75311>>>        Handle hDispatchDriver
+75311>>>        Integer retVal
+75311>>>        Get phDispatchDriver to hDispatchDriver
+75312>>>        Get InvokeComMethod of hDispatchDriver 35 OLE_VT_I4 to retVal
+75313>>>        Function_Return retVal
+75314>>>    End_Function
+75315>>>
+75315>>>    // method DirectIO
+75315>>>    Function ComDirectIO Integer llCommand Integer ByRef llpData String ByRef llpString Returns Integer
+75317>>>        Handle hDispatchDriver
+75317>>>        Integer retVal
+75317>>>        Get phDispatchDriver to hDispatchDriver
+75318>>>        Send PrepareParams to hDispatchDriver 3
+75319>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llCommand
+75320>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpData
+75321>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpString
+75322>>>        Get InvokeComMethod of hDispatchDriver 36 OLE_VT_I4 to retVal
+75323>>>        Function_Return retVal
+75324>>>    End_Function
+75325>>>
+75325>>>    // method Open
+75325>>>    Function ComOpen String llDeviceName Returns Integer
+75327>>>        Handle hDispatchDriver
+75327>>>        Integer retVal
+75327>>>        Get phDispatchDriver to hDispatchDriver
+75328>>>        Send PrepareParams to hDispatchDriver 1
+75329>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llDeviceName
+75330>>>        Get InvokeComMethod of hDispatchDriver 37 OLE_VT_I4 to retVal
+75331>>>        Function_Return retVal
+75332>>>    End_Function
+75333>>>
+75333>>>    // method ReleaseDevice
+75333>>>    Function ComReleaseDevice Returns Integer
+75335>>>        Handle hDispatchDriver
+75335>>>        Integer retVal
+75335>>>        Get phDispatchDriver to hDispatchDriver
+75336>>>        Get InvokeComMethod of hDispatchDriver 38 OLE_VT_I4 to retVal
+75337>>>        Function_Return retVal
+75338>>>    End_Function
+75339>>>
+75339>>>    // method ResetStatistics
+75339>>>    Function ComResetStatistics String llStatisticsBuffer Returns Integer
+75341>>>        Handle hDispatchDriver
+75341>>>        Integer retVal
+75341>>>        Get phDispatchDriver to hDispatchDriver
+75342>>>        Send PrepareParams to hDispatchDriver 1
+75343>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llStatisticsBuffer
+75344>>>        Get InvokeComMethod of hDispatchDriver 41 OLE_VT_I4 to retVal
+75345>>>        Function_Return retVal
+75346>>>    End_Function
+75347>>>
+75347>>>    // method RetrieveStatistics
+75347>>>    Function ComRetrieveStatistics String ByRef llpStatisticsBuffer Returns Integer
+75349>>>        Handle hDispatchDriver
+75349>>>        Integer retVal
+75349>>>        Get phDispatchDriver to hDispatchDriver
+75350>>>        Send PrepareParams to hDispatchDriver 1
+75351>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpStatisticsBuffer
+75352>>>        Get InvokeComMethod of hDispatchDriver 42 OLE_VT_I4 to retVal
+75353>>>        Function_Return retVal
+75354>>>    End_Function
+75355>>>
+75355>>>    // method UpdateStatistics
+75355>>>    Function ComUpdateStatistics String llStatisticsBuffer Returns Integer
+75357>>>        Handle hDispatchDriver
+75357>>>        Integer retVal
+75357>>>        Get phDispatchDriver to hDispatchDriver
+75358>>>        Send PrepareParams to hDispatchDriver 1
+75359>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llStatisticsBuffer
+75360>>>        Get InvokeComMethod of hDispatchDriver 43 OLE_VT_I4 to retVal
+75361>>>        Function_Return retVal
+75362>>>    End_Function
+75363>>>
+75363>>>    // method CompareFirmwareVersion
+75363>>>    Function ComCompareFirmwareVersion String llFirmwareFileName Integer ByRef llpResult Returns Integer
+75365>>>        Handle hDispatchDriver
+75365>>>        Integer retVal
+75365>>>        Get phDispatchDriver to hDispatchDriver
+75366>>>        Send PrepareParams to hDispatchDriver 2
+75367>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llFirmwareFileName
+75368>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpResult
+75369>>>        Get InvokeComMethod of hDispatchDriver 46 OLE_VT_I4 to retVal
+75370>>>        Function_Return retVal
+75371>>>    End_Function
+75372>>>
+75372>>>    // method UpdateFirmware
+75372>>>    Function ComUpdateFirmware String llFirmwareFileName Returns Integer
+75374>>>        Handle hDispatchDriver
+75374>>>        Integer retVal
+75374>>>        Get phDispatchDriver to hDispatchDriver
+75375>>>        Send PrepareParams to hDispatchDriver 1
+75376>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llFirmwareFileName
+75377>>>        Get InvokeComMethod of hDispatchDriver 47 OLE_VT_I4 to retVal
+75378>>>        Function_Return retVal
+75379>>>    End_Function
+75380>>>
+75380>>>    // method ClearInputProperties
+75380>>>    Function ComClearInputProperties Returns Integer
+75382>>>        Handle hDispatchDriver
+75382>>>        Integer retVal
+75382>>>        Get phDispatchDriver to hDispatchDriver
+75383>>>        Get InvokeComMethod of hDispatchDriver 48 OLE_VT_I4 to retVal
+75384>>>        Function_Return retVal
+75385>>>    End_Function
+75386>>>
+75386>>>    // property Algorithm
+75386>>>    Function ComAlgorithm Returns Integer
+75388>>>        Handle hDispatchDriver
+75388>>>        Integer retVal
+75388>>>        Get phDispatchDriver to hDispatchDriver
+75389>>>        Get InvokeComMethod of hDispatchDriver 60 OLE_VT_I4 to retVal
+75390>>>        Function_Return retVal
+75391>>>    End_Function
+75392>>>
+75392>>>    // property Algorithm
+75392>>>    Procedure Set ComAlgorithm Integer value
+75394>>>        Handle hDispatchDriver
+75394>>>        Get phDispatchDriver to hDispatchDriver
+75395>>>        Send PrepareParams to hDispatchDriver 1
+75396>>>        Set ComProperty of hDispatchDriver 60 OLE_VT_I4 to value
+75397>>>    End_Procedure
+75398>>>
+75398>>>    // property AlgorithmList
+75398>>>    Function ComAlgorithmList Returns String
+75400>>>        Handle hDispatchDriver
+75400>>>        String retVal
+75400>>>        Get phDispatchDriver to hDispatchDriver
+75401>>>        Get InvokeComMethod of hDispatchDriver 61 OLE_VT_BSTR to retVal
+75402>>>        Function_Return retVal
+75403>>>    End_Function
+75404>>>
+75404>>>    // property BIR
+75404>>>    Function ComBIR Returns String
+75406>>>        Handle hDispatchDriver
+75406>>>        String retVal
+75406>>>        Get phDispatchDriver to hDispatchDriver
+75407>>>        Get InvokeComMethod of hDispatchDriver 62 OLE_VT_BSTR to retVal
+75408>>>        Function_Return retVal
+75409>>>    End_Function
+75410>>>
+75410>>>    // property CapPrematchData
+75410>>>    Function ComCapPrematchData Returns Boolean
+75412>>>        Handle hDispatchDriver
+75412>>>        Boolean retVal
+75412>>>        Get phDispatchDriver to hDispatchDriver
+75413>>>        Get InvokeComMethod of hDispatchDriver 63 OLE_VT_BOOL to retVal
+75414>>>        Function_Return retVal
+75415>>>    End_Function
+75416>>>
+75416>>>    // property CapRawSensorData
+75416>>>    Function ComCapRawSensorData Returns Boolean
+75418>>>        Handle hDispatchDriver
+75418>>>        Boolean retVal
+75418>>>        Get phDispatchDriver to hDispatchDriver
+75419>>>        Get InvokeComMethod of hDispatchDriver 64 OLE_VT_BOOL to retVal
+75420>>>        Function_Return retVal
+75421>>>    End_Function
+75422>>>
+75422>>>    // property CapRealTimeData
+75422>>>    Function ComCapRealTimeData Returns Boolean
+75424>>>        Handle hDispatchDriver
+75424>>>        Boolean retVal
+75424>>>        Get phDispatchDriver to hDispatchDriver
+75425>>>        Get InvokeComMethod of hDispatchDriver 65 OLE_VT_BOOL to retVal
+75426>>>        Function_Return retVal
+75427>>>    End_Function
+75428>>>
+75428>>>    // property CapSensorColor
+75428>>>    Function ComCapSensorColor Returns Integer
+75430>>>        Handle hDispatchDriver
+75430>>>        Integer retVal
+75430>>>        Get phDispatchDriver to hDispatchDriver
+75431>>>        Get InvokeComMethod of hDispatchDriver 66 OLE_VT_I4 to retVal
+75432>>>        Function_Return retVal
+75433>>>    End_Function
+75434>>>
+75434>>>    // property CapSensorOrientation
+75434>>>    Function ComCapSensorOrientation Returns Integer
+75436>>>        Handle hDispatchDriver
+75436>>>        Integer retVal
+75436>>>        Get phDispatchDriver to hDispatchDriver
+75437>>>        Get InvokeComMethod of hDispatchDriver 67 OLE_VT_I4 to retVal
+75438>>>        Function_Return retVal
+75439>>>    End_Function
+75440>>>
+75440>>>    // property CapSensorType
+75440>>>    Function ComCapSensorType Returns Integer
+75442>>>        Handle hDispatchDriver
+75442>>>        Integer retVal
+75442>>>        Get phDispatchDriver to hDispatchDriver
+75443>>>        Get InvokeComMethod of hDispatchDriver 68 OLE_VT_I4 to retVal
+75444>>>        Function_Return retVal
+75445>>>    End_Function
+75446>>>
+75446>>>    // property CapTemplateAdaptation
+75446>>>    Function ComCapTemplateAdaptation Returns Boolean
+75448>>>        Handle hDispatchDriver
+75448>>>        Boolean retVal
+75448>>>        Get phDispatchDriver to hDispatchDriver
+75449>>>        Get InvokeComMethod of hDispatchDriver 69 OLE_VT_BOOL to retVal
+75450>>>        Function_Return retVal
+75451>>>    End_Function
+75452>>>
+75452>>>    // property RawSensorData
+75452>>>    Function ComRawSensorData Returns String
+75454>>>        Handle hDispatchDriver
+75454>>>        String retVal
+75454>>>        Get phDispatchDriver to hDispatchDriver
+75455>>>        Get InvokeComMethod of hDispatchDriver 70 OLE_VT_BSTR to retVal
+75456>>>        Function_Return retVal
+75457>>>    End_Function
+75458>>>
+75458>>>    // property RealTimeDataEnabled
+75458>>>    Function ComRealTimeDataEnabled Returns Boolean
+75460>>>        Handle hDispatchDriver
+75460>>>        Boolean retVal
+75460>>>        Get phDispatchDriver to hDispatchDriver
+75461>>>        Get InvokeComMethod of hDispatchDriver 71 OLE_VT_BOOL to retVal
+75462>>>        Function_Return retVal
+75463>>>    End_Function
+75464>>>
+75464>>>    // property RealTimeDataEnabled
+75464>>>    Procedure Set ComRealTimeDataEnabled Boolean value
+75466>>>        Handle hDispatchDriver
+75466>>>        Get phDispatchDriver to hDispatchDriver
+75467>>>        Send PrepareParams to hDispatchDriver 1
+75468>>>        Set ComProperty of hDispatchDriver 71 OLE_VT_BOOL to value
+75469>>>    End_Procedure
+75470>>>
+75470>>>    // property SensorBPP
+75470>>>    Function ComSensorBPP Returns Integer
+75472>>>        Handle hDispatchDriver
+75472>>>        Integer retVal
+75472>>>        Get phDispatchDriver to hDispatchDriver
+75473>>>        Get InvokeComMethod of hDispatchDriver 72 OLE_VT_I4 to retVal
+75474>>>        Function_Return retVal
+75475>>>    End_Function
+75476>>>
+75476>>>    // property SensorColor
+75476>>>    Function ComSensorColor Returns Integer
+75478>>>        Handle hDispatchDriver
+75478>>>        Integer retVal
+75478>>>        Get phDispatchDriver to hDispatchDriver
+75479>>>        Get InvokeComMethod of hDispatchDriver 73 OLE_VT_I4 to retVal
+75480>>>        Function_Return retVal
+75481>>>    End_Function
+75482>>>
+75482>>>    // property SensorColor
+75482>>>    Procedure Set ComSensorColor Integer value
+75484>>>        Handle hDispatchDriver
+75484>>>        Get phDispatchDriver to hDispatchDriver
+75485>>>        Send PrepareParams to hDispatchDriver 1
+75486>>>        Set ComProperty of hDispatchDriver 73 OLE_VT_I4 to value
+75487>>>    End_Procedure
+75488>>>
+75488>>>    // property SensorHeight
+75488>>>    Function ComSensorHeight Returns Integer
+75490>>>        Handle hDispatchDriver
+75490>>>        Integer retVal
+75490>>>        Get phDispatchDriver to hDispatchDriver
+75491>>>        Get InvokeComMethod of hDispatchDriver 74 OLE_VT_I4 to retVal
+75492>>>        Function_Return retVal
+75493>>>    End_Function
+75494>>>
+75494>>>    // property SensorOrientation
+75494>>>    Function ComSensorOrientation Returns Integer
+75496>>>        Handle hDispatchDriver
+75496>>>        Integer retVal
+75496>>>        Get phDispatchDriver to hDispatchDriver
+75497>>>        Get InvokeComMethod of hDispatchDriver 75 OLE_VT_I4 to retVal
+75498>>>        Function_Return retVal
+75499>>>    End_Function
+75500>>>
+75500>>>    // property SensorOrientation
+75500>>>    Procedure Set ComSensorOrientation Integer value
+75502>>>        Handle hDispatchDriver
+75502>>>        Get phDispatchDriver to hDispatchDriver
+75503>>>        Send PrepareParams to hDispatchDriver 1
+75504>>>        Set ComProperty of hDispatchDriver 75 OLE_VT_I4 to value
+75505>>>    End_Procedure
+75506>>>
+75506>>>    // property SensorType
+75506>>>    Function ComSensorType Returns Integer
+75508>>>        Handle hDispatchDriver
+75508>>>        Integer retVal
+75508>>>        Get phDispatchDriver to hDispatchDriver
+75509>>>        Get InvokeComMethod of hDispatchDriver 76 OLE_VT_I4 to retVal
+75510>>>        Function_Return retVal
+75511>>>    End_Function
+75512>>>
+75512>>>    // property SensorType
+75512>>>    Procedure Set ComSensorType Integer value
+75514>>>        Handle hDispatchDriver
+75514>>>        Get phDispatchDriver to hDispatchDriver
+75515>>>        Send PrepareParams to hDispatchDriver 1
+75516>>>        Set ComProperty of hDispatchDriver 76 OLE_VT_I4 to value
+75517>>>    End_Procedure
+75518>>>
+75518>>>    // property SensorWidth
+75518>>>    Function ComSensorWidth Returns Integer
+75520>>>        Handle hDispatchDriver
+75520>>>        Integer retVal
+75520>>>        Get phDispatchDriver to hDispatchDriver
+75521>>>        Get InvokeComMethod of hDispatchDriver 77 OLE_VT_I4 to retVal
+75522>>>        Function_Return retVal
+75523>>>    End_Function
+75524>>>
+75524>>>    // method BeginEnrollCapture
+75524>>>    Function ComBeginEnrollCapture String llReferenceBIR String llPayload Returns Integer
+75526>>>        Handle hDispatchDriver
+75526>>>        Integer retVal
+75526>>>        Get phDispatchDriver to hDispatchDriver
+75527>>>        Send PrepareParams to hDispatchDriver 2
+75528>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llReferenceBIR
+75529>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llPayload
+75530>>>        Get InvokeComMethod of hDispatchDriver 90 OLE_VT_I4 to retVal
+75531>>>        Function_Return retVal
+75532>>>    End_Function
+75533>>>
+75533>>>    // method BeginVerifyCapture
+75533>>>    Function ComBeginVerifyCapture Returns Integer
+75535>>>        Handle hDispatchDriver
+75535>>>        Integer retVal
+75535>>>        Get phDispatchDriver to hDispatchDriver
+75536>>>        Get InvokeComMethod of hDispatchDriver 91 OLE_VT_I4 to retVal
+75537>>>        Function_Return retVal
+75538>>>    End_Function
+75539>>>
+75539>>>    // method EndCapture
+75539>>>    Function ComEndCapture Returns Integer
+75541>>>        Handle hDispatchDriver
+75541>>>        Integer retVal
+75541>>>        Get phDispatchDriver to hDispatchDriver
+75542>>>        Get InvokeComMethod of hDispatchDriver 92 OLE_VT_I4 to retVal
+75543>>>        Function_Return retVal
+75544>>>    End_Function
+75545>>>
+75545>>>    // method Identify
+75545>>>    Function ComIdentify Integer llMaxFARRequested Integer llMaxFRRRequested Boolean llFARPrecedence Variant llReferenceBIRPopulation Variant llpCandidateRanking Integer llTimeout Returns Integer
+75547>>>        Handle hDispatchDriver
+75547>>>        Integer retVal
+75547>>>        Get phDispatchDriver to hDispatchDriver
+75548>>>        Send PrepareParams to hDispatchDriver 6
+75549>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFARRequested
+75550>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFRRRequested
+75551>>>        Send DefineParam to hDispatchDriver OLE_VT_BOOL llFARPrecedence
+75552>>>        Send DefineParam to hDispatchDriver OLE_VT_VARIANT llReferenceBIRPopulation
+75553>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_VARIANT) llpCandidateRanking
+75554>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llTimeout
+75555>>>        Get InvokeComMethod of hDispatchDriver 93 OLE_VT_I4 to retVal
+75556>>>        Function_Return retVal
+75557>>>    End_Function
+75558>>>
+75558>>>    // method IdentifyMatch
+75558>>>    Function ComIdentifyMatch Integer llMaxFARRequested Integer llMaxFRRRequested Boolean llFARPrecedence String llSampleBIR Variant llReferenceBIRPopulation Variant llpCandidateRanking Returns Integer
+75560>>>        Handle hDispatchDriver
+75560>>>        Integer retVal
+75560>>>        Get phDispatchDriver to hDispatchDriver
+75561>>>        Send PrepareParams to hDispatchDriver 6
+75562>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFARRequested
+75563>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFRRRequested
+75564>>>        Send DefineParam to hDispatchDriver OLE_VT_BOOL llFARPrecedence
+75565>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llSampleBIR
+75566>>>        Send DefineParam to hDispatchDriver OLE_VT_VARIANT llReferenceBIRPopulation
+75567>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_VARIANT) llpCandidateRanking
+75568>>>        Get InvokeComMethod of hDispatchDriver 94 OLE_VT_I4 to retVal
+75569>>>        Function_Return retVal
+75570>>>    End_Function
+75571>>>
+75571>>>    // method ProcessPrematchData
+75571>>>    Function ComProcessPrematchData String llCapturedBIR String llPrematchDataBIR String ByRef llpProcessedBIR Returns Integer
+75573>>>        Handle hDispatchDriver
+75573>>>        Integer retVal
+75573>>>        Get phDispatchDriver to hDispatchDriver
+75574>>>        Send PrepareParams to hDispatchDriver 3
+75575>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llCapturedBIR
+75576>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llPrematchDataBIR
+75577>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpProcessedBIR
+75578>>>        Get InvokeComMethod of hDispatchDriver 95 OLE_VT_I4 to retVal
+75579>>>        Function_Return retVal
+75580>>>    End_Function
+75581>>>
+75581>>>    // method Verify
+75581>>>    Function ComVerify Integer llMaxFARRequested Integer llMaxFRRRequested Boolean llFARPrecedence String llReferenceBIR String ByRef llpAdaptedBIR Boolean ByRef llpResult Integer ByRef llpFARAchieved Integer ByRef llpFRRAchieved String ByRef llpPayload Integer llTimeout Returns Integer
+75583>>>        Handle hDispatchDriver
+75583>>>        Integer retVal
+75583>>>        Get phDispatchDriver to hDispatchDriver
+75584>>>        Send PrepareParams to hDispatchDriver 10
+75585>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFARRequested
+75586>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFRRRequested
+75587>>>        Send DefineParam to hDispatchDriver OLE_VT_BOOL llFARPrecedence
+75588>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llReferenceBIR
+75589>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpAdaptedBIR
+75590>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BOOL) llpResult
+75591>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpFARAchieved
+75592>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpFRRAchieved
+75593>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpPayload
+75594>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llTimeout
+75595>>>        Get InvokeComMethod of hDispatchDriver 96 OLE_VT_I4 to retVal
+75596>>>        Function_Return retVal
+75597>>>    End_Function
+75598>>>
+75598>>>    // method VerifyMatch
+75598>>>    Function ComVerifyMatch Integer llMaxFARRequested Integer llMaxFRRRequested Boolean llFARPrecedence String llSampleBIR String llReferenceBIR String ByRef llpAdaptedBIR Boolean ByRef llpResult Integer ByRef llpFARAchieved Integer ByRef llpFRRAchieved String ByRef llpPayload Returns Integer
+75600>>>        Handle hDispatchDriver
+75600>>>        Integer retVal
+75600>>>        Get phDispatchDriver to hDispatchDriver
+75601>>>        Send PrepareParams to hDispatchDriver 10
+75602>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFARRequested
+75603>>>        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFRRRequested
+75604>>>        Send DefineParam to hDispatchDriver OLE_VT_BOOL llFARPrecedence
+75605>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llSampleBIR
+75606>>>        Send DefineParam to hDispatchDriver OLE_VT_BSTR llReferenceBIR
+75607>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpAdaptedBIR
+75608>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BOOL) llpResult
+75609>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpFARAchieved
+75610>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpFRRAchieved
+75611>>>        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpPayload
+75612>>>        Get InvokeComMethod of hDispatchDriver 97 OLE_VT_I4 to retVal
+75613>>>        Function_Return retVal
+75614>>>    End_Function
+75615>>>End_Class
+75616>>>
+75616>>>// CLSID: {CCB90263-B81E-11D2-AB74-0040054C3719}
+75616>>>// _IOPOSBiometricsEvents Interface
+75616>>>Class cCom_IOPOSBiometricsEvents is a Mixin
+75617>>>
+75617>>>    // method DataEvent
+75617>>>    Procedure OnComDataEvent Integer llStatus
+75619>>>    End_Procedure
+75620>>>
+75620>>>    // method DirectIOEvent
+75620>>>    Procedure OnComDirectIOEvent Integer llEventNumber Integer ByRef llpData String ByRef llpString
+75622>>>    End_Procedure
+75623>>>
+75623>>>    // method ErrorEvent
+75623>>>    Procedure OnComErrorEvent Integer llResultCode Integer llResultCodeExtended Integer llErrorLocus Integer ByRef llpErrorResponse
+75625>>>    End_Procedure
+75626>>>
+75626>>>    // method StatusUpdateEvent
+75626>>>    Procedure OnComStatusUpdateEvent Integer llData
+75628>>>    End_Procedure
+75629>>>
+75629>>>    Procedure RegisterComEvents
+75631>>>        Send RegisterComEvent 1 msg_OnComDataEvent
+75632>>>        Send RegisterComEvent 2 msg_OnComDirectIOEvent
+75633>>>        Send RegisterComEvent 3 msg_OnComErrorEvent
+75634>>>        Send RegisterComEvent 5 msg_OnComStatusUpdateEvent
+75635>>>    End_Procedure
+75636>>>End_Class
+75637>>>
+75637>>>// CoClass
+75637>>>// ProgID: OPOS.Biometrics.1.13
+75637>>>// CLSID: {CCB90262-B81E-11D2-AB74-0040054C3719}
+75637>>>// OPOS Biometrics Control 1.13.000 [Public, by CRM/RCS-Dayton]
+75637>>>Class cComOPOSBiometrics is a cComActiveXControl
+75638>>>    Import_Class_Protocol cComIOPOSBiometrics
+75639>>>    Import_Class_Protocol cCom_IOPOSBiometricsEvents
+75640>>>
+75640>>>    Procedure Construct_Object
+75642>>>        Forward Send Construct_Object
+75644>>>        Set psProgID to "{CCB90262-B81E-11D2-AB74-0040054C3719}"
+75645>>>        Set psEventId to "{CCB90263-B81E-11D2-AB74-0040054C3719}"
+75646>>>        Set peAutoCreate to acAutoCreate
+75647>>>    End_Procedure
+75648>>>End_Class
+75649>
+75649>
+75649>
+75649>Object oHtmlHelp is a cHtmlHelp
+75651>End_Object
+75652>
+75652>Object oApplication is a cApplication
+75654>    Set peHelpType to htHtmlHelp
+75655>End_Object
+75656>
+75656>Object oToolTipController is a cToolTipController
+75658>    Move Self to ghoToolTipController
+75659>End_Object
+75660>
+75660>Use oEditContextMenu.pkg
+Including file: oEditContextMenu.pkg    (C:\Program Files (x86)\DataFlex 18.1\Pkg\oEditContextMenu.pkg)
+75660>>>Use cCJStandardMenuItemClasses.pkg
+75660>>>
+75660>>>Object oEditContextMenu is a cCJContextMenu
+75662>>>    
+75662>>>    Move Self to Default_Form_Floating_Menu_ID
+75663>>>    
+75663>>>    Object oUndoMenuItem is a cCJUndoMenuItem
+75665>>>    End_Object
+75666>>>    
+75666>>>    Object oCutMenuItem is a cCJCutMenuItem
+75668>>>        Set pbControlBeginGroup to True
+75669>>>    End_Object
+75670>>>    
+75670>>>    Object oCopyMenuItem is a cCJCopyMenuItem
+75672>>>    End_Object
+75673>>>
+75673>>>    Object oPasteMenuItem is a cCJPasteMenuItem
+75675>>>    End_Object
+75676>>>
+75676>>>    Object oDeleteItem is a cCJDeleteEditMenuItem
+75678>>>    End_Object
+75679>>>
+75679>>>    Object oSelectAllMenuItem is a cCJSelectAllMenuItem
+75681>>>        Set pbControlBeginGroup to True
+75682>>>    End_Object
+75683>>>
+75683>>>End_Object
+75684>>>
+75684>Use oDEOEditContextMenu17.pkg
+Including file: oDEOEditContextMenu17.pkg    (C:\Program Files (x86)\DataFlex 18.1\Pkg\oDEOEditContextMenu17.pkg)
+75684>>>Use Windows.pkg
+75684>>>Use cCJStandardMenuItemClasses.pkg
+75684>>>Use cCJDeoMenuItemClasses.pkg
+75684>>>
+75684>>>
+75684>>>Object oDEOEditContextMenu17 is a cCJContextMenu
+75686>>>    
+75686>>>    Move Self to Default_dbFloating_Menu_ID
+75687>>>    
+75687>>>    Object oUndoMenuItem is a cCJUndoMenuItem
+75689>>>    End_Object
+75690>>>    
+75690>>>    Object oCutMenuItem is a cCJCutMenuItem
+75692>>>        Set pbControlBeginGroup to True
+75693>>>    End_Object
+75694>>>    
+75694>>>    Object oCopyMenuItem is a cCJCopyMenuItem
+75696>>>    End_Object
+75697>>>
+75697>>>    Object oPasteMenuItem is a cCJPasteMenuItem
+75699>>>    End_Object
+75700>>>
+75700>>>    Object oDeleteItem is a cCJDeleteEditMenuItem
+75702>>>    End_Object
+75703>>>
+75703>>>    Object oSelectAllMenuItem is a cCJSelectAllMenuItem
+75705>>>        Set pbControlBeginGroup to True
+75706>>>    End_Object
+75707>>>
+75707>>>    Object oPromptMenuItem is a cCJPromptMenuItem
+75709>>>        Set pbControlBeginGroup to True
+75710>>>    End_Object
+75711>>>
+75711>>>    Object oFindNextMenu is a cCJFindNextMenuItem
+75713>>>        Set pbControlBeginGroup to True
+75714>>>    End_Object
+75715>>>
+75715>>>    Object oFindPreviousMenu is a cCJFindPreviousMenuItem
+75717>>>    End_Object
+75718>>>
+75718>>>    Object oClearMenuItem is a cCJClearMenuItem
+75720>>>        Set pbControlBeginGroup to True
+75721>>>    End_Object
+75722>>>
+75722>>>    Object oClearAllMenu is a cCJClearAllMenuItem
+75724>>>    End_Object
+75725>>>
+75725>>>    Object oSaveMenu is a cCJSaveMenuItem
+75727>>>    End_Object
+75728>>>    
+75728>>>    Object oDeleteMenu is a cCJDeleteMenuItem
+75730>>>    End_Object
+75731>>>
+75731>>>    Object oRememberitem is a cCJRememberFieldMenuItem
+75733>>>        Set pbControlBeginGroup to True
+75734>>>    End_Object
+75735>>>
+75735>>>    Object oRetainItem is a cCJRememberLastFieldMenuItem
+75737>>>    End_Object
+75738>>>
+75738>>>    Object oUnRememberitem is a cCJUnRememberFieldMenuItem
+75740>>>    End_Object
+75741>>>
+75741>>>    Object oCJClearAllDynamicDefaults is a cCJUnRememberFieldAllMenuItem
+75743>>>    End_Object
+75744>>>
+75744>>>End_Object
+75745>
+75745>Object oMain is a Panel
+75747>    Set Label to "FingerPrint"
+75748>    Set Location to -25 0
+75749>    Set Size to 200 300
+75750>    Set piMinSize to 245 315
+75751>    Set piMaxSize to 245 315
+75752>    Set Border_Style to Border_None
+75753>    Set Minimize_Icon to False
+75754>    Set Maximize_Icon to False
+75755>
+75755>    Object oClientArea is a ClientArea
+75757>        Use StdAbout.pkg
+Including file: StdAbout.pkg    (C:\Program Files (x86)\DataFlex 18.1\Pkg\StdAbout.pkg)
+75757>>>//************************************************************************
+75757>>>// Confidential Trade Secret.
+75757>>>// Copyright (c) 1997 Data Access Corporation, Miami Florida
+75757>>>// as an unpublished work.  All rights reserved.
+75757>>>// DataFlex is a registered trademark of Data Access Corporation.
+75757>>>//
+75757>>>//************************************************************************
+75757>>>//************************************************************************
+75757>>>//
+75757>>>// $File name  : StdAbout.pkg
+75757>>>// $File title : Standard about object package for VDF
+75757>>>// Notice      :
+75757>>>// $Author(s)  : John Tuohy
+75757>>>//
+75757>>>// $Rev History
+75757>>>//
+75757>>>// JT 06/27/97   File created
+75757>>>//************************************************************************
+75757>>>
+75757>>>// This provides a quick and simple way to create an about package for a program.
+75757>>>// You need to create a message inside you client area called Activate_About.
+75757>>>// Within this message you should send the message DoAbout passing needed
+75757>>>// string information.
+75757>>>//
+75757>>>//       Procedure Activate_About
+75757>>>//           Send DoAbout sTitle sVersion sCopyright sAuthor sBitmap
+75757>>>//       End_Procedure
+75757>>>//    where: sTitle =     Name of application. If none provided, uses caption
+75757>>>//                        bar title
+75757>>>//           sVersion   = Version Line. If none provided, will be blank
+75757>>>//           sCopyRight = Copyright Line. If none provided, will be blank
+75757>>>//           sAuthor    = Author name, blank if none provided
+75757>>>//           sBitMap    = Bitmap logo. If none provided, standard VDF bitmap
+75757>>>//                        is used.
+75757>>>// It is expected that you will place this in your own object package. For
+75757>>>// example an order about package may look like this:
+75757>>>//
+75757>>>//   // OrderAbout.pkg
+75757>>>//   Use StdAbout.pkg
+75757>>>//   Procedure Activate_About
+75757>>>//      String sTitle sCopyright sVersion sAuthor
+75757>>>//      Move "My Order Entry System" to sTitle
+75757>>>//      Move "Version 2.1" to sVersion
+75757>>>//      Move "Copyright 1997, Super Software Inc." to sCopyright
+75757>>>//      Move "John Smith"  to sAuthor
+75757>>>//      Send DoAbout sTitle sVersion sCopyright sAuthor ""
+75757>>>//   end_procedure
+75757>>>//   // end of file.
+75757>>>
+75757>>>Use DfAbout.pkg
+Including file: Dfabout.pkg    (C:\Program Files (x86)\DataFlex 18.1\Pkg\Dfabout.pkg)
+75757>>>>>//************************************************************************
+75757>>>>>// Confidential Trade Secret.
+75757>>>>>// Copyright (c) 1997 Data Access Corporation, Miami Florida
+75757>>>>>// as an unpublished work.  All rights reserved.
+75757>>>>>// DataFlex Is A registered trademark Of Data Access Corporation.
+75757>>>>>//
+75757>>>>>//************************************************************************
+75757>>>>>//************************************************************************
+75757>>>>>//
+75757>>>>>// $File name  : DfAbout.pkg
+75757>>>>>// $File title : About class support
+75757>>>>>// Notice      :
+75757>>>>>// $Author(s)  : Vincent Oorsprong, Ken Ross
+75757>>>>>//
+75757>>>>>// $Rev History
+75757>>>>>//
+75757>>>>>// VOO 02/22/2012 Replaced obsolete code, improved Network_User_Name by asking
+75757>>>>>//                Windows for the size first. 
+75757>>>>>// VOO 07/25/2003 Removed OnResize procedure for sysinfo dialog. Replaced logic
+75757>>>>>//                with anchor technique. Removed unnessary property in the
+75757>>>>>//                sysinfo dialog. Changed the size Of the about & sysinfo dialog
+75757>>>>>//                object To better look in Windows XP. Repositioned the close
+75757>>>>>//                button in the sysinfo dialog To line up with the display area
+75757>>>>>//                Replaced obsolete code and techniques. Removed dead code.
+75757>>>>>// JJT 10/23/2001 removed all ghoworkspace support. Uses app object or nothing
+75757>>>>>// SWB 07/19/01   Added support Of the Application object in preference to
+75757>>>>>//                the global Workspace object, if it is present
+75757>>>>>// JJT 11/05/98   Added version information
+75757>>>>>// VOO 29/10/98   Replaced the GetFreeSystemResources for the Win32 variant
+75757>>>>>// JJT 7/31/97    Registered Enumerate Workspace so dfabout can exist without
+75757>>>>>//                workspace package.
+75757>>>>>// JJT 6/27/97    Turned the sysinfo objects into classes so the AboutDialog
+75757>>>>>//                class can create this object.
+75757>>>>>//                Cleaned up the interface (used correct classes and messages)
+75757>>>>>//                Added workspace reporting support To sys-info.
+75757>>>>>//                Turned off wrapping in the sys-info editor.
+75757>>>>>// KR  ??/??/96   File created
+75757>>>>>//************************************************************************
+75757>>>>>Use LanguageText.pkg
+75757>>>>>Use Windows.pkg
+75757>>>>>Use DFbitmap.pkg
+75757>>>>>Use GlobalFunctionsProcedures.pkg
+75757>>>>>Use cTextEdit.pkg
+75757>>>>>
+75757>>>>>Use cli.pkg
+Including file: cli.pkg    (C:\Program Files (x86)\DataFlex 18.1\Pkg\cli.pkg)
+75757>>>>>>>//*****************************************************************************
+75757>>>>>>>//*** CLI.PKG                                                               ***
+75757>>>>>>>//***                                                                       ***
+75757>>>>>>>//*** Author: Ben Weijers                                                   ***
+75757>>>>>>>//***         Data Access Nederland                                         ***
+75757>>>>>>>//***         10 September 1998                                             ***
+75757>>>>>>>//***                                                                       ***
+75757>>>>>>>//*** Purpose:                                                              ***
+75757>>>>>>>//***   CLI specific functionality. There are several connectivity kits     ***
+75757>>>>>>>//***   based on  SQL/92 CLI. Those are:                                    ***
+75757>>>>>>>//***    - ODBC_DRV  The Data Access CK for ODBC                            ***
+75757>>>>>>>//***    - DB2_DRV   The Data Access CK for DB2                             ***
+75757>>>>>>>//***    - MSSQLDRV  The Data Access CK for Microsoft SQL Server            ***
+75757>>>>>>>//***                                                                       ***
+75757>>>>>>>//***   This package defines the common functionality for all CLI based     ***
+75757>>>>>>>//***   drivers.                                                            ***
+75757>>>>>>>//***                                                                       ***
+75757>>>>>>>//***   Updated:  May 23rd 2008 (Current CK build: 5.0.0.53 )               ***
+75757>>>>>>>//***             Added NULLABLE and DEFAULT attributes for DATETIME type   ***
+75757>>>>>>>//***   Updated:  Apr  6th 2009 (Current CK build: 5.0.0.61 )               ***
+75757>>>>>>>//***             Added DF_DRIVER_MATCH_CLIENT_SERVER_VERSION attribute     ***
+75757>>>>>>>//***                   DF_DRIVER_SQLSERVER_CLIENT_VERSION    attribute     ***
+75757>>>>>>>//***   Updated:  Mar 30th 2012 (Current CK build: 5.1.0.93 )               ***
+75757>>>>>>>//***             Added SQLSERVER2012CLIENT return value for                ***
+75757>>>>>>>//***             DF_DRIVER_SQLSERVER_CLIENT_VERSION attribute              ***
+75757>>>>>>>//***   Updated:  June 4th 2012 (Current CK build: 5.1.0.96)                ***
+75757>>>>>>>//***             Moved SQL Server client constants from cli.pkg to         ***
+75757>>>>>>>//***             mssqldrv.pkg                                              ***
+75757>>>>>>>//***   Updated:  april 23, 2013 (Current CK build: 6.0.0.4)                ***
+75757>>>>>>>//***             Added type mappings attributes                            ***
+75757>>>>>>>//***   Updated:  october 11, 2013 (Current CK build: 6.0.0.18)             ***
+75757>>>>>>>//***             Added DF_FILE_SQL_FILTER_EQ attribute                     ***
+75757>>>>>>>//*****************************************************************************
+75757>>>>>>>
+75757>>>>>>>//*** We are not using ifndef below because that is not supported in Character Mode
+75757>>>>>>>//*** Driver attributes
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//------------------------------------------------------------
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//-------------------------------------
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//*** Replacement for logical column number that indicates all columns
+75757>>>>>>>
+75757>>>>>>>//*** Possible DF_FILE_GENERATE_RECORD_ID_METHOD values
+75757>>>>>>>
+75757>>>>>>>//*** Possible DF_FIELD_READ_ONLY values
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//*** Possible DF_DRIVER_DEFAULT_MAP_DF_TO_SQL_TYPE_SCHEMA values
+75757>>>>>>>// #Replace MAP_DF_TO_SQL_TYPE_CK5        1       
+75757>>>>>>>// #Replace MAP_DF_TO_SQL_TYPE_CK6        2   
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>// Moved to Mssqldrv.pkg
+75757>>>>>>>//*** Possible DF_DRIVER_SQLSERVER_CLIENT_VERSION values
+75757>>>>>>>//#REPLACE SQLSERVERUNKNOWNCLIENT  0
+75757>>>>>>>//#REPLACE SQLSERVER2000CLIENT     8          //   "SQL Server"
+75757>>>>>>>//#REPLACE SQLSERVER2005CLIENT     9          //   "SQL Native Client"
+75757>>>>>>>//#REPLACE SQLSERVER2008CLIENT    10          //   "SQL Server Native Client 10.0"
+75757>>>>>>>//#Replace SQLSERVER2012CLIENT    11          //   "SQL Server Native Client 11.0"
+75757>>>>>>>
+75757>>>>>>>//*** Possible SQL Column type values
+75757>>>>>>>Define SQL_UNKNOWN_TYPE   For    0
+75757>>>>>>>Define SQL_CHAR           For    1
+75757>>>>>>>Define SQL_NUMERIC        For    2
+75757>>>>>>>Define SQL_DECIMAL        For    3
+75757>>>>>>>Define SQL_INTEGER        For    4
+75757>>>>>>>Define SQL_SMALLINT       For    5
+75757>>>>>>>Define SQL_FLOAT          For    6
+75757>>>>>>>Define SQL_REAL           For    7
+75757>>>>>>>Define SQL_DOUBLE         For    8
+75757>>>>>>>Define SQL_DATETIME       For    9
+75757>>>>>>>Define SQL_VARCHAR        For   12
+75757>>>>>>>Define SQL_TYPE_DATE      For   91
+75757>>>>>>>Define SQL_TYPE_TIME      For   92
+75757>>>>>>>Define SQL_TYPE_TIMESTAMP for   93
+75757>>>>>>>// Moved to mssqldrv.pkg
+75757>>>>>>>//Define SQL_TYPE_TIMESTAMP2 for   (-200) //SQL server datetime2 type */
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>Define SQL_DATE           For    9
+75757>>>>>>>Define SQL_INTERVAL       For   10
+75757>>>>>>>Define SQL_TIME           For   10
+75757>>>>>>>Define SQL_TIMESTAMP      For   11
+75757>>>>>>>Define SQL_LONGVARCHAR    For  (-1)
+75757>>>>>>>Define SQL_BINARY         For  (-2)
+75757>>>>>>>Define SQL_VARBINARY      For  (-3)
+75757>>>>>>>Define SQL_LONGVARBINARY  For  (-4)
+75757>>>>>>>Define SQL_BIGINT         For  (-5)
+75757>>>>>>>Define SQL_TINYINT        For  (-6)
+75757>>>>>>>Define SQL_BIT            For  (-7)
+75757>>>>>>>Define SQL_WCHAR          For  (-8)
+75757>>>>>>>Define SQL_WVARCHAR       For  (-9)
+75757>>>>>>>Define SQL_WLONGVARCHAR   For (-10)
+75757>>>>>>>Define SQL_GUID           For (-11)
+75757>>>>>>>
+75757>>>>>>>//*** Driver level attributes
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//*** Error number constants
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//*** Call driver function identifiers
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//*** Init data source types
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//*** Dummy strings used in the commands
+75757>>>>>>>    String  CLI$StrDummy 255
+75757>>>>>>>    Integer CLI$IntDummy
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//*****************************************************************************
+75757>>>>>>>//*** CLI_SetConstraint <FileNum> <NewState>                                ***
+75757>>>>>>>//***                                                                       ***
+75757>>>>>>>//***   Setup a constraint for a file.                                      ***
+75757>>>>>>>//*****************************************************************************
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//*****************************************************************************
+75757>>>>>>>//*** CLI_Set_Driver_Atrtribute / CLI_Get_Driver_Attribute                  ***
+75757>>>>>>>//***                                                                       ***
+75757>>>>>>>//*** Set or get an attribute at driver level. These attributes, when set,  ***
+75757>>>>>>>//*** will be set for the remainder of the session or until set again. To   ***
+75757>>>>>>>//*** permanently set driver level attributes change the driver             ***
+75757>>>>>>>//*** configuration file.                                                   ***
+75757>>>>>>>//*****************************************************************************
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>
+75757>>>>>>>//*****************************************************************************
+75757>>>>>>>//*** Class  : cCLIHandler                                                  ***
+75757>>>>>>>//*** Purpose: An instance of this class can be used as a broker object to  ***
+75757>>>>>>>//***          call several CLI releated methods.                           ***
+75757>>>>>>>//*****************************************************************************
+75757>>>>>>>
+75757>>>>>>>Class cCLIHandler Is An Array
+75758>>>>>>>
+75758>>>>>>>    Procedure Construct_Object Integer iImage
+75760>>>>>>>        Forward Send Construct_object iImage
+75762>>>>>>>
+75762>>>>>>>        Property String  psDriverID       Public ""
+75763>>>>>>>    End_Procedure // Construct_Object
+75764>>>>>>>
+75764>>>>>>>
+75764>>>>>>>
+75764>>>>>>>    //***
+75764>>>>>>>    //*** Fucntion: CKRevsion
+75764>>>>>>>    //*** Purpose : The revsion of a CLI Connectivity Kit
+75764>>>>>>>    //***
+75764>>>>>>>
+75764>>>>>>>    Function CKRevision Returns String
+75766>>>>>>>        Local String  sDriverID
+75766>>>>>>>        Local String  sRevision
+75766>>>>>>>        Local String  sVoid
+75766>>>>>>>        Local Integer iRetval
+75766>>>>>>>
+75766>>>>>>>        Get psDriverID To sDriverID
+75767>>>>>>>        If (sDRiverID <> "") Begin
+75769>>>>>>>            Move (Repeat(" ", 255)) To sRevision
+75770>>>>>>>            Call_Driver 0 sDRiverID Function CLI_CKREVISION Callback 0 Passing sRevision sVoid 0 Result iRetval
+75775>>>>>>>        End
+75775>>>>>>>>
+75775>>>>>>>
+75775>>>>>>>        Function_Return sRevision
+75776>>>>>>>    End_Function // CKRevision
+75777>>>>>>>
+75777>>>>>>>
+75777>>>>>>>
+75777>>>>>>>    //***
+75777>>>>>>>    //*** Function: ExtractPartFromRevision
+75777>>>>>>>    //*** Purpose : Extarct the Nth part of a a.b.c.d revsion string.
+75777>>>>>>>    //***
+75777>>>>>>>    //*** Returns : The part version number or -1 if there is no such part number.
+75777>>>>>>>    //***
+75777>>>>>>>
+75777>>>>>>>    Function ExtractPartFromRevision Integer iPartNum String sRevision Returns Integer
+75779>>>>>>>        Local Integer iPartRev
+75779>>>>>>>        Local Integer iCurrentPart
+75779>>>>>>>        Local Integer iSeparatorPos
+75779>>>>>>>
+75779>>>>>>>        If (iPartNum > 4) ;            Function_Return -1
+75782>>>>>>>
+75782>>>>>>>        Move 0 To iCurrentPart
+75783>>>>>>>        Repeat
+75783>>>>>>>>
+75783>>>>>>>            Move (Pos(".", sRevision)) To iSeparatorPos
+75784>>>>>>>            If (iSeparatorPos > 0) Begin
+75786>>>>>>>                Move (Left(sRevision, iSeparatorPos - 1)) To iPartRev
+75787>>>>>>>                Move (Right(sRevision, Length(sRevision) - iSeparatorPos)) To sRevision
+75788>>>>>>>                Increment iCurrentPart
+75789>>>>>>>            End
+75789>>>>>>>>
+75789>>>>>>>            Else If (sRevision <> "") Begin
+75792>>>>>>>                Move sRevision To iPartRev
+75793>>>>>>>                Move "" To sRevision
+75794>>>>>>>                Increment iCurrentPart
+75795>>>>>>>            End
+75795>>>>>>>>
+75795>>>>>>>            Else ;                Move -1 To iPartRev
+75797>>>>>>>        Until (iCurrentPart >= iPartNum Or iPartRev = -1)
+75799>>>>>>>
+75799>>>>>>>        Function_Return iPartRev
+75800>>>>>>>    End_Function // EcxtractPartFromRevision
+75801>>>>>>>
+75801>>>>>>>
+75801>>>>>>>
+75801>>>>>>>    //***
+75801>>>>>>>    //*** Function: CKMajorRevision
+75801>>>>>>>    //*** Purpose : Returns the major revision of the CK
+75801>>>>>>>    //***
+75801>>>>>>>
+75801>>>>>>>    Function CKMajorRevision Returns Integer
+75803>>>>>>>        Function_Return (ExtractPartFromRevision (Current_Object, 1, CKRevision(Current_Object)))
+75804>>>>>>>    End_Function // CKMajorRevision
+75805>>>>>>>
+75805>>>>>>>
+75805>>>>>>>
+75805>>>>>>>    //***
+75805>>>>>>>    //*** Function: CKMinorRevision
+75805>>>>>>>    //*** Purpose : Returns the minor revision of the CK
+75805>>>>>>>    //***
+75805>>>>>>>
+75805>>>>>>>    Function CKMinorRevision Returns Integer
+75807>>>>>>>        Function_Return (ExtractPartFromRevision (Current_Object, 2, CKRevision(Current_Object)))
+75808>>>>>>>    End_Function // CKMinorRevision
+75809>>>>>>>
+75809>>>>>>>
+75809>>>>>>>
+75809>>>>>>>    //***
+75809>>>>>>>    //*** Function: CKReleaseRevision
+75809>>>>>>>    //*** Purpose : Returns the release revision of the CK
+75809>>>>>>>    //***
+75809>>>>>>>
+75809>>>>>>>    Function CKReleaseRevision Returns Integer
+75811>>>>>>>        Function_Return (ExtractPartFromRevision (Current_Object, 3, CKRevision(Current_Object)))
+75812>>>>>>>    End_Function // CKReleaseRevision
+75813>>>>>>>
+75813>>>>>>>
+75813>>>>>>>
+75813>>>>>>>    //***
+75813>>>>>>>    //*** Function: CKBuildRevision
+75813>>>>>>>    //*** Purpose : Returns the major revision of the CK
+75813>>>>>>>    //***
+75813>>>>>>>
+75813>>>>>>>    Function CKBuildRevision Returns Integer
+75815>>>>>>>        Function_Return (ExtractPartFromRevision (Current_Object, 4, CKRevision(Current_Object)))
+75816>>>>>>>    End_Function // CKBuildRevision
+75817>>>>>>>
+75817>>>>>>>
+75817>>>>>>>
+75817>>>>>>>    //***
+75817>>>>>>>    //*** Function: IsMinimalRevision
+75817>>>>>>>    //*** Purpose : Determines if the CK conforms to a passed minimal revsion.
+75817>>>>>>>    //***
+75817>>>>>>>
+75817>>>>>>>    Function IsMinimalRevision Integer iMajor Integer iMinor Integer iRelease Integer iBuild Returns Integer
+75819>>>>>>>        If (iMajor < CKMajorRevision(Current_object)) ;            Function_return (TRUE)
+75822>>>>>>>        Else If (iMajor = CKMajorRevision(Current_object)) Begin
+75825>>>>>>>            If (iMinor < CKMinorRevision(Current_object)) ;                Function_return (TRUE)
+75828>>>>>>>            Else If (iMinor = CKMinorRevision(Current_object)) Begin
+75831>>>>>>>                If (iRelease < CKReleaseRevision(Current_object)) ;                    Function_return (TRUE)
+75834>>>>>>>                Else If (iRelease = CKReleaseRevision(Current_object) And iBuild <= CKBuildRevision(Current_object)) ;                    Function_return (TRUE)
+75838>>>>>>>            End
+75838>>>>>>>>
+75838>>>>>>>        End
+75838>>>>>>>>
+75838>>>>>>>
+75838>>>>>>>        Function_Return (FALSE)
+75839>>>>>>>    End_Function // IsMinimalRevision
+75840>>>>>>>
+75840>>>>>>>
+75840>>>>>>>
+75840>>>>>>>    //***
+75840>>>>>>>    //*** Function: RegistrationName
+75840>>>>>>>    //*** Purpose : Returns the Connectiivty Kit registration name.
+75840>>>>>>>    //***
+75840>>>>>>>
+75840>>>>>>>    Function RegistrationName Returns String
+75842>>>>>>>        Local String  sRegistration
+75842>>>>>>>        Local String  sDRiverId
+75842>>>>>>>        Local String  sVoid
+75842>>>>>>>        Local Integer iRetval
+75842>>>>>>>
+75842>>>>>>>        Get psDriverID To sDriverID
+75843>>>>>>>        If (sDRiverID <> "") Begin
+75845>>>>>>>            Move (Repeat(" ", 255)) To sRegistration
+75846>>>>>>>            Call_Driver 0 sDRiverID Function CLI_GETREGNAME Callback 0 Passing sRegistration sVoid 0 Result iRetval
+75851>>>>>>>        End
+75851>>>>>>>>
+75851>>>>>>>
+75851>>>>>>>        Function_Return sRegistration
+75852>>>>>>>    End_Function // RegistrationName
+75853>>>>>>>
+75853>>>>>>>
+75853>>>>>>>
+75853>>>>>>>    //***
+75853>>>>>>>    //*** Function: SerialNumber
+75853>>>>>>>    //*** Purpose : Returns the Connectiivty Kit serial number.
+75853>>>>>>>    //***
+75853>>>>>>>
+75853>>>>>>>    Function SerialNumber Returns Integer
+75855>>>>>>>        Local String  sDRiverId
+75855>>>>>>>        Local String  sVoid
+75855>>>>>>>        Local Integer iRetval
+75855>>>>>>>
+75855>>>>>>>        Get psDriverID To sDriverID
+75856>>>>>>>        If (sDRiverID <> "") Begin
+75858>>>>>>>            Call_Driver 0 sDRiverID Function CLI_GETSERIALNUM Callback 0 Passing sVoid sVoid 0 Result iRetval
+75863>>>>>>>        End
+75863>>>>>>>>
+75863>>>>>>>
+75863>>>>>>>        Function_Return iRetval
+75864>>>>>>>    End_Function // SerialNumber
+75865>>>>>>>
+75865>>>>>>>
+75865>>>>>>>
+75865>>>>>>>    //***
+75865>>>>>>>    //*** Function: MaxUsers
+75865>>>>>>>    //*** Purpose : Returns the Connectiivty Kit maximum number of users.
+75865>>>>>>>    //***
+75865>>>>>>>
+75865>>>>>>>    Function MaxUsers Returns Integer
+75867>>>>>>>        Local String  sDRiverId
+75867>>>>>>>        Local String  sVoid
+75867>>>>>>>        Local Integer iRetval
+75867>>>>>>>
+75867>>>>>>>        Get psDriverID To sDriverID
+75868>>>>>>>        If (sDRiverID <> "") Begin
+75870>>>>>>>            Call_Driver 0 sDRiverID Function CLI_GETMAXUSERS Callback 0 Passing sVoid sVoid 0 Result iRetval
+75875>>>>>>>        End
+75875>>>>>>>>
+75875>>>>>>>
+75875>>>>>>>        Function_Return iRetval
+75876>>>>>>>    End_Function // MaxUsers
+75877>>>>>>>
+75877>>>>>>>
+75877>>>>>>>
+75877>>>>>>>    //***
+75877>>>>>>>    //*** Procedure: DumpStatus
+75877>>>>>>>    //*** Purpose  : Dump the current status of the drver in the passed disk file.
+75877>>>>>>>    //***
+75877>>>>>>>
+75877>>>>>>>    Procedure DumpStatus String sFileName
+75879>>>>>>>        Local String  sVoid
+75879>>>>>>>        Local String  sDriverID
+75879>>>>>>>        Local Integer iVoid
+75879>>>>>>>
+75879>>>>>>>        Get psDriverID To sDriverID
+75880>>>>>>>        If (sDriverID <> "") ;            Call_driver 0 sDriverID Function CLI_DUMPSTATUS Callback 0 Passing sFileName sVoid iVoid Result iVoid
+75887>>>>>>>    End_Procedure // DumpStatus
+75888>>>>>>>
+75888>>>>>>>
+75888>>>>>>>
+75888>>>>>>>    //***
+75888>>>>>>>    //*** Procedure: ReadConfiguration
+75888>>>>>>>    //*** Purpose  : Reset all driver level configurable attributes to the
+75888>>>>>>>    //***            default value and then reread the configuration.
+75888>>>>>>>    //***
+75888>>>>>>>
+75888>>>>>>>    Procedure ReadConfiguration
+75890>>>>>>>        Local String  sVoid
+75890>>>>>>>        Local String  sDriverID
+75890>>>>>>>        Local Integer iVoid
+75890>>>>>>>
+75890>>>>>>>        Get psDriverID To sDriverID
+75891>>>>>>>        If (sDriverID <> "") ;            Call_driver 0 sDriverID Function CLI_READCONFIGURATION Callback 0 Passing sVoid sVoid iVoid Result iVoid
+75898>>>>>>>    End_Procedure // ReadConfiguration
+75899>>>>>>>
+75899>>>>>>>
+75899>>>>>>>
+75899>>>>>>>    //***
+75899>>>>>>>    //*** Function: TextToRIMValue
+75899>>>>>>>    //*** Purpose : Convert a text to the corresponding
+75899>>>>>>>    //***           Generate_Record_ID_Method attribute value
+75899>>>>>>>    //***
+75899>>>>>>>
+75899>>>>>>>    Function TextToRIMValue String sText Returns Integer
+75901>>>>>>>        If (sText = "None") ;            Function_return RIM_NONE
+75904>>>>>>>        Else If (sText = "Identity Column") ;            Function_return RIM_IDENTITY_COLUMN
+75908>>>>>>>        Else If (sText = "Dispenser Table") ;            Function_return RIM_DISPENSER_TABLE
+75912>>>>>>>        Else If (sText = "External") ;            Function_return RIM_EXTERNAL
+75916>>>>>>>    End_Function // TextToRIMValue
+75917>>>>>>>
+75917>>>>>>>
+75917>>>>>>>
+75917>>>>>>>    //***
+75917>>>>>>>    //*** Function: RIMValueTotext
+75917>>>>>>>    //*** Purpose : Convert a Generate_Record_ID_Method attribute value to the
+75917>>>>>>>    //***           corresponding text.
+75917>>>>>>>    //***
+75917>>>>>>>
+75917>>>>>>>    Function RIMValueToText Integer iAttrValue Returns String
+75919>>>>>>>        If (iAttrValue = RIM_NONE) ;            Function_return "None"
+75922>>>>>>>        Else If (iAttrValue = RIM_IDENTITY_COLUMN) ;            Function_return "Identity Column"
+75926>>>>>>>        Else If (iAttrValue = RIM_DISPENSER_TABLE) ;            Function_return "Dispenser Table"
+75930>>>>>>>        Else If (iAttrValue = RIM_EXTERNAL) ;            Function_return "External"
+75934>>>>>>>    End_Function // RIMValueToText
+75935>>>>>>>
+75935>>>>>>>
+75935>>>>>>>
+75935>>>>>>>    //***
+75935>>>>>>>    //*** Function: TextToROValue
+75935>>>>>>>    //*** Purpose : Convert a text to the corresponding
+75935>>>>>>>    //***           Generate_Record_ID_Method attribute value
+75935>>>>>>>    //***
+75935>>>>>>>
+75935>>>>>>>    Function TextToROValue String sText Returns Integer
+75937>>>>>>>        If (sText = "No") ;            Function_return RO_NO
+75940>>>>>>>        Else If (sText = "Ignore Change") ;            Function_return RO_IGNORECHANGE
+75944>>>>>>>        Else If (sText = "Accept Change") ;            Function_return RO_ACCEPTCHANGE
+75948>>>>>>>        Else If (sText = "Error On Change") ;            Function_return RO_ERRORONCHANGE
+75952>>>>>>>    End_Function // TextToRIMValue
+75953>>>>>>>
+75953>>>>>>>
+75953>>>>>>>
+75953>>>>>>>    //***
+75953>>>>>>>    //*** Function: ROValueTotext
+75953>>>>>>>    //*** Purpose : Convert a Generate_Record_ID_Method attribute value to the
+75953>>>>>>>    //***           corresponding text.
+75953>>>>>>>    //***
+75953>>>>>>>
+75953>>>>>>>    Function ROValueToText Integer iAttrValue Returns String
+75955>>>>>>>        If (iAttrValue = RO_NO) ;            Function_return "No"
+75958>>>>>>>        Else If (iAttrValue = RO_IGNORECHANGE) ;            Function_return "Ignore Change"
+75962>>>>>>>        Else If (iAttrValue = RO_ACCEPTCHANGE) ;            Function_return "Accept Change"
+75966>>>>>>>        Else If (iAttrValue = RO_ERRORONCHANGE) ;            Function_return "Error On Change"
+75970>>>>>>>    End_Function // RIMValueToText
+75971>>>>>>>
+75971>>>>>>>
+75971>>>>>>>
+75971>>>>>>>    //***
+75971>>>>>>>    //*** Function: LastDriverError
+75971>>>>>>>    //*** Purpose : Return the text f the last error geneated by the driver.
+75971>>>>>>>    //***
+75971>>>>>>>
+75971>>>>>>>    Function LastDriverError Returns String
+75973>>>>>>>        Local String  sDriverID
+75973>>>>>>>        Local String  sLastError
+75973>>>>>>>        Local String  sLastErrorLength
+75973>>>>>>>        Local Integer iLastErrorLength
+75973>>>>>>>        Local Integer iVoid
+75973>>>>>>>
+75973>>>>>>>        //*** Initialize
+75973>>>>>>>        Move "" To sLastError
+75974>>>>>>>
+75974>>>>>>>        Get psDriverID To sDriverID
+75975>>>>>>>        If (sDriverID <> "") Begin
+75977>>>>>>>            //*** Get the text of the last error
+75977>>>>>>>            Move (Repeat(Character(" "), 14)) To sLastErrorlength
+75978>>>>>>>            Call_driver 0 sDriverID Function CLI_GETDRIVERATTRIBUTE Callback 0 Passing sLastErrorLength iVoid DRVR_LASTERRORTEXTLENGTH Result iVoid
+75983>>>>>>>            Move (Left(sLastErrorLength, Pos(Character(0), sLastErrorLength) - 1)) To iLastErrorLength
+75984>>>>>>>
+75984>>>>>>>            If (iLastErrorLength > 0) Begin
+75986>>>>>>>                Move (Repeat(Character(" "), iLastErrorLength + 1)) To sLastError
+75987>>>>>>>                Call_driver 0 sDriverID Function CLI_GETDRIVERATTRIBUTE Callback 0 Passing sLastError iVoid DRVR_LASTERRORTEXT Result iVoid
+75992>>>>>>>                Move (Left(sLastError, Pos(Character(0), sLastError) - 1)) To sLastError
+75993>>>>>>>            End
+75993>>>>>>>>
+75993>>>>>>>        End
+75993>>>>>>>>
+75993>>>>>>>
+75993>>>>>>>        Function_Return sLastError
+75994>>>>>>>    End_Function // LastDriverError
+75995>>>>>>>
+75995>>>>>>>
+75995>>>>>>>
+75995>>>>>>>    //***
+75995>>>>>>>    //*** Function: EnumerateTables
+75995>>>>>>>    //*** Purpose : Enumerate the tables in a database
+75995>>>>>>>    //***
+75995>>>>>>>
+75995>>>>>>>    Function EnumerateTables String sLogin Returns Integer
+75997>>>>>>>        Local String  sDriver
+75997>>>>>>>        Local String  sVoid
+75997>>>>>>>        Local Integer iNumTables
+75997>>>>>>>        Local Integer iVoid
+75997>>>>>>>
+75997>>>>>>>        Get psDriverID To sDriver
+75998>>>>>>>        If (sDriver <> "") ;            Call_driver 0 sDriver Function CLI_ENUMERATE_TABLES Callback 0 Passing sLogin sVoid iVoid Result iNumTables
+76005>>>>>>>
+76005>>>>>>>        Function_Return iNumTables
+76006>>>>>>>    End_Function // EnumerateTables
+76007>>>>>>>
+76007>>>>>>>
+76007>>>>>>>
+76007>>>>>>>    //***
+76007>>>>>>>    //*** Function: TableName
+76007>>>>>>>    //*** Purpose : Returns the name of the table enumerated at the given position
+76007>>>>>>>    //***
+76007>>>>>>>
+76007>>>>>>>    Function TableName Integer iIndex Returns String
+76009>>>>>>>        Local String  sDriver
+76009>>>>>>>        Local String  sTableName
+76009>>>>>>>        Local String  sVoid
+76009>>>>>>>        Local Integer iVoid
+76009>>>>>>>
+76009>>>>>>>        Get psDriverID To sDriver
+76010>>>>>>>        If (sDriver <> "") Begin
+76012>>>>>>>            Move (Repeat(" ", 255)) To sTableName
+76013>>>>>>>            Call_driver 0 sDriver Function CLI_TABLENAME Callback 0 Passing sTableName sVoid iIndex Result iVoid
+76018>>>>>>>        End
+76018>>>>>>>>
+76018>>>>>>>
+76018>>>>>>>        Function_Return sTableName
+76019>>>>>>>    End_Function // TableName
+76020>>>>>>>
+76020>>>>>>>
+76020>>>>>>>
+76020>>>>>>>    //***
+76020>>>>>>>    //*** Function: SchemaName
+76020>>>>>>>    //*** Purpose : Returns the name of the schema of the table enumerated at the given position
+76020>>>>>>>    //***
+76020>>>>>>>
+76020>>>>>>>    Function SchemaName Integer iIndex Returns String
+76022>>>>>>>        Local String  sDriver
+76022>>>>>>>        Local String  sSchemaName
+76022>>>>>>>        Local String  sVoid
+76022>>>>>>>        Local Integer iVoid
+76022>>>>>>>
+76022>>>>>>>        Get psDriverID To sDriver
+76023>>>>>>>        If (sDriver <> "") Begin
+76025>>>>>>>            Move (Repeat(" ", 255)) To sSchemaName
+76026>>>>>>>            Call_driver 0 sDriver Function CLI_TABLESCHEMA Callback 0 Passing sSchemaName sVoid iIndex Result iVoid
+76031>>>>>>>        End
+76031>>>>>>>>
+76031>>>>>>>
+76031>>>>>>>        Function_Return sSchemaName
+76032>>>>>>>    End_Function // SchemaName
+76033>>>>>>>
+76033>>>>>>>
+76033>>>>>>>
+76033>>>>>>>    //***
+76033>>>>>>>    //*** Function: TableType
+76033>>>>>>>    //*** Purpose : Returns the type of the table enumerated at the given position.
+76033>>>>>>>    //***           Types can be "TABLE", "VIEW", "SYSTEM TABLE", "GLOBAL TEMPORARY",
+76033>>>>>>>    //***           "LOCAL TEMPORARY", "ALIAS", "SYNONYM"
+76033>>>>>>>    //***
+76033>>>>>>>
+76033>>>>>>>    Function TableType Integer iIndex Returns String
+76035>>>>>>>        Local String  sDriver
+76035>>>>>>>        Local String  sTableType
+76035>>>>>>>        Local String  sVoid
+76035>>>>>>>        Local Integer iVoid
+76035>>>>>>>
+76035>>>>>>>        Get psDriverID To sDriver
+76036>>>>>>>        If (sDriver <> "") Begin
+76038>>>>>>>            Move (Repeat(" ", 25)) To sTableType
+76039>>>>>>>            Call_driver 0 sDriver Function CLI_TABLETYPE Callback 0 Passing sTableType sVoid iIndex Result iVoid
+76044>>>>>>>        End
+76044>>>>>>>>
+76044>>>>>>>
+76044>>>>>>>        Function_Return sTableType
+76045>>>>>>>    End_Function // TableType
+76046>>>>>>>
+76046>>>>>>>
+76046>>>>>>>
+76046>>>>>>>    //***
+76046>>>>>>>    //*** Function: TableComment
+76046>>>>>>>    //*** Purpose : Returns the comment of the table enumerated at the given position
+76046>>>>>>>    //***
+76046>>>>>>>
+76046>>>>>>>    Function TableComment Integer iIndex Returns String
+76048>>>>>>>        Local String  sDriver
+76048>>>>>>>        Local String  sTableComment
+76048>>>>>>>        Local String  sVoid
+76048>>>>>>>        Local Integer iVoid
+76048>>>>>>>
+76048>>>>>>>        Get psDriverID To sDriver
+76049>>>>>>>        If (sDriver <> "") Begin
+76051>>>>>>>            Move (Repeat(" ", 255)) To sTableComment
+76052>>>>>>>            Call_driver 0 sDriver Function CLI_TABLECOMMENT Callback 0 Passing sTableComment sVoid iIndex Result iVoid
+76057>>>>>>>        End
+76057>>>>>>>>
+76057>>>>>>>
+76057>>>>>>>        Function_Return sTableComment
+76058>>>>>>>    End_Function // TableComment
+76059>>>>>>>
+76059>>>>>>>
+76059>>>>>>>
+76059>>>>>>>    //***
+76059>>>>>>>    //*** Function: EnumerateColumns
+76059>>>>>>>    //*** Purpose : Enumerate the columns in a table
+76059>>>>>>>    //***
+76059>>>>>>>
+76059>>>>>>>    Function EnumerateColumns String sLogin String sTableName Returns Integer
+76061>>>>>>>        Local String  sDriver
+76061>>>>>>>        Local Integer iNumColumns
+76061>>>>>>>        Local Integer iVoid
+76061>>>>>>>
+76061>>>>>>>        Get psDriverID To sDriver
+76062>>>>>>>        If (sDriver <> "") ;            Call_driver 0 sDriver Function CLI_ENUMERATE_COLUMNS Callback 0 Passing sLogin sTablename iVoid Result iNumColumns
+76069>>>>>>>
+76069>>>>>>>        Function_Return iNumColumns
+76070>>>>>>>    End_Function // EnumerateColumns
+76071>>>>>>>
+76071>>>>>>>
+76071>>>>>>>
+76071>>>>>>>    //***
+76071>>>>>>>    //*** Function: ColumnName
+76071>>>>>>>    //*** Purpose : Returns the name of the column enumerated at the given position
+76071>>>>>>>    //***
+76071>>>>>>>
+76071>>>>>>>    Function ColumnName Integer iIndex Returns String
+76073>>>>>>>        Local String  sDriver
+76073>>>>>>>        Local String  sColumnName
+76073>>>>>>>        Local String  sVoid
+76073>>>>>>>        Local Integer iVoid
+76073>>>>>>>
+76073>>>>>>>        Get psDriverID To sDriver
+76074>>>>>>>        If (sDriver <> "") Begin
+76076>>>>>>>            Move (Repeat(" ", 255)) To sColumnName
+76077>>>>>>>            Call_driver 0 sDriver Function CLI_COLUMNNAME Callback 0 Passing sColumnName sVoid iIndex Result iVoid
+76082>>>>>>>        End
+76082>>>>>>>>
+76082>>>>>>>
+76082>>>>>>>        Function_Return sColumnName
+76083>>>>>>>    End_Function // ColumnName
+76084>>>>>>>
+76084>>>>>>>
+76084>>>>>>>
+76084>>>>>>>    //***
+76084>>>>>>>    //*** Function: CLIDFDateToSQLDate
+76084>>>>>>>    //*** Purpose : Convert a DataFlex date to a SQL date using the dummy zero date value.
+76084>>>>>>>    //***
+76084>>>>>>>
+76084>>>>>>>    Function CLIDFDateToSQLDate String sDRiver Date dDFDate Returns String
+76086>>>>>>>        Local String sSQLDate
+76086>>>>>>>        Local Integer iOrgDateFmt
+76086>>>>>>>        Local Integer iOrgDateSep
+76086>>>>>>>
+76086>>>>>>>        //*** Change date format to military, SQL dates are military dates
+76086>>>>>>>        Get_Attribute DF_DATE_FORMAT To iOrgDateFmt
+76089>>>>>>>        Get_Attribute DF_DATE_SEPARATOR To iOrgDateSep
+76092>>>>>>>        Set_Attribute DF_DATE_FORMAT To DF_DATE_MILITARY
+76095>>>>>>>        Set_Attribute DF_DATE_SEPARATOR To (Ascii('-'))
+76098>>>>>>>
+76098>>>>>>>        //*** We only need to convert if the date is 0
+76098>>>>>>>        If (Integer(dDFDate = 0)) ;            CLI_Get_Driver_Attribute sDRiver DRVR_DUMMY_ZERO_DATE_VALUE To sSQLDate
+76107>>>>>>>        Else ;            Move dDFDate To sSQLDate
+76109>>>>>>>
+76109>>>>>>>        //*** Change date format back to original
+76109>>>>>>>        Set_Attribute DF_DATE_FORMAT To iOrgDateFmt
+76112>>>>>>>        Set_Attribute DF_DATE_SEPARATOR To iOrgDateSep
+76115>>>>>>>
+76115>>>>>>>        Function_Return sSQLDate
+76116>>>>>>>    End_Function // CLIDFDateToSQLDate
+76117>>>>>>>
+76117>>>>>>>
+76117>>>>>>>
+76117>>>>>>>    //***
+76117>>>>>>>    //*** Function: CLISQLDateToDFDate
+76117>>>>>>>    //*** Purpose : Convert a SQL date to a DataFlex date using the dummy zero date value.
+76117>>>>>>>    //***
+76117>>>>>>>
+76117>>>>>>>    Function CLISQLDateToDFDate String sDRiver String sSQLDate Returns Date
+76119>>>>>>>        Local Date dDFDate
+76119>>>>>>>        Local String sDummyDateValue
+76119>>>>>>>        Local Integer iOrgDateFmt
+76119>>>>>>>        Local Integer iOrgDateSep
+76119>>>>>>>
+76119>>>>>>>        //*** Change date format to military, SQL dates are military dates
+76119>>>>>>>        Get_Attribute DF_DATE_FORMAT To iOrgDateFmt
+76122>>>>>>>        Get_Attribute DF_DATE_SEPARATOR To iOrgDateSep
+76125>>>>>>>        Set_Attribute DF_DATE_FORMAT To DF_DATE_MILITARY
+76128>>>>>>>        Set_Attribute DF_DATE_SEPARATOR To (Ascii('-'))
+76131>>>>>>>
+76131>>>>>>>        //*** We only need to convert if the date is the dummy zero date value
+76131>>>>>>>        CLI_Get_Driver_Attribute sDRiver DRVR_DUMMY_ZERO_DATE_VALUE To sDummyDateValue
+76138>>>>>>>        If (sDummyDateValue = sSQLDate) ;            Move 0 To dDFDate
+76141>>>>>>>        Else ;            Move sSQLDate To dDFDate
+76143>>>>>>>
+76143>>>>>>>        //*** Change date format back to original
+76143>>>>>>>        Set_Attribute DF_DATE_FORMAT To iOrgDateFmt
+76146>>>>>>>        Set_Attribute DF_DATE_SEPARATOR To iOrgDateSep
+76149>>>>>>>
+76149>>>>>>>        Function_Return dDFDate
+76150>>>>>>>    End_Function // CLISQLDateToDFDate
+76151>>>>>>>
+76151>>>>>>>
+76151>>>>>>>
+76151>>>>>>>    //***
+76151>>>>>>>    //*** Function: RedirectConnection
+76151>>>>>>>    //*** Purpose : Redirect an exisitng connection. The existing connection
+76151>>>>>>>    //***           will point to another database but all tables will stay
+76151>>>>>>>    //***           open!
+76151>>>>>>>    //***
+76151>>>>>>>
+76151>>>>>>>    Function RedirectConnection String sOldConnection String sNewConnection Returns Integer
+76153>>>>>>>        Local String  sDriver
+76153>>>>>>>        Local String  sVoid
+76153>>>>>>>        Local Integer iResult
+76153>>>>>>>        Local Integer iVoid
+76153>>>>>>>
+76153>>>>>>>        Get psDriverID To sDriver
+76154>>>>>>>        If (sDriver <> "") Begin
+76156>>>>>>>            Call_driver 0 sDriver Function CLI_REDIRECTCONNECTION Callback 0 Passing sOldConnection sNewConnection iVoid Result iResult
+76161>>>>>>>        End
+76161>>>>>>>>
+76161>>>>>>>        Function_Return iResult
+76162>>>>>>>    End_Function // RedirectConnect
+76163>>>>>>>
+76163>>>>>>>
+76163>>>>>>>
+76163>>>>>>>    //***
+76163>>>>>>>    //*** Function: CreateConnectionID
+76163>>>>>>>    //*** Purpose : Create a DataFlex side connection id that can be used later on.
+76163>>>>>>>    //***
+76163>>>>>>>
+76163>>>>>>>    Function CreateConnectionID String sID String sConnStr Integer iOpt Returns Integer
+76165>>>>>>>        Local String  sDriver
+76165>>>>>>>        Local Integer iResult
+76165>>>>>>>        Local Integer iOptions
+76165>>>>>>>
+76165>>>>>>>        Get psDriverID to sDriver
+76166>>>>>>>        If (Num_Arguments = 2) ;            Move 0 to iOptions
+76169>>>>>>>        Else ;            Move iOpt to iOptions
+76171>>>>>>>        If (sDriver <> "") Begin
+76173>>>>>>>            Call_Driver 0 sDriver Function CLI_CREATECONNECTIONID Callback 0 Passing sID sConnStr iOptions Result iResult
+76178>>>>>>>        End
+76178>>>>>>>>
+76178>>>>>>>        Function_Return iResult
+76179>>>>>>>    End_Function // CreateConnectionID
+76180>>>>>>>
+76180>>>>>>>
+76180>>>>>>>
+76180>>>>>>>    //***
+76180>>>>>>>    //*** Function: DeleteConnectionID
+76180>>>>>>>    //*** Purpose : Delete a DataFlex side connection id.
+76180>>>>>>>    //***
+76180>>>>>>>
+76180>>>>>>>    Function DeleteConnectionID String sID Integer iIndex Returns Integer
+76182>>>>>>>        Local String  sDriver
+76182>>>>>>>        Local Integer iResult
+76182>>>>>>>        Local String sVoid
+76182>>>>>>>
+76182>>>>>>>        Get psDriverID To sDriver
+76183>>>>>>>        If (sDriver <> "") Begin
+76185>>>>>>>            Call_Driver 0 sDriver Function CLI_DELETECONNECTIONID Callback 0 Passing sID sVoid iIndex Result iResult
+76190>>>>>>>        End
+76190>>>>>>>>
+76190>>>>>>>        Function_Return iResult
+76191>>>>>>>    End_Function // DeleteConnectionID
+76192>>>>>>>
+76192>>>>>>>End_Class // cCLIHandler
+76193>>>>>Use DFBTRDRV.PKG
+Including file: DFBTRDRV.PKG    (C:\Program Files (x86)\DataFlex 18.1\Pkg\DFBTRDRV.PKG)
+76193>>>>>>>//****************************************************************************
+76193>>>>>>>//
+76193>>>>>>>// $File name  : DFBTRDRV.PKG
+76193>>>>>>>// $File title : Package for the DataFlex Connectivity Kit for Pervasive.SQL
+76193>>>>>>>// Notice      : This package contains constants and commands, used to call
+76193>>>>>>>//               specific functions in the DFBTRDRV.
+76193>>>>>>>// $Author(s)  : Eddy Kleinjan
+76193>>>>>>>//
+76193>>>>>>>// $System     : DataFlex Connectivity Kit for Pervasive.SQL
+76193>>>>>>>// Created     : 01-07-97 @ 12:00:00
+76193>>>>>>>//
+76193>>>>>>>// Changed     : 04-04-2001.
+76193>>>>>>>//               DataFlex Connectity Kit for Pervasive.SQL version 1.3.0.145
+76193>>>>>>>//
+76193>>>>>>>// Changed     : June 6, 2001
+76193>>>>>>>//               DataFlex Connectity Kit for Pervasive.SQL version 1.3.0.148
+76193>>>>>>>//
+76193>>>>>>>//               Added DFBTR_DDF_OWNER command.
+76193>>>>>>>//
+76193>>>>>>>// Changed     : June 12, 2001
+76193>>>>>>>//               DataFlex Connectity Kit for Pervasive.SQL version 1.3.0.149
+76193>>>>>>>//
+76193>>>>>>>//               Added DF_FIELD_IS_NULL and DF_FIELD_NULL_ALLOWED attributes
+76193>>>>>>>//
+76193>>>>>>>// Changed     : August 4, 2004
+76193>>>>>>>//               DataFlex Connectity Kit for Pervasive.SQL version 3.0.0.1
+76193>>>>>>>//
+76193>>>>>>>//               Added cDfbtrdrvHandler class.
+76193>>>>>>>//               New functions in this class:
+76193>>>>>>>//                  Function CKRevision Returns String
+76193>>>>>>>//                  Function CkUsesUri Returns Integer
+76193>>>>>>>//                  Function PSQLRequesterVersionInfo Integer iFileNum Returns String
+76193>>>>>>>//                  Function PSQLLocalEngineVersionInfo Integer iFileNum Returns String
+76193>>>>>>>//                  Function PSQLServerEngineVersionInfo Integer iFileNum Returns String
+76193>>>>>>>//
+76193>>>>>>>// Changed     : September 30, 2005
+76193>>>>>>>//               DataFlex Connectity Kit for Pervasive.SQL version 3.0.0.14
+76193>>>>>>>//
+76193>>>>>>>//               Bugfix: Prevent compiler errors when no (df)error.pkg is used
+76193>>>>>>>//****************************************************************************
+76193>>>>>>>Use Ui
+76193>>>>>>>//
+76193>>>>>>>// Driver Indentification
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>//*** Driver attributes
+76193>>>>>>>//
+76193>>>>>>>// Call_Driver functions ID's
+76193>>>>>>>//
+76193>>>>>>>//
+76193>>>>>>>// DFBTRFN_CONVERT_FILE options
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// DFBTRFN_SET_OWNER options
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// DFBTRFN_SET_TRANSACTION_TYPE options
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to create all vars which may be needed
+76193>>>>>>>// in other commands.
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to set the owner of a Btrieve file.
+76193>>>>>>>// File must have been opened.
+76193>>>>>>>// Filenumber needs to be passed.
+76193>>>>>>>// To clear set the owner to "".
+76193>>>>>>>// Examples:
+76193>>>>>>>//      DFBTR_SET_OWNER MyFileNumber to "Secret"
+76193>>>>>>>//      DFBTR_SET_OWNER MyFileNumber to "Secret" READONLY CALLBACK MyCallBack
+76193>>>>>>>//      DFBTR_SET_OWNER MyFileNumber to "Secret" ENCRYPT
+76193>>>>>>>//      DFBTR_SET_OWNER MyFileNumber to "Secret" READONLY ENCRYPT CALLBACK MyCallBack
+76193>>>>>>>// To clear:
+76193>>>>>>>//      DFBTR_SET_OWNER MyFileNumber to ""
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to parse DFBTR_SET_OWNVER
+76193>>>>>>>// options.
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to parse for Callback
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to clear the owner of a Btrieve file.
+76193>>>>>>>// File must have been opened.
+76193>>>>>>>// Filenumber needs to be passed.
+76193>>>>>>>// Examples:
+76193>>>>>>>//      DFBTR_CLEAR_OWNER MyFileNumber
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to add a owner name to the internal list of ownernames
+76193>>>>>>>// which will be tries when opening files.
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to remove all owners from the internal list of ownernames
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to set the owner name to be used when opening the DDF files.
+76193>>>>>>>// The DDF owner is required when Pervasive.SQL security is turned on.
+76193>>>>>>>// The DDF owner is equal to the password of the Master user in Pervasive.SQL
+76193>>>>>>>// This command overwrites the DDF_OWNER setting in DFBTRDRV.INT
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to change the transaction type.
+76193>>>>>>>// Valid types are:
+76193>>>>>>>//     DFBTRTT_NONE
+76193>>>>>>>//     DFBTRTT_EXCLUSIVE
+76193>>>>>>>//     DFBTRTT_CONCURRENT
+76193>>>>>>>//
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to get the current transaction type.
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to set explicit_locking
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to get explicit locking
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to set detection for incompatible positive signs in numeric fields
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>//
+76193>>>>>>>// Command to get detection for incompatible positive signs in numeric fields
+76193>>>>>>>//
+76193>>>>>>>
+76193>>>>>>>//*****************************************************************************
+76193>>>>>>>//*** Class  : cDfbtrdrvHandler                                                  ***
+76193>>>>>>>//*** Purpose: An instance of this class can be used as a broker object to  ***
+76193>>>>>>>//***          call several Dfbtrdrv releated methods.                           ***
+76193>>>>>>>//*****************************************************************************
+76193>>>>>>>
+76193>>>>>>>Class cDFBtrDrvHandler Is An Array
+76194>>>>>>>
+76194>>>>>>>    Procedure Construct_Object Integer iImage
+76196>>>>>>>        Forward Send Construct_object iImage
+76198>>>>>>>
+76198>>>>>>>        Property String  psDriverID       Public "DFBTRDRV"
+76199>>>>>>>    End_Procedure // Construct_Object
+76200>>>>>>>
+76200>>>>>>>
+76200>>>>>>>
+76200>>>>>>>    //***
+76200>>>>>>>    //*** Function: CKRevsion
+76200>>>>>>>    //*** Purpose : The revsion of a Dfbtrdrv Connectivity Kit
+76200>>>>>>>    //***
+76200>>>>>>>
+76200>>>>>>>    Function CKRevision Returns String
+76202>>>>>>>        Local String  sDriverID
+76202>>>>>>>        Local String  sRevision
+76202>>>>>>>        Local String  sVoid
+76202>>>>>>>        Local Integer iRetval
+76202>>>>>>>
+76202>>>>>>>        // Ignore error 20491 DFBTRERR_INVALID_DRIVER_FUNCTION_CALL.
+76202>>>>>>>        // This error would otherwise be raised when we have an older
+76202>>>>>>>        // DFBTRDRV version that has no DFBTRFN_CKREVISION function
+76202>>>>>>>        Send Ignore_error To Error_object_Id 20491
+76203>>>>>>>        Get psDriverID To sDriverID
+76204>>>>>>>        Move (Repeat(" ", 255)) To sRevision
+76205>>>>>>>        Call_Driver 0 sDRiverID Function DFBTRFN_CKREVISION Callback 0 Passing sRevision sVoid 0 Result iRetval
+76210>>>>>>>        Send Trap_Error To Error_object_Id 20491
+76211>>>>>>>        If (Trim(sRevision) = "") Begin
+76213>>>>>>>            // Unable to get the revision. return all zeroes.
+76213>>>>>>>            Move "0.0.0.0" To sRevision
+76214>>>>>>>        End
+76214>>>>>>>>
+76214>>>>>>>        Function_Return sRevision
+76215>>>>>>>    End_Function // CKRevision
+76216>>>>>>>
+76216>>>>>>>    Function CkUsesUri Returns Integer
+76218>>>>>>>        Local String  sDriverID
+76218>>>>>>>        Local String  sVoid1
+76218>>>>>>>        Local String  sVoid2
+76218>>>>>>>        Local Integer iRetval
+76218>>>>>>>
+76218>>>>>>>        Get psDriverID To sDriverID
+76219>>>>>>>
+76219>>>>>>>        Move 0 To iRetval
+76220>>>>>>>        // Ignore error 20491 DFBTRERR_INVALID_DRIVER_FUNCTION_CALL.
+76220>>>>>>>        // This error would otherwise be raised when we have an older
+76220>>>>>>>        // DFBTRDRV version that has no DFBTRFN_CKUSESURI function
+76220>>>>>>>        Send Ignore_error To Error_object_Id 20491
+76221>>>>>>>        Call_Driver 0 sDRiverID Function DFBTRFN_CKUSESURI Callback 0 Passing sVoid1 sVoid2 0 Result iRetval
+76226>>>>>>>        Send Trap_Error To Error_object_Id 20491
+76227>>>>>>>
+76227>>>>>>>        Function_Return iRetval
+76228>>>>>>>    End_Function // CKUsesUri
+76229>>>>>>>
+76229>>>>>>>
+76229>>>>>>>
+76229>>>>>>>    //***
+76229>>>>>>>    //*** Function: ExtractPartFromRevsion
+76229>>>>>>>    //*** Purpose : Extarct the Nth part of a a.b.c.d revsion string.
+76229>>>>>>>    //***
+76229>>>>>>>    //*** Returns : The part version number or -1 if there is no such part number.
+76229>>>>>>>    //***
+76229>>>>>>>
+76229>>>>>>>    Function ExtractPartFromRevision Integer iPartNum String sRevision Returns Integer
+76231>>>>>>>        Local Integer iPartRev
+76231>>>>>>>        Local Integer iCurrentPart
+76231>>>>>>>        Local Integer iSeparatorPos
+76231>>>>>>>
+76231>>>>>>>        If (iPartNum > 4) ;            Function_Return -1
+76234>>>>>>>
+76234>>>>>>>        Move 0 To iCurrentPart
+76235>>>>>>>        Repeat
+76235>>>>>>>>
+76235>>>>>>>            Move (Pos(".", sRevision)) To iSeparatorPos
+76236>>>>>>>            If (iSeparatorPos > 0) Begin
+76238>>>>>>>                Move (Left(sRevision, iSeparatorPos - 1)) To iPartRev
+76239>>>>>>>                Move (Right(sRevision, Length(sRevision) - iSeparatorPos)) To sRevision
+76240>>>>>>>                Increment iCurrentPart
+76241>>>>>>>            End
+76241>>>>>>>>
+76241>>>>>>>            Else If (sRevision <> "") Begin
+76244>>>>>>>                Move sRevision To iPartRev
+76245>>>>>>>                Move "" To sRevision
+76246>>>>>>>                Increment iCurrentPart
+76247>>>>>>>            End
+76247>>>>>>>>
+76247>>>>>>>            Else ;                Move -1 To iPartRev
+76249>>>>>>>        Until (iCurrentPart >= iPartNum Or iPartRev = -1)
+76251>>>>>>>
+76251>>>>>>>        Function_Return iPartRev
+76252>>>>>>>    End_Function // EcxtractPartFromRevision
+76253>>>>>>>
+76253>>>>>>>
+76253>>>>>>>
+76253>>>>>>>    //***
+76253>>>>>>>    //*** Function: CKMajorRevision
+76253>>>>>>>    //*** Purpose : Returns the major revision of the CK
+76253>>>>>>>    //***
+76253>>>>>>>
+76253>>>>>>>    Function CKMajorRevision Returns Integer
+76255>>>>>>>        Function_Return (ExtractPartFromRevision (Current_Object, 1, CKRevision(Current_Object)))
+76256>>>>>>>    End_Function // CKMajorRevision
+76257>>>>>>>
+76257>>>>>>>
+76257>>>>>>>
+76257>>>>>>>    //***
+76257>>>>>>>    //*** Function: CKMinorRevision
+76257>>>>>>>    //*** Purpose : Returns the minor revision of the CK
+76257>>>>>>>    //***
+76257>>>>>>>
+76257>>>>>>>    Function CKMinorRevision Returns Integer
+76259>>>>>>>        Function_Return (ExtractPartFromRevision (Current_Object, 2, CKRevision(Current_Object)))
+76260>>>>>>>    End_Function // CKMinorRevision
+76261>>>>>>>
+76261>>>>>>>
+76261>>>>>>>
+76261>>>>>>>    //***
+76261>>>>>>>    //*** Function: CKReleaseRevision
+76261>>>>>>>    //*** Purpose : Returns the release revision of the CK
+76261>>>>>>>    //***
+76261>>>>>>>
+76261>>>>>>>    Function CKReleaseRevision Returns Integer
+76263>>>>>>>        Function_Return (ExtractPartFromRevision (Current_Object, 3, CKRevision(Current_Object)))
+76264>>>>>>>    End_Function // CKReleaseRevision
+76265>>>>>>>
+76265>>>>>>>
+76265>>>>>>>
+76265>>>>>>>    //***
+76265>>>>>>>    //*** Function: CKBuildRevision
+76265>>>>>>>    //*** Purpose : Returns the major revision of the CK
+76265>>>>>>>    //***
+76265>>>>>>>
+76265>>>>>>>    Function CKBuildRevision Returns Integer
+76267>>>>>>>        Function_Return (ExtractPartFromRevision (Current_Object, 4, CKRevision(Current_Object)))
+76268>>>>>>>    End_Function // CKBuildRevision
+76269>>>>>>>
+76269>>>>>>>
+76269>>>>>>>
+76269>>>>>>>    //***
+76269>>>>>>>    //*** Function: IsMinimalRevision
+76269>>>>>>>    //*** Purpose : Determines if the CK conforms to a passed minimal revsion.
+76269>>>>>>>    //***
+76269>>>>>>>
+76269>>>>>>>    Function IsMinimalRevision Integer iMajor Integer iMinor Integer iRelease Integer iBuild Returns Integer
+76271>>>>>>>        If (iMajor < CKMajorRevision(Current_object)) ;            Function_return (TRUE)
+76274>>>>>>>        Else If (iMajor = CKMajorRevision(Current_object)) Begin
+76277>>>>>>>            If (iMinor < CKMinorRevision(Current_object)) ;                Function_return (TRUE)
+76280>>>>>>>            Else If (iMinor = CKMinorRevision(Current_object)) Begin
+76283>>>>>>>                If (iRelease < CKReleaseRevision(Current_object)) ;                    Function_return (TRUE)
+76286>>>>>>>                Else If (iRelease = CKReleaseRevision(Current_object) And iBuild <= CKBuildRevision(Current_object)) ;                    Function_return (TRUE)
+76290>>>>>>>            End
+76290>>>>>>>>
+76290>>>>>>>        End
+76290>>>>>>>>
+76290>>>>>>>
+76290>>>>>>>        Function_Return (FALSE)
+76291>>>>>>>    End_Function // IsMinimalRevision
+76292>>>>>>>
+76292>>>>>>>    //   Functions to query the Pervasive.SQL version:
+76292>>>>>>>    //       PSQLRequesterVersionInfo    Integer iFileNum Returns String
+76292>>>>>>>    //       PSQLLocalEngineVersionInfo  Integer iFileNum Returns String
+76292>>>>>>>    //       PSQLServerEngineVersionInfo Integer iFileNum Returns String
+76292>>>>>>>    //
+76292>>>>>>>    //   All 3 functions return the version of a Pervasive.SQL component
+76292>>>>>>>    //   in the following format:
+76292>>>>>>>    //       <version>.<revision>.<type>
+76292>>>>>>>    //   possible values for <type>:
+76292>>>>>>>    //       9 for 32-bit Windows workstation/workgroup engine or Linux
+76292>>>>>>>    //         server using Workgroup authentication mode
+76292>>>>>>>    //       C for client cache engine
+76292>>>>>>>    //       D for DOS workstation
+76292>>>>>>>    //       N for client Requester
+76292>>>>>>>    //       S for NetWare server
+76292>>>>>>>    //       T for 32-bit Windows server engine
+76292>>>>>>>    //       U for Linux server using PAM or BTPASSWD authentication
+76292>>>>>>>    //
+76292>>>>>>>    //   example:
+76292>>>>>>>    //       8.50.T
+76292>>>>>>>    //   will be returned for a Pervasive.SQL 8.5 Server Engine running on
+76292>>>>>>>    //   32-bits Windows server.
+76292>>>>>>>    //
+76292>>>>>>>    //   The FileNumber parameter must specify an opened table or 0.
+76292>>>>>>>    //   For PSQLServerEngineVersionInfo the FileNumber can not be 0.
+76292>>>>>>>    //
+76292>>>>>>>    //   If the version information is not available or can not be obtained
+76292>>>>>>>    //   the functions will return "0.0.0"
+76292>>>>>>>
+76292>>>>>>>
+76292>>>>>>>    //***
+76292>>>>>>>    //*** Function: PSQLRequesterVersionInfo
+76292>>>>>>>    //*** Purpose : Returns the version information of the
+76292>>>>>>>    //***           Pervasive.SQL Client requester.
+76292>>>>>>>
+76292>>>>>>>    Function PSQLRequesterVersionInfo Integer iFileNum Returns String
+76294>>>>>>>
+76294>>>>>>>        Local String  sDriverID
+76294>>>>>>>        Local String  sVersion
+76294>>>>>>>        Local String  sVoid
+76294>>>>>>>        Local Integer iRetval
+76294>>>>>>>
+76294>>>>>>>        // Ignore error 20491 DFBTRERR_INVALID_DRIVER_FUNCTION_CALL.
+76294>>>>>>>        // This error would otherwise be raised when we have an older
+76294>>>>>>>        // DFBTRDRV version that has no DFBTRFN_CKREVISION function
+76294>>>>>>>        Send Ignore_error To Error_object_Id 20491
+76295>>>>>>>        Get psDriverID To sDriverID
+76296>>>>>>>        Move (Repeat(" ", 255)) To sVersion
+76297>>>>>>>        Call_Driver iFileNum sDRiverID Function DFBTRFN_PSQLREQUESTERVERSIONINFO Callback 0 Passing sVersion sVoid 0 Result iRetval
+76302>>>>>>>        Send Trap_Error To Error_object_Id 20491
+76303>>>>>>>        If (Trim(sVersion) = "") Begin
+76305>>>>>>>            // Unable to get the revision. return all zeroes.
+76305>>>>>>>            Move "0.0.0" To sVersion
+76306>>>>>>>        End
+76306>>>>>>>>
+76306>>>>>>>        Function_Return sVersion
+76307>>>>>>>    End_Function //  PSQLRequesterVersion
+76308>>>>>>>
+76308>>>>>>>    //***
+76308>>>>>>>    //*** Function: PSQLLocalEngineVersionInfo
+76308>>>>>>>    //*** Purpose : Returns the version information of the
+76308>>>>>>>    //***           Pervasive.SQL Local Engine
+76308>>>>>>>
+76308>>>>>>>    Function PSQLLocalEngineVersionInfo Integer iFileNum Returns String
+76310>>>>>>>
+76310>>>>>>>        Local String  sDriverID
+76310>>>>>>>        Local String  sVersion
+76310>>>>>>>        Local String  sVoid
+76310>>>>>>>        Local Integer iRetval
+76310>>>>>>>
+76310>>>>>>>        // Ignore error 20491 DFBTRERR_INVALID_DRIVER_FUNCTION_CALL.
+76310>>>>>>>        // This error would otherwise be raised when we have an older
+76310>>>>>>>        // DFBTRDRV version that has no DFBTRFN_CKREVISION function
+76310>>>>>>>        Send Ignore_error To Error_object_Id 20491
+76311>>>>>>>        Get psDriverID To sDriverID
+76312>>>>>>>        Move (Repeat(" ", 255)) To sVersion
+76313>>>>>>>        Call_Driver iFileNum sDRiverID Function DFBTRFN_PSQLLOCALENGINEVERSIONINFO Callback 0 Passing sVersion sVoid 0 Result iRetval
+76318>>>>>>>        Send Trap_Error To Error_object_Id 20491
+76319>>>>>>>        If (Trim(sVersion) = "") Begin
+76321>>>>>>>            // Unable to get the revision. return all zeroes.
+76321>>>>>>>            Move "0.0.0" To sVersion
+76322>>>>>>>        End
+76322>>>>>>>>
+76322>>>>>>>        Function_Return sVersion
+76323>>>>>>>    End_Function //  PSQLLocalEngineVersion
+76324>>>>>>>
+76324>>>>>>>    //***
+76324>>>>>>>    //*** Function: PSQLServerEngineVersionInfo
+76324>>>>>>>    //*** Purpose : Returns the version information of the
+76324>>>>>>>    //***           Pervasive.SQL Server Engine
+76324>>>>>>>
+76324>>>>>>>    Function PSQLServerEngineVersionInfo Integer iFileNum Returns String
+76326>>>>>>>
+76326>>>>>>>        Local String  sDriverID
+76326>>>>>>>        Local String  sVersion
+76326>>>>>>>        Local String  sVoid
+76326>>>>>>>        Local Integer iRetval
+76326>>>>>>>
+76326>>>>>>>        // Ignore error 20491 DFBTRERR_INVALID_DRIVER_FUNCTION_CALL.
+76326>>>>>>>        // This error would otherwise be raised when we have an older
+76326>>>>>>>        // DFBTRDRV version that has no DFBTRFN_CKREVISION function
+76326>>>>>>>        Send Ignore_error To Error_object_Id 20491
+76327>>>>>>>        Get psDriverID To sDriverID
+76328>>>>>>>        Move (Repeat(" ", 255)) To sVersion
+76329>>>>>>>        Call_Driver iFileNum sDRiverID Function DFBTRFN_PSQLSERVERENGINEVERSIONINFO Callback 0 Passing sVersion sVoid 0 Result iRetval
+76334>>>>>>>        Send Trap_Error To Error_object_Id 20491
+76335>>>>>>>        If (Trim(sVersion) = "") Begin
+76337>>>>>>>            // Unable to get the revision. return all zeroes.
+76337>>>>>>>            Move "0.0.0" To sVersion
+76338>>>>>>>        End
+76338>>>>>>>>
+76338>>>>>>>        Function_Return sVersion
+76339>>>>>>>    End_Function //  PSQLServerEngineVersion
+76340>>>>>>>
+76340>>>>>>>End_Class // cDfbtrdrvHandler
+76341>>>>>>>
+76341>>>>>
+76341>>>>>
+76341>>>>>External_Function WNetGetUser "WNetGetUserA" MPR.DLL Pointer lpName Pointer lpUser_Name Pointer lpLength Returns DWord
+76342>>>>>
+76342>>>>>Register_Function phoWorkspace Returns Handle
+76342>>>>>Register_Function Help_filename Returns String
+76342>>>>>Register_Function GetHelpFile Returns String
+76342>>>>>Register_Function pbEnterKeyAsTabKey Returns Boolean
+76342>>>>>
+76342>>>>>//****************************************************************************
+76342>>>>>// $Module type: FUNCTION
+76342>>>>>// $Module name: Network_User_Name
+76342>>>>>// $Author     : AK/VOO/KCR
+76342>>>>>// Created     : 09-24-96 @ 19:17
+76342>>>>>//
+76342>>>>>// Description
+76342>>>>>//    This function reads the current username Of windows and returns that
+76342>>>>>//    name or an text unknown user
+76342>>>>>//
+76342>>>>>// $Rev History
+76342>>>>>//  02/22/2012  Ask Windows how long the size of the name should be
+76342>>>>>//  07/25/2003  Replaced obsolete code
+76342>>>>>//  09/24/1996  Module header created
+76342>>>>>//****************************************************************************
+76342>>>>>Function Network_User_Name for cDesktop Returns String
+76344>>>>>    String sName
+76344>>>>>    Integer iRetval iLength
+76344>>>>>
+76344>>>>>    Move 0 to iLength
+76345>>>>>    Move (WNetGetUser (0, 0, AddressOf (iLength))) to iRetval
+76346>>>>>    ZeroString iLength to sName
+76347>>>>>    Move (WNetGetUser (0, AddressOf (sName), AddressOf (iLength))) to iRetval
+76348>>>>>
+76348>>>>>    If (iRetval = NO_ERROR) Begin
+76350>>>>>        Function_Return (CString (sName))
+76351>>>>>    End
+76351>>>>>>
+76351>>>>>    
+76351>>>>>    Function_Return "User Unknown"
+76352>>>>>End_Function
+76353>>>>>
+76353>>>>>// OBSOLETE STRUCTURE AND WINDOWS API CALL. KEPT FOR BACKWARDS COMPATIBILITY
+76353>>>>>Type MEMORYSTATUS
+76353>>>>>   Field MEMORYSTATUS.dwLength         as DWord // sizeof(MEMORYSTATUS)
+76353>>>>>   Field MEMORYSTATUS.dwMemoryLoad     as DWord // percent Of memory in use
+76353>>>>>   Field MEMORYSTATUS.dwTotalPhys      as DWord // bytes Of physical memory
+76353>>>>>   Field MEMORYSTATUS.dwAvailPhys      as DWord // free physical memory bytes
+76353>>>>>   Field MEMORYSTATUS.dwTotalPageFile  as DWord // bytes Of paging file
+76353>>>>>   Field MEMORYSTATUS.dwAvailPageFile  as DWord // free bytes Of paging file
+76353>>>>>   Field MEMORYSTATUS.dwTotalVirtual   as DWord // user bytes Of address space
+76353>>>>>   Field MEMORYSTATUS.dwAvailVirtual   as DWord // free user bytes
+76353>>>>>End_Type // MEMORYSTATUS
+76353>>>>>
+76353>>>>>External_Function GlobalMemoryStatus "GlobalMemoryStatus" Kernel32.Dll Pointer lpsMemoryStatus Returns Integer
+76354>>>>>
+76354>>>>>Struct tWinMemoryStatusEx
+76354>>>>>    UInteger dwLength                
+76354>>>>>    UInteger dwMemoryLoad          
+76354>>>>>    UBigInt ullTotalPhys           
+76354>>>>>    UBigInt ullAvailPhys           
+76354>>>>>    UBigInt ullTotalPageFile       
+76354>>>>>    UBigInt ullAvailPageFile       
+76354>>>>>    UBigInt ullTotalVirtual        
+76354>>>>>    UBigInt ullAvailVirtual        
+76354>>>>>    UBigInt ullAvailExtendedVirtual
+76354>>>>>End_Struct
+76354>>>>>
+76354>>>>>External_Function GlobalMemoryStatusEx "GlobalMemoryStatusEx" Kernel32.Dll Pointer lpMemoryStatus Returns Integer
+76355>>>>>
+76355>>>>>Class SysinfoDisplay is a cTextEdit
+76356>>>>>    Procedure Construct_Object
+76358>>>>>        Forward Send Construct_Object
+76360>>>>>
+76360>>>>>        Set Location To 6 6
+76361>>>>>        Set Size To 110 255
+76362>>>>>        Set Read_Only_State To True
+76363>>>>>        Set pbWrap to False
+76364>>>>>    End_Procedure
+76365>>>>>
+76365>>>>>    //****************************************************************************
+76365>>>>>    // $Module type: PROCEDURE
+76365>>>>>    // $Module name: Show_Current_Directory
+76365>>>>>    // $Author     : VOO
+76365>>>>>    // Created     : 06-10-96 @ 15:24
+76365>>>>>    //
+76365>>>>>    // Description
+76365>>>>>    //    This method will show the name Of the current directory in the system
+76365>>>>>    //    information box
+76365>>>>>    //
+76365>>>>>    // $Rev History
+76365>>>>>    //    06-10-96  Module header created
+76365>>>>>    //****************************************************************************
+76365>>>>>    Procedure Show_Current_Directory
+76367>>>>>        String sDir
+76367>>>>>
+76367>>>>>        Get_Current_Directory To sDir
+76368>>>>>
+76368>>>>>        Send AppendTextLn (SFormat (C_$CurrentDirectory, sDir))
+76369>>>>>    End_Procedure
+76370>>>>>
+76370>>>>>    Procedure Show_Windows_Directory
+76372>>>>>        String sWindir
+76372>>>>>
+76372>>>>>        Get_Windows_Directory To sWindir
+76373>>>>>
+76373>>>>>        Send AppendTextLn (SFormat (C_$WindowsDirectory, sWindir))
+76374>>>>>    End_Procedure
+76375>>>>>
+76375>>>>>    Procedure Show_Current_User
+76377>>>>>        Send AppendTextLn (SFormat (C_$NetworkUserName, Network_User_Name (Self)))
+76378>>>>>    End_Procedure
+76379>>>>>
+76379>>>>>    Procedure Show_Number_Format
+76381>>>>>        Integer iFormat
+76381>>>>>        String sFormatText
+76381>>>>>
+76381>>>>>        Get_Attribute DF_THOUSANDS_SEPARATOR to iFormat
+76384>>>>>        Move (Character (iFormat)) To sFormatText
+76385>>>>>        Send AppendTextLn (SFormat (C_$ThousandsSeparator, sFormatText, iFormat))
+76386>>>>>
+76386>>>>>        Get_Attribute DF_DECIMAL_SEPARATOR to iFormat
+76389>>>>>        Move (Character (iFormat)) to sFormatText
+76390>>>>>        Send AppendTextLn (SFormat (C_$DecimalSeparator, sFormatText))
+76391>>>>>    End_Procedure
+76392>>>>>
+76392>>>>>    Procedure Show_Filelist_Name
+76394>>>>>        String sFilename
+76394>>>>>
+76394>>>>>        Get_Attribute DF_FILELIST_NAME to sFilename
+76397>>>>>
+76397>>>>>        Send AppendTextLn (SFormat (C_$CurrentFilelist, sFilename))
+76398>>>>>    End_Procedure
+76399>>>>>
+76399>>>>>    Procedure Show_Lock_Delay
+76401>>>>>        Integer iLockdelay
+76401>>>>>
+76401>>>>>        Get_Attribute DF_LOCK_DELAY to iLockdelay
+76404>>>>>
+76404>>>>>        Send AppendTextLn (SFormat (C_$DatabaseLockingDelay, iLockDelay))
+76405>>>>>    End_Procedure
+76406>>>>>
+76406>>>>>    Procedure Show_Lock_Timeout
+76408>>>>>        Integer iLockTimeout
+76408>>>>>
+76408>>>>>        Get_Attribute DF_LOCK_TIMEOUT to iLockTimeout
+76411>>>>>
+76411>>>>>        Send AppendTextLn (SFormat (C_$DatabaseLockingTimeout, iLockTimeOut))
+76412>>>>>    End_Procedure
+76413>>>>>
+76413>>>>>    Procedure Show_Screen_Size
+76415>>>>>        Integer iYscreensize iXscreensize
+76415>>>>>
+76415>>>>>        Move (GetSystemMetrics (SM_CXSCREEN)) To iXscreensize
+76416>>>>>        Move (GetSystemMetrics (SM_CYSCREEN)) To iYscreensize
+76417>>>>>
+76417>>>>>        Send AppendTextLn (SFormat (C_$VideoResolution, iXscreensize, iYscreensize))
+76418>>>>>    End_Procedure
+76419>>>>>
+76419>>>>>    Procedure Show_Page_Size
+76421>>>>>        Send AppendTextLn (SFormat (C_$PageEndFormFeed, Pageend, Pagefeed))
+76422>>>>>    End_procedure
+76423>>>>>
+76423>>>>>    Procedure Show_Date
+76425>>>>>        Date dToday
+76425>>>>>
+76425>>>>>        Sysdate dToday
+76426>>>>>
+76426>>>>>        Send AppendTextLn (SFormat (C_$CurrentSystemDate, String (dToday)))
+76427>>>>>    End_procedure
+76428>>>>>
+76428>>>>>    Procedure Show_Date_Format
+76430>>>>>        Integer iDateFormat
+76430>>>>>        String sDateFormat
+76430>>>>>
+76430>>>>>        Get_Attribute DF_DATE_FORMAT to iDateFormat
+76433>>>>>        Case Begin
+76433>>>>>            Case (iDateFormat = DF_DATE_USA)
+76435>>>>>                Move C_$USA To sDateFormat
+76436>>>>>                Case Break
+76437>>>>>            Case (iDateFormat = DF_DATE_EUROPEAN)
+76440>>>>>                Move C_$European To sDateFormat
+76441>>>>>                Case Break
+76442>>>>>            Case (iDateFormat = DF_DATE_MILITARY)
+76445>>>>>                Move C_$Military To sDateFormat
+76446>>>>>                Case Break
+76447>>>>>            Case Else
+76447>>>>>                Move C_$UnknownDateType To sDateFormat
+76448>>>>>                Case Break
+76449>>>>>        Case End
+76449>>>>>
+76449>>>>>        Send AppendTextLn (SFormat (C_$DateFormat, sDateformat))
+76450>>>>>    End_Procedure
+76451>>>>>
+76451>>>>>    Procedure Show_Systemresources
+76453>>>>>        tWinMemoryStatusEx MemoryStatusInfo
+76453>>>>>        tWinMemoryStatusEx MemoryStatusInfo
+76453>>>>>        Integer iRetval
+76453>>>>>
+76453>>>>>        Move (SizeOfType (tWinMemoryStatusEx)) to MemoryStatusInfo.dwLength
+76454>>>>>        Move (GlobalMemoryStatusEx (AddressOf (MemoryStatusInfo))) to iRetval
+76455>>>>>        If (iRetval = 0) Begin
+76457>>>>>            Move (ShowLastError ()) to iRetval
+76458>>>>>        End
+76458>>>>>>
+76458>>>>>
+76458>>>>>        Send AppendTextLn (SFormat (C_$AvailableMemory, MemoryStatusInfo.ullTotalPhys))
+76459>>>>>        Send AppendTextLn (SFormat (C_$MemoryUtilization, MemoryStatusInfo.dwMemoryLoad))
+76460>>>>>        Send AppendTextLn (SFormat (C_$AvailablePhysicalMemory, Real (MemoryStatusInfo.ullAvailPhys) / Real (MemoryStatusInfo.ullTotalPhys) * 100.0))
+76461>>>>>        Send AppendTextLn (SFormat (C_$AvailablePagefileSpace, Real (MemoryStatusInfo.ullAvailPageFile) / Real (MemoryStatusInfo.ullTotalPageFile) * 100.0))
+76462>>>>>        Send AppendTextLn (SFormat (C_$AvailableVirtualMemory, Real (MemoryStatusInfo.ullAvailVirtual) / Real (MemoryStatusInfo.ullTotalVirtual) * 100.0))
+76463>>>>>    End_Procedure
+76464>>>>>
+76464>>>>>    Procedure Show_Registration
+76466>>>>>        String sRegName
+76466>>>>>        Integer iSN iMaxUsers
+76466>>>>>
+76466>>>>>        Registration sRegName iSN
+76467>>>>>>
+76467>>>>>        
+76467>>>>>        Get_Licensed_Max_Users to iMaxUsers
+76468>>>>>
+76468>>>>>        Send AppendTextLn ""
+76469>>>>>        Send AppendTextLn (SFormat (C_$Serial, iSN))
+76470>>>>>        Send AppendTextLn (SFormat (C_$RegName, sRegName))
+76471>>>>>        Send AppendTextLn (SFormat (C_$MaxNumUsers, iMaxUsers))
+76472>>>>>    End_Procedure
+76473>>>>>
+76473>>>>>    //****************************************************************************
+76473>>>>>    // If workspaces are used, we will send the message EnumerateWorkspaceData
+76473>>>>>    // To the workspace object passing the an object and message To send back
+76473>>>>>    // To this object. It is expected that the workspace object will send this
+76473>>>>>    // message for every line Of information it wants displayed (passing the
+76473>>>>>    // information To be displayed
+76473>>>>>    //****************************************************************************
+76473>>>>>    Register_Procedure EnumerateWorkspaceData Integer hObjId Integer hmMessId
+76473>>>>>
+76473>>>>>    Procedure Show_ServicePack
+76475>>>>>        String sKey sVersionDescription sVersion 
+76475>>>>>        Handle hoRegistry
+76475>>>>>        Boolean bExists bOpened
+76475>>>>>        
+76475>>>>>        Get Create (RefClass (cRegistry)) to hoRegistry
+76476>>>>>        Set phRootKey of hoRegistry to HKEY_LOCAL_MACHINE
+76477>>>>>        Set pfAccessRights of hoRegistry to KEY_READ
+76478>>>>>
+76478>>>>>        Move C_DFVersionRegistryRoot to sKey
+76479>>>>>        Get KeyExists of hoRegistry sKey to bExists
+76480>>>>>        If (bExists) Begin
+76482>>>>>            Get OpenKey of hoRegistry sKey to bOpened
+76483>>>>>            If (bOpened) Begin
+76485>>>>>                Get ValueExists of hoRegistry "CurrentVersionDescription" to bExists
+76486>>>>>                If (bExists) Begin
+76488>>>>>                    Get ReadString of hoRegistry "CurrentVersionDescription" to sVersionDescription
+76489>>>>>                End
+76489>>>>>>
+76489>>>>>                
+76489>>>>>                Get ValueExists of hoRegistry "CurrentVersion" to bExists
+76490>>>>>                If (bExists) Begin
+76492>>>>>                    Get ReadString of hoRegistry "CurrentVersion" to sVersion
+76493>>>>>                End                
+76493>>>>>>
+76493>>>>>                Send CloseKey of hoRegistry
+76494>>>>>            End
+76494>>>>>>
+76494>>>>>        End
+76494>>>>>>
+76494>>>>>        Send Destroy of hoRegistry
+76495>>>>>
+76495>>>>>        If (sVersionDescription <> "") Begin
+76497>>>>>           Send AppendTextLn (sVersionDescription * "-" * sVersion)
+76498>>>>>           Send AppendTextLn ""
+76499>>>>>        End
+76499>>>>>>
+76499>>>>>    End_Procedure
+76500>>>>>
+76500>>>>>    Procedure Show_WorkspaceInformation
+76502>>>>>        Integer hoWorkspace
+76502>>>>>
+76502>>>>>        If (ghoApplication <> 0) Begin
+76504>>>>>            Get phoWorkspace of ghoApplication to hoWorkspace
+76505>>>>>            If (hoWorkspace <> 0) Begin
+76507>>>>>                Send EnumerateWorkspaceData of hoWorkspace Self (Refproc (AppendTextLn))
+76508>>>>>            End
+76508>>>>>>
+76508>>>>>        End
+76508>>>>>>
+76508>>>>>    End_Procedure
+76509>>>>>
+76509>>>>>    Function VersionStr Integer iVer Integer iRev Integer iBld Returns String
+76511>>>>>        Function_Return (String (iVer) - "." - String (iRev) - "." - String (iBld))
+76512>>>>>    End_Function
+76513>>>>>
+76513>>>>>    Procedure Show_Versions
+76515>>>>>        Integer iVersion iRevision iBuild
+76515>>>>>
+76515>>>>>        Version_information iVersion iRevision iBuild
+76517>>>>>
+76517>>>>>        Send AppendTextLn (SFormat (C_$RuntimeVersion, VersionStr(Self,iVersion,iRevision,iBuild) ))
+76518>>>>>        Send AppendTextLn (SFormat (C_$PackageVersion, VersionStr(Self,PKG_VERSION, PKG_REVISION, PKG_BUILD) ))
+76519>>>>>        Send AppendTextLn (SFormat (C_$FMACVersion, VersionStr(Self,FMAC_VERSION, FMAC_REVISION, FMAC_BUILD) ))
+76520>>>>>    End_Procedure
+76521>>>>>    
+76521>>>>>    Function CKRevisionNumber String sDriverID Returns String
+76523>>>>>        Handle hoCLIHandler
+76523>>>>>        Handle hoDFBtrDrvHandler
+76523>>>>>        String sCKRevision
+76523>>>>>
+76523>>>>>
+76523>>>>>        If (sDriverID = "MSSQLDRV" or sDriverID = "ODBC_DRV" or sDriverID = "DB2_DRV") Begin
+76525>>>>>            Get Create (RefClass(cCLIHandler)) to hoCLIHandler
+76526>>>>>            Set psDriverID of hoCLIHandler to sDriverID
+76527>>>>>            Move (CKRevision(hoCLIHandler)) to sCKRevision
+76528>>>>>            Send Destroy of hoCLIHandler
+76529>>>>>        End
+76529>>>>>>
+76529>>>>>        Else Begin
+76530>>>>>            If (sDriverID = "DFBTRDRV") Begin
+76532>>>>>                Get Create (RefClass(cDFBtrDrvHandler)) to hoDFBtrDrvHandler
+76533>>>>>                Set psDriverID of hoDFBtrDrvHandler to sDriverID
+76534>>>>>                Move (CKRevision(hoDFBtrDrvHandler)) to sCKRevision
+76535>>>>>                Send Destroy of hoDFBtrDrvHandler
+76536>>>>>            End
+76536>>>>>>
+76536>>>>>        End
+76536>>>>>>
+76536>>>>>        
+76536>>>>>        Function_Return sCKRevision
+76537>>>>>    End_Function
+76538>>>>>    
+76538>>>>>    
+76538>>>>>    Function IsDataAccessCK String sDriverID Returns Boolean
+76540>>>>>        
+76540>>>>>        If (sDriverID = "DATAFLEX") Begin
+76542>>>>>            Function_Return False
+76543>>>>>        End
+76543>>>>>>
+76543>>>>>    
+76543>>>>>        Function_Return (sDriverID = "MSSQLDRV" or sDriverID = "ODBC_DRV" or sDriverID = "DB2_DRV" or sDriverID = "DFBTRDRV")
+76544>>>>>    End_Function    
+76545>>>>>
+76545>>>>>
+76545>>>>>    //***
+76545>>>>>    //*** BW
+76545>>>>>    //*** Procedure: Show_Drivers
+76545>>>>>    //*** Purpose  : Show loaded database drivers
+76545>>>>>    //***
+76545>>>>>
+76545>>>>>    Procedure Show_Drivers
+76547>>>>>        String sCurrentDriver sRevNumber
+76547>>>>>        String sLoadedDrivers
+76547>>>>>        Integer iNumberOfDrivers iCount
+76547>>>>>        Boolean bOK
+76547>>>>>
+76547>>>>>        Move "" To sLoadedDrivers
+76548>>>>>        Get_Attribute DF_NUMBER_DRIVERS To iNumberOfDrivers
+76551>>>>>        For iCount From 1 To iNumberOfDrivers
+76557>>>>>>
+76557>>>>>            Get_Attribute DF_DRIVER_NAME Of iCount To sCurrentDriver
+76560>>>>>            If (sLoadedDrivers <> "") Begin
+76562>>>>>                Move (Append (sLoadedDrivers, ", ")) To sLoadedDrivers
+76563>>>>>            End
+76563>>>>>>
+76563>>>>>            Get IsDataAccessCK sCurrentDriver to bOK
+76564>>>>>            If (bOK) Begin
+76566>>>>>                Get CKRevisionNumber sCurrentDriver to sRevNumber
+76567>>>>>                Move (sCurrentDriver * "(" + sRevNumber + ")") to sCurrentDriver
+76568>>>>>            End
+76568>>>>>>
+76568>>>>>            Move (Append (sLoadedDrivers, sCurrentDriver)) To sLoadedDrivers
+76569>>>>>        Loop
+76570>>>>>>
+76570>>>>>        Send AppendTextLn (SFormat (C_$DatabaseDriver, sLoadedDrivers))
+76571>>>>>    End_Procedure
+76572>>>>>
+76572>>>>>    Procedure Show_HelpFile
+76574>>>>>        String sHelpFile
+76574>>>>>        Integer eHelpType
+76574>>>>>
+76574>>>>>        If (ghoApplication <> 0) Begin
+76576>>>>>            Get peHelpType Of ghoApplication To eHelpType
+76577>>>>>            If (eHelpType = htHtmlHelp and ghoHtmlHelp) Begin
+76579>>>>>                Get GetHelpFile Of ghoHtmlHelp To sHelpFile
+76580>>>>>            End
+76580>>>>>>
+76580>>>>>            Else If (eHelpType = htWinHelp and Help_object_id) Begin
+76583>>>>>                Get Help_filename Of Help_object_id To sHelpFile
+76584>>>>>            End
+76584>>>>>>
+76584>>>>>            Else Begin
+76585>>>>>                Move C_$ThereIsNoHelpfileDefined To sHelpFile
+76586>>>>>            End
+76586>>>>>>
+76586>>>>>
+76586>>>>>            Send AppendTextLn ""
+76587>>>>>            Send AppendTextLn (SFormat (C_$HelpFile, sHelpFile))
+76588>>>>>        End
+76588>>>>>>
+76588>>>>>    End_Procedure
+76589>>>>>
+76589>>>>>    Procedure Show_EnterAsTab
+76591>>>>>        Boolean bEnterKeyAsTabKey
+76591>>>>>        String sText
+76591>>>>>
+76591>>>>>        If (ghoApplication <> 0) Begin
+76593>>>>>            Get pbEnterKeyAsTabKey Of ghoApplication To bEnterKeyAsTabKey
+76594>>>>>            If (bEnterKeyAsTabKey) Begin
+76596>>>>>                Move "True" To sText
+76597>>>>>            End
+76597>>>>>>
+76597>>>>>            Else Begin
+76598>>>>>                Move "False" To sText
+76599>>>>>            End
+76599>>>>>>
+76599>>>>>            Send AppendTextLn (SFormat (C_$EnterKeyNavForward, sText))
+76600>>>>>        End
+76600>>>>>>
+76600>>>>>    End_Procedure
+76601>>>>>
+76601>>>>>    //****************************************************************************
+76601>>>>>    // $Module type: PROCEDURE
+76601>>>>>    // $Module name: Add_Focus
+76601>>>>>    // $Author     : VOO
+76601>>>>>    // Created     : 24-09-96 @ 19:43
+76601>>>>>    //
+76601>>>>>    // Description
+76601>>>>>    //    During activation we will remove the old information and add the newly
+76601>>>>>    //    found systeminformation
+76601>>>>>    //
+76601>>>>>    // $Rev History
+76601>>>>>    //    24-09-96  Module header created
+76601>>>>>    //****************************************************************************
+76601>>>>>    Procedure Add_Focus Integer hoRoot
+76603>>>>>        Forward Send Add_Focus hoRoot
+76605>>>>>
+76605>>>>>        Send Delete_Data
+76606>>>>>
+76606>>>>>        Set Changed_State To False
+76607>>>>>        Set Read_Only_State To True
+76608>>>>>
+76608>>>>>        Send Show_ServicePack
+76609>>>>>        If (ghoApplication <> 0) Begin
+76611>>>>>            Send Show_WorkSpaceInformation // added To show WS info
+76612>>>>>            Send Show_HelpFile
+76613>>>>>            Send Show_EnterAsTab
+76614>>>>>        End
+76614>>>>>>
+76614>>>>>        Send Show_Drivers
+76615>>>>>        Send Show_Current_User
+76616>>>>>        Send Show_Windows_Directory
+76617>>>>>        Send Show_Current_Directory
+76618>>>>>        Send Show_Filelist_Name
+76619>>>>>        Send Show_Versions
+76620>>>>>        Send Show_Screen_Size
+76621>>>>>        Send Show_Page_Size
+76622>>>>>        Send Show_Number_Format
+76623>>>>>        Send Show_Date_Format
+76624>>>>>        Send Show_Lock_Delay
+76625>>>>>        Send Show_Lock_Timeout
+76626>>>>>        Send Show_Date
+76627>>>>>        Send Show_Systemresources
+76628>>>>>        Send Show_Registration
+76629>>>>>        Send Beginning_of_Data
+76630>>>>>
+76630>>>>>        Set Icon to 'default.ico'
+76631>>>>>    End_Procedure
+76632>>>>>End_Class
+76633>>>>>
+76633>>>>>//****************************************************************************
+76633>>>>>// $Module type: OBJECT
+76633>>>>>// $Module name: Sysinfo_Dialog
+76633>>>>>// $Author     : VOO
+76633>>>>>// Created     : 24-09-96 @ 18:47
+76633>>>>>//
+76633>>>>>// Description
+76633>>>>>//    This object shows the systeminformation on the screen
+76633>>>>>//
+76633>>>>>// $Rev History
+76633>>>>>//    24-09-96  Module header created
+76633>>>>>//****************************************************************************
+76633>>>>>Class SysInfoDialog Is A ModalPanel
+76634>>>>>    Procedure Construct_Object
+76636>>>>>        Forward Send Construct_Object
+76638>>>>>
+76638>>>>>        Set Label to C_$SystemInformation
+76639>>>>>        Set Size to 140 267
+76640>>>>>        Set piMinSize to 140 267
+76641>>>>>        Set Locate_Mode To CENTER_ON_SCREEN
+76642>>>>>        Set Border_Style to Border_Thick
+76643>>>>>
+76643>>>>>        Object oSysinfoDisplay Is A SysInfoDisplay
+76645>>>>>            Set peAnchors to anAll
+76646>>>>>        End_Object
+76647>>>>>
+76647>>>>>        Object oCloseButton Is A Button
+76649>>>>>            Set Label To C_$Close
+76650>>>>>            Set Location To 120 210
+76651>>>>>            Set Message Item 0 To (Refproc (Close_Panel))
+76652>>>>>            Set Default_State To True
+76653>>>>>            Set peAnchors to anBottomRight
+76654>>>>>        End_Object
+76655>>>>>
+76655>>>>>        On_Key kCancel Send Close_Panel
+76656>>>>>    End_Procedure
+76657>>>>>End_Class
+76658>>>>>
+76658>>>>>// Purpose:
+76658>>>>>//
+76658>>>>>// Ken Ross 12/17/96 5:16PM
+76658>>>>>//
+76658>>>>>Class AboutDialog Is A ModalPanel
+76659>>>>>    Procedure Construct_Object
+76661>>>>>        String sVdfRootDir
+76661>>>>>
+76661>>>>>        Forward Send Construct_Object
+76663>>>>>
+76663>>>>>        Set Label To C_$About
+76664>>>>>        Set Size to 89 212
+76665>>>>>        Set Locate_Mode To CENTER_ON_SCREEN
+76666>>>>>
+76666>>>>>        Object oSysInfoDialog Is A SysInfoDialog
+76668>>>>>        End_Object
+76669>>>>>
+76669>>>>>        Object oBox Is A Container3d
+76671>>>>>            Set Border_Style To Border_StaticEdge
+76672>>>>>            Set Size to 63 202
+76673>>>>>            Set Location To 4 5
+76674>>>>>
+76674>>>>>            Object oAboutGraphic Is A BitmapContainer
+76676>>>>>                Set Border_Style To Border_None
+76677>>>>>                Set Bitmap_Style To Bitmap_Center
+76678>>>>>                Set Size To 48 48
+76679>>>>>                Set Location To 7 2
+76680>>>>>            End_Object
+76681>>>>>
+76681>>>>>            Object oProductName Is A TextBox
+76683>>>>>                Set Label To C_$ProductName
+76684>>>>>                Set Size To 10 45
+76685>>>>>                Set Location To 8 53
+76686>>>>>            End_Object
+76687>>>>>
+76687>>>>>            Object oVersion Is A TextBox
+76689>>>>>                Set Label To C_$Version
+76690>>>>>                Set Size To 10 25
+76691>>>>>                Set Location To 21 53
+76692>>>>>            End_Object
+76693>>>>>
+76693>>>>>            Object oCopyright Is A TextBox
+76695>>>>>                Set Label To C_$Copyright
+76696>>>>>                Set Size To 10 31
+76697>>>>>                Set Location To 34 53
+76698>>>>>            End_Object
+76699>>>>>
+76699>>>>>            Object oAuthor Is A TextBox
+76701>>>>>                Set Label To C_$Author
+76702>>>>>                Set Size To 10 22
+76703>>>>>                Set Location To 46 53
+76704>>>>>            End_Object
+76705>>>>>        End_Object
+76706>>>>>
+76706>>>>>        Object oOKButton Is A Button
+76708>>>>>            On_Item C_$OK Send Close_Panel
+76709>>>>>            Set Size To 14 50
+76710>>>>>            Set Location To 71 157
+76711>>>>>        End_Object
+76712>>>>>
+76712>>>>>        Object oSysInfoButton Is A Button
+76714>>>>>            On_Item C_$SystemInfo Send Show_Sysinfo
+76715>>>>>            Set Size To 14 50
+76716>>>>>            Set Location To 71 101
+76717>>>>>        End_Object
+76718>>>>>
+76718>>>>>        On_Key Kcancel Send KeyAction Of oOKButton
+76719>>>>>
+76719>>>>>        Set Logo To "DacAbout.bmp"  // square bitmaps Of 42x42 work best
+76720>>>>>    End_Procedure
+76721>>>>>
+76721>>>>>    Procedure Set ProductName String sProductName
+76723>>>>>        Set Label Of oProductName To sProductName
+76724>>>>>    End_Procedure
+76725>>>>>
+76725>>>>>    Procedure Set Version String sVersion
+76727>>>>>        Set Label Of oVersion To sVersion
+76728>>>>>    End_Procedure
+76729>>>>>
+76729>>>>>    Procedure Set Copyright string sCopyright
+76731>>>>>        Set Label Of oCopyright To sCopyright
+76732>>>>>    End_Procedure
+76733>>>>>
+76733>>>>>    Procedure Set Author String sAuthor
+76735>>>>>        Set Label Of oAuthor To sAuthor
+76736>>>>>    End_Procedure
+76737>>>>>
+76737>>>>>    Procedure Set Logo string sLogo
+76739>>>>>        // square bitmaps Of 42x42 work best
+76739>>>>>        Set Bitmap Of oAboutGraphic To sLogo
+76740>>>>>    End_Procedure
+76741>>>>>
+76741>>>>>    Procedure Show_Sysinfo
+76743>>>>>        Send Popup_Modal Of oSysinfoDialog
+76744>>>>>    End_Procedure
+76745>>>>>
+76745>>>>>    Procedure End_Construct_Object
+76747>>>>>        Handle hoVersionInfo
+76747>>>>>        Boolean bIncluded
+76747>>>>>        Integer iMajor iMinor iRelease iBuild
+76747>>>>>        String sLabel
+76747>>>>>
+76747>>>>>        Get Label Of oVersion To sLabel
+76748>>>>>        If (sLabel = C_$VERSION) Begin
+76750>>>>>            // set it To the version info Of the program, if available
+76750>>>>>            If (ghoApplication <> 0) Begin
+76752>>>>>                Get phoVersionInfo of ghoApplication to hoVersionInfo
+76753>>>>>                If (hoVersionInfo <> 0) Begin
+76755>>>>>                    Get pbIncluded of hoVersionInfo to bIncluded
+76756>>>>>                    If (bIncluded) Begin
+76758>>>>>                        Get piVersionMajor of hoVersionInfo to iMajor
+76759>>>>>                        Get piVersionMinor of hoVersionInfo to iMinor
+76760>>>>>                        Get piVersionRelease of hoVersionInfo to iRelease
+76761>>>>>                        Get piVersionBuild of hoVersionInfo to iBuild
+76762>>>>>                        Move (SFormat (C_$VERSION + ": %1.%2.%3.%4", iMajor, iMinor, iRelease, iBuild)) to sLabel
+76763>>>>>                        Set Version to sLabel
+76764>>>>>                    End
+76764>>>>>>
+76764>>>>>                End
+76764>>>>>>
+76764>>>>>            End
+76764>>>>>>
+76764>>>>>        End
+76764>>>>>>
+76764>>>>>
+76764>>>>>        Forward Send End_Construct_Object
+76766>>>>>    End_Procedure
+76767>>>>>End_Class
+76768>>>
+76768>>>// *************************************************************************
+76768>>>//  Public message. This is the default message. It is expected that you will
+76768>>>//   create your own message to override this
+76768>>>// *************************************************************************
+76768>>>
+76768>>>Procedure Activate_About
+76771>>>   Send DoAbout "" "" "" "" ""
+76772>>>End_Procedure
+76773>>>
+76773>>>// *************************************************************************
+76773>>>//  Public message. It is expected that you will send this message (most
+76773>>>//  likely from Activate_About. This creates an about object, activates it
+76773>>>//  and destroys it when done. It is not exepected that you will augment this.
+76773>>>// *************************************************************************
+76773>>>
+76773>>>Procedure DoAbout string sTitle string sVersion string sCopyRight string sAuthor string sBitmap
+76776>>>        integer hoObj hoMain
+76776>>>
+76776>>>        // create object
+76776>>>        Object About is an AboutDialog
+76778>>>            // if no title passed use the label of the main panel
+76778>>>            // (if a main panel exists).
+76778>>>            if sTitle     eq '' Begin
+76780>>>                Get Main_Window of desktop to hoMain
+76781>>>                if hoMain Get Label of hoMain to sTitle
+76784>>>            end
+76784>>>>
+76784>>>            set productname to sTitle
+76785>>>            set version     to sVersion
+76786>>>            set copyright   to sCopyRight
+76787>>>            set author      to sAuthor
+76788>>>            If sBitmap    ne '' ;               set logo to sBitMap // square bitmaps of 42x42 work best
+76791>>>            Move self to hoObj // object Id
+76792>>>        End_Object
+76793>>>        Send Popup   of hoObj    // popup the about object
+76794>>>        Send Destroy of hoObj // when done, it will be destroyed
+76795>>>End_procedure
+76796>        Use oMainView.vw
+Including file: oMainView.vw    (C:\DataFlex Projects\FingerPrint\AppSrc\oMainView.vw)
+76796>>>Use Windows.pkg
+76796>>>Use DFClient.pkg
+76796>>>Use dfBitmap.pkg
+76796>>>Use cComOPOSBiometrics.pkg
+76796>>>
+76796>>>Deferred_View Activate_oMainView for ;Object oMainView is a dbView
+76821>>>    Set Size to 200 300
+76822>>>    Set Location to 2 2
+76823>>>    Set Minimize_Icon to False
+76824>>>    Set piMaxSize to 200 300
+76825>>>    Set piMinSize to 200 300
+76826>>>    Set Border_Style to Border_None
+76827>>>    Set Color to clScrollBar
+76828>>>    Set Sysmenu_Icon to False
+76829>>>    Set Auto_Top_Item_State to False
+76830>>>    Set Auto_Top_Panel_State to False
+76831>>>    
+76831>>>    Object OPOSBiometrics is a cComOPOSBiometrics
+76833>>>        Set Size to 90 80
+76834>>>        Set Location to 110 0
+76835>>>        
+76835>>>        //Methods Rewrite
+76835>>>        Procedure OnComDataEvent Integer llStatus
+76838>>>            Forward Send OnComDataEvent llStatus
+76840>>>            Integer iRet
+76840>>>            String sBIR sData 
+76840>>>            
+76840>>>            Get ComEndCapture of OPOSBiometrics to iRet
+76841>>>            
+76841>>>            Set Value of oTextBoxStatus to "Fingerprint Scanned" 
+76842>>>            Get ComBIR of OPOSBiometrics to sBIR
+76843>>>                
+76843>>>            Showln ("Raw Data BIR: "+String(sBIR))   
+76845>>>            Showln "End ComDataEvent"
+76847>>>        End_Procedure
+76848>>>        
+76848>>>        Procedure OnComDirectIOEvent Integer llEventNumber Integer ByRef llpData String ByRef llpString
+76851>>>            Forward Send OnComDirectIOEvent llEventNumber (&llpData) (&llpString)
+76853>>>            String sData 
+76853>>>            Integer iRet
+76853>>>            
+76853>>>            If (llEventNumber = 5) Begin
+76855>>>                Get ComRawSensorData of OPOSBiometrics to sData
+76856>>>                Showln ("Raw Data: "+sData)
+76858>>>            End
+76858>>>>
+76858>>>            Else If (llEventNumber = 7) Begin
+76861>>>                Set Value of oTextBoxStatus to  ("Image "+String(llpData)+" captured, put same finger for image "+String(llpData + 1))
+76862>>>            End
+76862>>>>
+76862>>>            Else If (llEventNumber = 8) Begin
+76865>>>                Showln "Stop Event"
+76867>>>                Get ComEndCapture of OPOSBiometrics to iRet
+76868>>>            End
+76868>>>>
+76868>>>            
+76868>>>        End_Procedure 
+76869>>>        
+76869>>>        Procedure OnComStatusUpdateEvent Integer llData
+76872>>>            Forward Send OnComStatusUpdateEvent llData
+76874>>>            String sData
+76874>>>             
+76874>>>            If (llData = 1) Begin
+76876>>>                Showln ("Raw image data is avaible")
+76878>>>            End
+76878>>>>
+76878>>>            If (llData = 2) Begin
+76880>>>                Showln ("Capture Complete")
+76882>>>            End
+76882>>>>
+76882>>>            
+76882>>>        End_Procedure
+76883>>>        
+76883>>>    End_Object
+76884>>>
+76884>>>    Object oContainerDeviceState is a Container3d
+76886>>>        Set Size to 110 80
+76887>>>        Set Location to 0 0
+76888>>>        
+76888>>>        Object oTextBoxTitleMainButtons is a TextBox
+76890>>>            Set Size to 10 42
+76891>>>            Set Location to 4 14
+76892>>>            Set Label to "Main Actions"
+76893>>>            Set Label_Shadow_Display_Mode to TBShadow_On_None
+76894>>>            Set FontWeight to fw_Bold
+76895>>>        End_Object
+76896>>>        
+76896>>>        Object oButtonOpen is a Button
+76898>>>            Set Location to 20 10
+76899>>>            Set Label to "Open"
+76900>>>            
+76900>>>        
+76900>>>            // fires when the button is clicked
+76900>>>            Procedure OnClick
+76903>>>                
+76903>>>                //Properties of the device 
+76903>>>                String sComDeviceName sComDeviceDescription sComServiceObjectVersion sComServiceObjectDescription sComCheckHealthText sComControlObjectDescription sComControlObjectVersion    
+76903>>>                Integer iRet
+76903>>>                 
+76903>>>                //Open Device. You can Check Info of the Device now
+76903>>>                Get ComOpen of OPOSBiometrics "DPFingerPrintReader" to iRet
+76904>>>                Set ComRealTimeDataEnabled  of OPOSBiometrics to True
+76905>>>                Get ComSensorWidth  of OPOSBiometrics to iRet
+76906>>>                Get ComSensorHeight  of OPOSBiometrics to iRet
+76907>>>                
+76907>>>                
+76907>>>                If (iRet = 0) Begin
+76909>>>                    //Get Info of the Device
+76909>>>                    Get ComDeviceName               of OPOSBiometrics to sComDeviceName
+76910>>>                    Get ComDeviceDescription        of OPOSBiometrics to sComDeviceDescription
+76911>>>                    Get ComServiceObjectVersion     of OPOSBiometrics to sComServiceObjectVersion
+76912>>>                    Get ComServiceObjectDescription of OPOSBiometrics to sComServiceObjectDescription
+76913>>>                    Get ComCheckHealthText          of OPOSBiometrics to sComCheckHealthText
+76914>>>                    Get ComControlObjectDescription of OPOSBiometrics to sComControlObjectDescription
+76915>>>                    Get ComControlObjectVersion     of OPOSBiometrics to sComControlObjectVersion
+76916>>>                    
+76916>>>                    Set Value of oFormDeviceName            to sComDeviceName
+76917>>>                    Set Value of oFormDeviceDescription     to sComDeviceDescription
+76918>>>                    Set Value of oFormCheckHealth           to sComCheckHealthText
+76919>>>                    Set Value of oFormServiceVersion        to sComServiceObjectVersion
+76920>>>                    Set Value of oFormServiceDescription    to sComServiceObjectDescription
+76921>>>                    Set Value of oFormControlVersion        to sComControlObjectVersion
+76922>>>                    Set Value of oFormControlDescriptions   to sComControlObjectDescription
+76923>>>                    
+76923>>>                    //Set to enabled state the others buttons
+76923>>>                    Set Enabled_State of oButtonOpen        to False
+76924>>>                    Set Enabled_State of oButtonClaim       to True
+76925>>>                    Set Enabled_State of oButtonClose       to True
+76926>>>                    Set Enabled_State of oButtonClearData   to False
+76927>>>                    
+76927>>>                End
+76927>>>>
+76927>>>                Else Send Info_Box "Error on open the device" "Warning!"
+76929>>>                
+76929>>>              
+76929>>>                
+76929>>>            End_Procedure
+76930>>>        
+76930>>>        End_Object
+76931>>>
+76931>>>        Object oButtonClaim is a Button 
+76933>>>            Set Location to 40 10
+76934>>>            Set Label to "Claim"
+76935>>>        
+76935>>>            // fires when the button is clicked
+76935>>>            Procedure OnClick
+76938>>>                Integer iRet
+76938>>>                String sComAlgorithmList
+76938>>>                
+76938>>>                //Claim Device to Start Capture
+76938>>>                Get ComClaimDevice of OPOSBiometrics 2      to iRet
+76939>>>                Set ComDeviceEnabled of OPOSBiometrics      to True
+76940>>>                
+76940>>>                Set Enabled_State of oContainerFunctions    to True
+76941>>>                
+76941>>>//                
+76941>>>//                Set ComBinaryConversion     of OPOSBiometrics to True
+76941>>>                Set ComDataEventEnabled     of OPOSBiometrics to True
+76942>>>                Set ComAlgorithm            of OPOSBiometrics to 2
+76943>>>                Get ComAlgorithmList        of OPOSBiometrics to sComAlgorithmList
+76944>>>                Showln sComAlgorithmList
+76946>>>            End_Procedure
+76947>>>        
+76947>>>        End_Object
+76948>>>    
+76948>>>        Object oButtonClose is a Button
+76950>>>            Set Location to 60 10
+76951>>>            Set Label to "Close"
+76952>>>        
+76952>>>            // fires when the button is clicked
+76952>>>            Procedure OnClick
+76955>>>                Integer iRet
+76955>>>                
+76955>>>                //Close the connection with the Device
+76955>>>                Get ComClose of OPOSBiometrics "DPFingerPrintReader" to iRet
+76956>>>                Set ComDeviceEnabled of OPOSBiometrics to False
+76957>>>                
+76957>>>                Set Value of oFormDeviceName            to ""
+76958>>>                Set Value of oFormDeviceDescription     to ""
+76959>>>                Set Value of oFormCheckHealth           to ""
+76960>>>                Set Value of oFormServiceVersion        to ""
+76961>>>                Set Value of oFormServiceDescription    to ""
+76962>>>                Set Value of oFormControlVersion        to ""
+76963>>>                Set Value of oFormControlDescriptions   to ""
+76964>>>                
+76964>>>                //Set to enabled state the others buttons
+76964>>>                Set Enabled_State of oButtonOpen                to True
+76965>>>                Set Enabled_State of oButtonClaim               to False
+76966>>>                Set Enabled_State of oButtonClose               to False
+76967>>>                Set Enabled_State of oButtonClearData           to False
+76968>>>                Set Enabled_State of oContainerFunctions        to False
+76969>>>                    
+76969>>>            End_Procedure
+76970>>>        
+76970>>>        End_Object
+76971>>>    
+76971>>>        Object oButtonClearData is a Button
+76973>>>            Set Location to 80 10
+76974>>>            Set Label to "Clear Data"
+76975>>>        
+76975>>>            // fires when the button is clicked
+76975>>>            Procedure OnClick
+76978>>>                Integer iRet
+76978>>>                  
+76978>>>            End_Procedure
+76979>>>        
+76979>>>        End_Object
+76980>>>
+76980>>>    End_Object
+76981>>>    
+76981>>>    
+76981>>>    //Contains Bitmap Frame 
+76981>>>//    Object oContainerBitMap is a Container3d
+76981>>>//        Set Size to 90 80
+76981>>>//        Set Location to 110 0
+76981>>>//        Set Color to clBtnShadow
+76981>>>//        
+76981>>>//         
+76981>>>//        Object oBitmapContainer1 is a BitmapContainer
+76981>>>//            Set Size to 88 79
+76981>>>//            Set Location to -1 -1
+76981>>>//            Set Color to clBtnShadow
+76981>>>//
+76981>>>//           
+76981>>>//        End_Object
+76981>>>//    End_Object
+76981>>>    
+76981>>>    
+76981>>>    Object oContainerFunctions is a Container3d
+76983>>>       Set Size to 200 220
+76984>>>       Set Location to 0 80
+76985>>>
+76985>>>        Object oTextBox1 is a TextBox
+76987>>>            Set Size to 10 31
+76988>>>            Set Location to 4 89
+76989>>>            Set Label to "Functions"
+76990>>>            Set Label_Shadow_Display_Mode to TBShadow_On_None
+76991>>>            Set FontWeight to fw_Bold
+76992>>>        End_Object
+76993>>>
+76993>>>        Object oButtonEnrollCapture is a Button
+76995>>>            Set Location to 20 10
+76996>>>            Set Label to 'Enroll Capture'
+76997>>>        
+76997>>>            // fires when the button is clicked
+76997>>>            Procedure OnClick
+77000>>>                Integer iRet
+77000>>>                
+77000>>>                Get ComBeginEnrollCapture of OPOSBiometrics "s"  "s" to iRet
+77001>>>                
+77001>>>                If (iRet = 0) Begin
+77003>>>                    Set Label of oTextBoxStatus to "Waiting Finger to Start EnrollCapture"
+77004>>>                End
+77004>>>>
+77004>>>                
+77004>>>            End_Procedure
+77005>>>        
+77005>>>        End_Object
+77006>>>
+77006>>>        Object oButtonCapture is a Button
+77008>>>            Set Location to 20 80
+77009>>>            Set Label to 'Capture'
+77010>>>        
+77010>>>            // fires when the button is clicked
+77010>>>            Procedure OnClick
+77013>>>                Integer iRet
+77013>>>                
+77013>>>                Get ComBeginVerifyCapture of OPOSBiometrics to iRet
+77014>>>            End_Procedure
+77015>>>        
+77015>>>        End_Object
+77016>>>
+77016>>>        Object oButton3 is a Button
+77018>>>            Set Location to 20 150
+77019>>>            Set Label to 'oButton3'
+77020>>>        
+77020>>>            // fires when the button is clicked
+77020>>>            Procedure OnClick
+77023>>>                
+77023>>>            End_Procedure
+77024>>>        
+77024>>>        End_Object
+77025>>>
+77025>>>        Object oButton4 is a Button
+77027>>>            Set Location to 40 10
+77028>>>            Set Label to 'oButton4'
+77029>>>        
+77029>>>            // fires when the button is clicked
+77029>>>            Procedure OnClick
+77032>>>                
+77032>>>            End_Procedure
+77033>>>        
+77033>>>        End_Object
+77034>>>
+77034>>>        Object oButton5 is a Button
+77036>>>            Set Location to 40 80
+77037>>>            Set Label to 'oButton5'
+77038>>>        
+77038>>>            // fires when the button is clicked
+77038>>>            Procedure OnClick
+77041>>>                
+77041>>>            End_Procedure
+77042>>>        
+77042>>>        End_Object
+77043>>>
+77043>>>        Object oButton6 is a Button
+77045>>>            Set Location to 40 150
+77046>>>            Set Label to 'oButton6'
+77047>>>        
+77047>>>            // fires when the button is clicked
+77047>>>            Procedure OnClick
+77050>>>                
+77050>>>            End_Procedure
+77051>>>        
+77051>>>        End_Object
+77052>>>        
+77052>>>        Object oTextBoxStatus is a TextBox
+77054>>>            Set Auto_Size_State to False
+77055>>>            Set Size to 10 189
+77056>>>            Set Location to 64 10
+77057>>>            Set Label to "Status"
+77058>>>            Set TextColor to 255
+77059>>>            Set Justification_Mode to JMode_Center
+77060>>>        End_Object
+77061>>>
+77061>>>        Object oTabDialog is a TabDialog
+77063>>>            Set Size to 118 218
+77064>>>            Set Location to 80 0
+77065>>>
+77065>>>            Object oTabPageInfo is a TabPage
+77067>>>                Set Label to 'Informa‡äes'
+77068>>>
+77068>>>                Object oFormDeviceName is a Form
+77070>>>                    Set Size to 13 80
+77071>>>                    Set Location to 20 3
+77072>>>                    Set Label_Col_Offset to 0
+77073>>>                    Set Label_Justification_Mode to JMode_Top
+77074>>>                    Set Label to "Device Name:"
+77075>>>                    Set Entry_State to False
+77076>>>                    Set Focus_Mode to NonFocusable
+77077>>>                End_Object
+77078>>>                
+77078>>>                Object oFormDeviceDescription is a Form
+77080>>>                    Set Size to 13 80
+77081>>>                    Set Location to 50 5
+77082>>>                    Set Label_Col_Offset to 0
+77083>>>                    Set Label_Justification_Mode to JMode_Top
+77084>>>                    Set Label to "Device Description:"
+77085>>>                    Set Entry_State to False
+77086>>>                    Set Focus_Mode to NonFocusable
+77087>>>                End_Object
+77088>>>                
+77088>>>                Object oFormCheckHealth is a Form
+77090>>>                    Set Size to 13 80
+77091>>>                    Set Location to 80 5
+77092>>>                    Set Label_Col_Offset to 0
+77093>>>                    Set Label_Justification_Mode to JMode_Top
+77094>>>                    Set Label to "Check Health:"
+77095>>>                    Set Entry_State to False
+77096>>>                    Set Focus_Mode to NonFocusable
+77097>>>                End_Object
+77098>>>                
+77098>>>                Object oFormControlDescriptions is a Form
+77100>>>                    Set Size to 13 110
+77101>>>                    Set Location to 20 100
+77102>>>                    Set Label_Col_Offset to 0
+77103>>>                    Set Label_Justification_Mode to JMode_Top
+77104>>>                    Set Label to "Ctrl Description:"
+77105>>>                    Set Entry_State to False
+77106>>>                    Set Focus_Mode to NonFocusable
+77107>>>                End_Object
+77108>>>                
+77108>>>                Object oFormServiceDescription is a Form
+77110>>>                    Set Size to 13 110
+77111>>>                    Set Location to 50 100
+77112>>>                    Set Label_Col_Offset to 0
+77113>>>                    Set Label_Justification_Mode to JMode_Top
+77114>>>                    Set Label to "Service Description:"
+77115>>>                    Set Entry_State to False
+77116>>>                    Set Focus_Mode to NonFocusable
+77117>>>                End_Object
+77118>>>                
+77118>>>                Object oFormServiceVersion is a Form
+77120>>>                    Set Size to 13 50
+77121>>>                    Set Location to 80 100
+77122>>>                    Set Label_Col_Offset to 0
+77123>>>                    Set Label_Justification_Mode to JMode_Top
+77124>>>                    Set Label to "Service Version:"
+77125>>>                    Set Entry_State to False
+77126>>>                    Set Focus_Mode to NonFocusable
+77127>>>                End_Object
+77128>>>                
+77128>>>                Object oFormControlVersion is a Form
+77130>>>                    Set Size to 13 50
+77131>>>                    Set Location to 80 160
+77132>>>                    Set Label_Col_Offset to 0
+77133>>>                    Set Label_Justification_Mode to JMode_Top
+77134>>>                    Set Label to "Ctrl Version:"
+77135>>>                    Set Entry_State to False
+77136>>>                    Set Focus_Mode to NonFocusable
+77137>>>                End_Object
+77138>>>                
+77138>>>            End_Object
+77139>>>            
+77139>>>             Object oTabPage1 is a TabPage
+77141>>>                Set Label to 'oTabPage1'
+77142>>>            End_Object
+77143>>>        End_Object
+77144>>>
+77144>>>       
+77144>>>       
+77144>>>    End_Object
+77145>>>    
+77145>>>    //Set enabled state on buttons
+77145>>>    Set Enabled_State of oButtonOpen            to True
+77146>>>    Set Enabled_State of oButtonClaim           to False
+77147>>>    Set Enabled_State of oButtonClose           to False
+77148>>>    Set Enabled_State of oButtonClearData       to False
+77149>>>    Set Enabled_State of oContainerFunctions    to False
+77150>>>    
+77150>>>Cd_End_Object
+77152>>>>
+77152>
+77152>        Procedure Activate_About
+77155>            Send DoAbout "" "" "" "" ""
+77156>        End_Procedure
+77157>
+77157>    End_Object
+77158>
+77158>End_Object
+77159>
+77159>Send Activate_oMainView of (oClientArea(oMain))
+77160>Start_UI
+77161>
+Summary
+Memory Available: 2147483647
+Total Warnings : 0
+Total Errors   : 0
+Total Symbols  : 44189
+Total Resources: 0
+Total Commands : 77160
+Total Windows  : 1
+Total Pages    : 1
+Static Data    : 461937
+Message area   : 535210
+Total Blocks   : 27690

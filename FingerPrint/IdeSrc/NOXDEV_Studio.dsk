@@ -1,0 +1,64 @@
+[Workspace]
+CurrentProject=MainFingerPrint.src
+Location=C:\DataFlex Projects\FingerPrint\IdeSrc\NOXDEV_Studio.dsk
+CreateNew=4
+[TabWindows]
+GroupCount=2
+HorizontalGroups=0
+[TabGroup0]
+GroupSize=702
+SelectedTab=2
+[TabGroup1]
+GroupSize=796
+SelectedTab=0
+[Window0]
+Filename=Workspace Dashboard
+ViewType=101
+Top=24
+Left=4
+Bottom=712
+Right=653
+TabIndex=0
+TabGroup=0
+[Window1]
+Filename=C:\DataFlex Projects\FingerPrint\AppSrc\MainFingerPrint.src
+ViewType=1
+Top=24
+Left=4
+Bottom=712
+Right=653
+CursorLine=4
+CursorColumn=0
+TabIndex=1
+TabGroup=0
+[Window2]
+Filename=C:\DataFlex Projects\FingerPrint\AppSrc\oMainView.vw
+ViewType=2
+Top=24
+Left=666
+Bottom=712
+Right=1405
+TabIndex=1
+TabGroup=1
+[Window3]
+Filename=C:\DataFlex Projects\FingerPrint\AppSrc\cComOPOSBiometrics.pkg
+ViewType=1
+Top=24
+Left=666
+Bottom=712
+Right=1405
+CursorLine=705
+CursorColumn=22
+TabIndex=0
+TabGroup=1
+[Window4]
+Filename=C:\DataFlex Projects\FingerPrint\AppSrc\oMainView.vw
+ViewType=1
+Top=24
+Left=4
+Bottom=712
+Right=653
+CursorLine=13
+CursorColumn=28
+TabIndex=2
+TabGroup=0

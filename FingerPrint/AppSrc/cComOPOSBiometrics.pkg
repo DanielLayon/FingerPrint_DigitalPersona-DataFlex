@@ -1,0 +1,840 @@
+// DataFlex COM proxy classes generated from C:\Program Files\DigitalPersona\U.are.U SDK\Windows\Lib\win32\OPOSBiometrics.ocx
+Use FlexCom20.pkg
+
+
+// CLSID: {CCB90261-B81E-11D2-AB74-0040054C3719}
+// IOPOSBiometrics 1.13 Interface
+Class cComIOPOSBiometrics is a Mixin
+
+    // property OpenResult
+    { MethodType=Property DesignTime=False }
+    Function ComOpenResult Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 49 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property AutoDisable
+    { MethodType=Property DesignTime=False }
+    Function ComAutoDisable Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 10 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property AutoDisable
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComAutoDisable Boolean value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 10 OLE_VT_BOOL to value
+    End_Procedure
+
+    // property BinaryConversion
+    { MethodType=Property DesignTime=False }
+    Function ComBinaryConversion Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 11 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property BinaryConversion
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComBinaryConversion Integer value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 11 OLE_VT_I4 to value
+    End_Procedure
+
+    // property CapPowerReporting
+    { MethodType=Property DesignTime=False }
+    Function ComCapPowerReporting Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 12 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CheckHealthText
+    { MethodType=Property DesignTime=False }
+    Function ComCheckHealthText Returns String
+        Handle hDispatchDriver
+        String retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 13 OLE_VT_BSTR to retVal
+        Function_Return retVal
+    End_Function
+
+    // property Claimed
+    { MethodType=Property DesignTime=False }
+    Function ComClaimed Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 14 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property DataCount
+    { MethodType=Property DesignTime=False }
+    Function ComDataCount Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 15 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property DataEventEnabled
+    { MethodType=Property DesignTime=False }
+    Function ComDataEventEnabled Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 16 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property DataEventEnabled
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComDataEventEnabled Boolean value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 16 OLE_VT_BOOL to value
+    End_Procedure
+
+    // property DeviceEnabled
+    { MethodType=Property DesignTime=False }
+    Function ComDeviceEnabled Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 17 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property DeviceEnabled
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComDeviceEnabled Boolean value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 17 OLE_VT_BOOL to value
+    End_Procedure
+
+    // property FreezeEvents
+    { MethodType=Property DesignTime=False }
+    Function ComFreezeEvents Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 18 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property FreezeEvents
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComFreezeEvents Boolean value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 18 OLE_VT_BOOL to value
+    End_Procedure
+
+    // property PowerNotify
+    { MethodType=Property DesignTime=False }
+    Function ComPowerNotify Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 20 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property PowerNotify
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComPowerNotify Integer value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 20 OLE_VT_I4 to value
+    End_Procedure
+
+    // property PowerState
+    { MethodType=Property DesignTime=False }
+    Function ComPowerState Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 21 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property ResultCode
+    { MethodType=Property DesignTime=False }
+    Function ComResultCode Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 22 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property ResultCodeExtended
+    { MethodType=Property DesignTime=False }
+    Function ComResultCodeExtended Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 23 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property State
+    { MethodType=Property DesignTime=False }
+    Function ComState Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 24 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property ControlObjectDescription
+    { MethodType=Property DesignTime=False }
+    Function ComControlObjectDescription Returns String
+        Handle hDispatchDriver
+        String retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 25 OLE_VT_BSTR to retVal
+        Function_Return retVal
+    End_Function
+
+    // property ControlObjectVersion
+    { MethodType=Property DesignTime=False }
+    Function ComControlObjectVersion Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 26 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property ServiceObjectDescription
+    { MethodType=Property DesignTime=False }
+    Function ComServiceObjectDescription Returns String
+        Handle hDispatchDriver
+        String retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 27 OLE_VT_BSTR to retVal
+        Function_Return retVal
+    End_Function
+
+    // property ServiceObjectVersion
+    { MethodType=Property DesignTime=False }
+    Function ComServiceObjectVersion Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 28 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property DeviceDescription
+    { MethodType=Property DesignTime=False }
+    Function ComDeviceDescription Returns String
+        Handle hDispatchDriver
+        String retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 29 OLE_VT_BSTR to retVal
+        Function_Return retVal
+    End_Function
+
+    // property DeviceName
+    { MethodType=Property DesignTime=False }
+    Function ComDeviceName Returns String
+        Handle hDispatchDriver
+        String retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 30 OLE_VT_BSTR to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapStatisticsReporting
+    { MethodType=Property DesignTime=False }
+    Function ComCapStatisticsReporting Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 39 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapUpdateStatistics
+    { MethodType=Property DesignTime=False }
+    Function ComCapUpdateStatistics Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 40 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapCompareFirmwareVersion
+    { MethodType=Property DesignTime=False }
+    Function ComCapCompareFirmwareVersion Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 44 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapUpdateFirmware
+    { MethodType=Property DesignTime=False }
+    Function ComCapUpdateFirmware Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 45 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // method CheckHealth
+    Function ComCheckHealth Integer llLevel Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llLevel
+        Get InvokeComMethod of hDispatchDriver 31 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method ClaimDevice
+    Function ComClaimDevice Integer llTimeout Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llTimeout
+        Get InvokeComMethod of hDispatchDriver 32 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method ClearInput
+    Function ComClearInput Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 33 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method Close
+    Function ComClose Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 35 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method DirectIO
+    Function ComDirectIO Integer llCommand Integer ByRef llpData String ByRef llpString Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 3
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llCommand
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpData
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpString
+        Get InvokeComMethod of hDispatchDriver 36 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method Open
+    Function ComOpen String llDeviceName Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llDeviceName
+        Get InvokeComMethod of hDispatchDriver 37 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method ReleaseDevice
+    Function ComReleaseDevice Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 38 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method ResetStatistics
+    Function ComResetStatistics String llStatisticsBuffer Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llStatisticsBuffer
+        Get InvokeComMethod of hDispatchDriver 41 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method RetrieveStatistics
+    Function ComRetrieveStatistics String ByRef llpStatisticsBuffer Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpStatisticsBuffer
+        Get InvokeComMethod of hDispatchDriver 42 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method UpdateStatistics
+    Function ComUpdateStatistics String llStatisticsBuffer Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llStatisticsBuffer
+        Get InvokeComMethod of hDispatchDriver 43 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method CompareFirmwareVersion
+    Function ComCompareFirmwareVersion String llFirmwareFileName Integer ByRef llpResult Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 2
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llFirmwareFileName
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpResult
+        Get InvokeComMethod of hDispatchDriver 46 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method UpdateFirmware
+    Function ComUpdateFirmware String llFirmwareFileName Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llFirmwareFileName
+        Get InvokeComMethod of hDispatchDriver 47 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method ClearInputProperties
+    Function ComClearInputProperties Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 48 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property Algorithm
+    { MethodType=Property DesignTime=False }
+    Function ComAlgorithm Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 60 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property Algorithm
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComAlgorithm Integer value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 60 OLE_VT_I4 to value
+    End_Procedure
+
+    // property AlgorithmList
+    { MethodType=Property DesignTime=False }
+    Function ComAlgorithmList Returns String
+        Handle hDispatchDriver
+        String retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 61 OLE_VT_BSTR to retVal
+        Function_Return retVal
+    End_Function
+
+    // property BIR
+    { MethodType=Property DesignTime=False }
+    Function ComBIR Returns String
+        Handle hDispatchDriver
+        String retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 62 OLE_VT_BSTR to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapPrematchData
+    { MethodType=Property DesignTime=False }
+    Function ComCapPrematchData Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 63 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapRawSensorData
+    { MethodType=Property DesignTime=False }
+    Function ComCapRawSensorData Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 64 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapRealTimeData
+    { MethodType=Property DesignTime=False }
+    Function ComCapRealTimeData Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 65 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapSensorColor
+    { MethodType=Property DesignTime=False }
+    Function ComCapSensorColor Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 66 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapSensorOrientation
+    { MethodType=Property DesignTime=False }
+    Function ComCapSensorOrientation Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 67 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapSensorType
+    { MethodType=Property DesignTime=False }
+    Function ComCapSensorType Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 68 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property CapTemplateAdaptation
+    { MethodType=Property DesignTime=False }
+    Function ComCapTemplateAdaptation Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 69 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property RawSensorData
+    { MethodType=Property DesignTime=False }
+    Function ComRawSensorData Returns String
+        Handle hDispatchDriver
+        String retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 70 OLE_VT_BSTR to retVal
+        Function_Return retVal
+    End_Function
+
+    // property RealTimeDataEnabled
+    { MethodType=Property DesignTime=False }
+    Function ComRealTimeDataEnabled Returns Boolean
+        Handle hDispatchDriver
+        Boolean retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 71 OLE_VT_BOOL to retVal
+        Function_Return retVal
+    End_Function
+
+    // property RealTimeDataEnabled
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComRealTimeDataEnabled Boolean value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 71 OLE_VT_BOOL to value
+    End_Procedure
+
+    // property SensorBPP
+    { MethodType=Property DesignTime=False }
+    Function ComSensorBPP Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 72 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property SensorColor
+    { MethodType=Property DesignTime=False }
+    Function ComSensorColor Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 73 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property SensorColor
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComSensorColor Integer value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 73 OLE_VT_I4 to value
+    End_Procedure
+
+    // property SensorHeight
+    { MethodType=Property DesignTime=False }
+    Function ComSensorHeight Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 74 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property SensorOrientation
+    { MethodType=Property DesignTime=False }
+    Function ComSensorOrientation Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 75 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property SensorOrientation
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComSensorOrientation Integer value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 75 OLE_VT_I4 to value
+    End_Procedure
+
+    // property SensorType
+    { MethodType=Property DesignTime=False }
+    Function ComSensorType Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 76 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // property SensorType
+    { MethodType=Property DesignTime=False }
+    Procedure Set ComSensorType Integer value
+        Handle hDispatchDriver
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 1
+        Set ComProperty of hDispatchDriver 76 OLE_VT_I4 to value
+    End_Procedure
+
+    // property SensorWidth
+    { MethodType=Property DesignTime=False }
+    Function ComSensorWidth Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 77 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method BeginEnrollCapture
+    Function ComBeginEnrollCapture String llReferenceBIR String llPayload Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 2
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llReferenceBIR
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llPayload
+        Get InvokeComMethod of hDispatchDriver 90 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method BeginVerifyCapture
+    Function ComBeginVerifyCapture Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 91 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method EndCapture
+    Function ComEndCapture Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Get InvokeComMethod of hDispatchDriver 92 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method Identify
+    Function ComIdentify Integer llMaxFARRequested Integer llMaxFRRRequested Boolean llFARPrecedence Variant llReferenceBIRPopulation Variant llpCandidateRanking Integer llTimeout Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 6
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFARRequested
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFRRRequested
+        Send DefineParam to hDispatchDriver OLE_VT_BOOL llFARPrecedence
+        Send DefineParam to hDispatchDriver OLE_VT_VARIANT llReferenceBIRPopulation
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_VARIANT) llpCandidateRanking
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llTimeout
+        Get InvokeComMethod of hDispatchDriver 93 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method IdentifyMatch
+    Function ComIdentifyMatch Integer llMaxFARRequested Integer llMaxFRRRequested Boolean llFARPrecedence String llSampleBIR Variant llReferenceBIRPopulation Variant llpCandidateRanking Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 6
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFARRequested
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFRRRequested
+        Send DefineParam to hDispatchDriver OLE_VT_BOOL llFARPrecedence
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llSampleBIR
+        Send DefineParam to hDispatchDriver OLE_VT_VARIANT llReferenceBIRPopulation
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_VARIANT) llpCandidateRanking
+        Get InvokeComMethod of hDispatchDriver 94 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method ProcessPrematchData
+    Function ComProcessPrematchData String llCapturedBIR String llPrematchDataBIR String ByRef llpProcessedBIR Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 3
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llCapturedBIR
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llPrematchDataBIR
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpProcessedBIR
+        Get InvokeComMethod of hDispatchDriver 95 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method Verify
+    Function ComVerify Integer llMaxFARRequested Integer llMaxFRRRequested Boolean llFARPrecedence String llReferenceBIR String ByRef llpAdaptedBIR Boolean ByRef llpResult Integer ByRef llpFARAchieved Integer ByRef llpFRRAchieved String ByRef llpPayload Integer llTimeout Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 10
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFARRequested
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFRRRequested
+        Send DefineParam to hDispatchDriver OLE_VT_BOOL llFARPrecedence
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llReferenceBIR
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpAdaptedBIR
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BOOL) llpResult
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpFARAchieved
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpFRRAchieved
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpPayload
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llTimeout
+        Get InvokeComMethod of hDispatchDriver 96 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+
+    // method VerifyMatch
+    Function ComVerifyMatch Integer llMaxFARRequested Integer llMaxFRRRequested Boolean llFARPrecedence String llSampleBIR String llReferenceBIR String ByRef llpAdaptedBIR Boolean ByRef llpResult Integer ByRef llpFARAchieved Integer ByRef llpFRRAchieved String ByRef llpPayload Returns Integer
+        Handle hDispatchDriver
+        Integer retVal
+        Get phDispatchDriver to hDispatchDriver
+        Send PrepareParams to hDispatchDriver 10
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFARRequested
+        Send DefineParam to hDispatchDriver OLE_VT_I4 llMaxFRRRequested
+        Send DefineParam to hDispatchDriver OLE_VT_BOOL llFARPrecedence
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llSampleBIR
+        Send DefineParam to hDispatchDriver OLE_VT_BSTR llReferenceBIR
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpAdaptedBIR
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BOOL) llpResult
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpFARAchieved
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_I4) llpFRRAchieved
+        Send DefineParam to hDispatchDriver (OLE_VT_BYREF ior OLE_VT_BSTR) llpPayload
+        Get InvokeComMethod of hDispatchDriver 97 OLE_VT_I4 to retVal
+        Function_Return retVal
+    End_Function
+End_Class
+
+// CLSID: {CCB90263-B81E-11D2-AB74-0040054C3719}
+// _IOPOSBiometricsEvents Interface
+Class cCom_IOPOSBiometricsEvents is a Mixin
+
+    // method DataEvent
+    { MethodType=Event }
+    Procedure OnComDataEvent Integer llStatus
+    End_Procedure
+
+    // method DirectIOEvent
+    { MethodType=Event }
+    Procedure OnComDirectIOEvent Integer llEventNumber Integer ByRef llpData String ByRef llpString
+    End_Procedure
+
+    // method ErrorEvent
+    { MethodType=Event }
+    Procedure OnComErrorEvent Integer llResultCode Integer llResultCodeExtended Integer llErrorLocus Integer ByRef llpErrorResponse
+    End_Procedure
+
+    // method StatusUpdateEvent
+    { MethodType=Event }
+    Procedure OnComStatusUpdateEvent Integer llData
+    End_Procedure
+
+    { Visibility=Private }
+    Procedure RegisterComEvents
+        Send RegisterComEvent 1 msg_OnComDataEvent
+        Send RegisterComEvent 2 msg_OnComDirectIOEvent
+        Send RegisterComEvent 3 msg_OnComErrorEvent
+        Send RegisterComEvent 5 msg_OnComStatusUpdateEvent
+    End_Procedure
+End_Class
+
+// CoClass
+// ProgID: OPOS.Biometrics.1.13
+// CLSID: {CCB90262-B81E-11D2-AB74-0040054C3719}
+// OPOS Biometrics Control 1.13.000 [Public, by CRM/RCS-Dayton]
+{ CLSID="{CCB90262-B81E-11D2-AB74-0040054C3719}" }
+Class cComOPOSBiometrics is a cComActiveXControl
+    Import_Class_Protocol cComIOPOSBiometrics
+    Import_Class_Protocol cCom_IOPOSBiometricsEvents
+
+    Procedure Construct_Object
+        Forward Send Construct_Object
+        Set psProgID to "{CCB90262-B81E-11D2-AB74-0040054C3719}"
+        Set psEventId to "{CCB90263-B81E-11D2-AB74-0040054C3719}"
+        Set peAutoCreate to acAutoCreate
+    End_Procedure
+End_Class
